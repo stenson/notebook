@@ -1,0 +1,14 @@
+-- Example dbpedia query, returning intellectuals restricted by subject
+-- Endpoint: http://dbpedia.org/sparql
+
+PREFIX dbpedia-owl: <http://dbpedia.org/ontology/>
+PREFIX dct: <http://purl.org/dc/terms/>
+
+SELECT DISTINCT ?person {
+    { ?person a dbpedia-owl:Scientist }
+    UNION
+    { ?person a dbpedia-owl:Writer }
+    UNION
+    { ?person a dbpedia-owl:Philosopher }
+    ?person dct:subject ?subject .
+} LIMIT 10
