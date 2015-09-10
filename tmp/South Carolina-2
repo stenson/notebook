@@ -1,0 +1,11 @@
+{:sortname "Joe Wilson (U.S. politician)",
+ :district 2,
+ :started 2001,
+ :schools
+ ("Washington and Lee University"
+  "University of South Carolina School of Law"),
+ :state "South Carolina",
+ :birth-place "Charleston, South Carolina",
+ :alma-maters
+ ("Washington & Lee University"
+  "University of South Carolina Law School")}

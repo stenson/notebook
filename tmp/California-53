@@ -1,0 +1,11 @@
+{:sortname "Susan Davis (politician)",
+ :district 53,
+ :started 2001,
+ :schools
+ ("University of California, Berkeley"
+  "University of North Carolina at Chapel Hill"),
+ :state "California",
+ :birth-place "Cambridge, Massachusetts",
+ :alma-maters
+ ("University of California, Berkeley"
+  "University of North Carolina, Chapel Hill")}

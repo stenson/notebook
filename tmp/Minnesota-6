@@ -1,0 +1,9 @@
+{:sortname "Tom Emmer",
+ :district 6,
+ :started 2015,
+ :schools
+ ("University of Alaska Fairbanks" "William Mitchell College of Law"),
+ :state "Minnesota",
+ :birth-place "South Bend, Indiana",
+ :alma-maters
+ ("University of Alaska Fairbanks" "William Mitchell College of Law")}

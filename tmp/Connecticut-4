@@ -1,0 +1,7 @@
+{:sortname "Jim Himes",
+ :district 4,
+ :started 2009,
+ :schools ("Harvard University" "University of Oxford"),
+ :state "Connecticut",
+ :birth-place "Lima",
+ :alma-maters ("Harvard University" "St Edmund Hall, Oxford")}

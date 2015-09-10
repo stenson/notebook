@@ -1,0 +1,8 @@
+{:sortname "Dan Lipinski",
+ :district 3,
+ :started 2005,
+ :schools
+ ("Northwestern University" "Stanford University" "Duke University"),
+ :state "Illinois",
+ :birth-place "Chicago, Illinois",
+ :alma-maters ("Northwestern University")}

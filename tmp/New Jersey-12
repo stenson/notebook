@@ -1,0 +1,7 @@
+{:sortname "Bonnie Watson Coleman",
+ :district 12,
+ :started 2015,
+ :schools ("Thomas Edison State College"),
+ :state "New Jersey",
+ :birth-place nil,
+ :alma-maters (nil)}

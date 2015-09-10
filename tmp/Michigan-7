@@ -1,0 +1,11 @@
+{:sortname "Tim Walberg",
+ :district 7,
+ :started 2011,
+ :schools ("Taylor University" "Wheaton College (Illinois)"),
+ :state "Michigan",
+ :birth-place "Chicago",
+ :alma-maters
+ ("Western Illinois University"
+  "Moody Bible Institute"
+  "Taylor University"
+  "Wheaton College (Illinois)")}

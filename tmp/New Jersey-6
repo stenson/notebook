@@ -1,0 +1,11 @@
+{:sortname "Frank Pallone",
+ :district 6,
+ :started 1988,
+ :schools
+ ("Middlebury College" "Tufts University" "Rutgers University"),
+ :state "New Jersey",
+ :birth-place "Long Branch, New Jersey",
+ :alma-maters
+ ("Middlebury College"
+  "The Fletcher School of Law and Diplomacy"
+  "Rutgers School of Law–Camden")}

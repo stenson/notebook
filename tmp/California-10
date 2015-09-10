@@ -1,0 +1,8 @@
+{:sortname "Jeff Denham",
+ :district 10,
+ :started 2011,
+ :schools ("California Polytechnic State University"),
+ :state "California",
+ :birth-place "Hawthorne, California",
+ :alma-maters
+ ("California Polytechnic State University, San Luis Obispo")}

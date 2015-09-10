@@ -1,0 +1,9 @@
+{:sortname "Martha Roby",
+ :district 2,
+ :started 2011,
+ :schools ("New York University" "Cumberland School of Law"),
+ :state "Alabama",
+ :birth-place "Montgomery, Alabama",
+ :alma-maters
+ ("Steinhardt School of Culture, Education, and Human Development"
+  "Cumberland School of Law")}

@@ -1,0 +1,14 @@
+{:sortname "Marcy Kaptur",
+ :district 9,
+ :started 1983,
+ :schools
+ ("University of Wisconsin"
+  "University of Michigan"
+  "Massachusetts Institute of Technology"),
+ :state "Ohio",
+ :birth-place "Toledo, Ohio",
+ :alma-maters
+ ("University of Wisconsin–Madison"
+  "University of Michigan"
+  "University of Manchester"
+  "Massachusetts Institute of Technology")}

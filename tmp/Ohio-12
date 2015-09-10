@@ -1,0 +1,7 @@
+{:sortname "Pat Tiberi",
+ :district 12,
+ :started 2001,
+ :schools ("Ohio State University" "Capital University"),
+ :state "Ohio",
+ :birth-place "Columbus, Ohio",
+ :alma-maters ("Ohio State University")}

@@ -1,0 +1,8 @@
+{:sortname "Gregg Harper",
+ :district 3,
+ :started 2009,
+ :schools ("Mississippi College" "University of Mississippi"),
+ :state "Mississippi",
+ :birth-place "Jackson, Mississippi",
+ :alma-maters
+ ("Mississippi College" "University of Mississippi School of Law")}

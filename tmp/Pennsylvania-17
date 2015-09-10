@@ -1,0 +1,11 @@
+{:sortname "Matt Cartwright",
+ :district 17,
+ :started 2013,
+ :schools
+ ("Hamilton College (New York)"
+  "University of Pennsylvania Law School"),
+ :state "Pennsylvania",
+ :birth-place "Erie, Pennsylvania",
+ :alma-maters
+ ("Hamilton College (New York)"
+  "University of Pennsylvania Law School")}

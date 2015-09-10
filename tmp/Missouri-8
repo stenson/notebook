@@ -1,0 +1,8 @@
+{:sortname "Jason T. Smith",
+ :district 8,
+ :started 2013,
+ :schools ("University of Missouri"),
+ :state "Missouri",
+ :birth-place "Salem, Missouri",
+ :alma-maters
+ ("University of Missouri" "Oklahoma City University School of Law")}

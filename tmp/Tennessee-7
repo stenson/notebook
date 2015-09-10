@@ -1,0 +1,7 @@
+{:sortname "Marsha Blackburn",
+ :district 7,
+ :started 2003,
+ :schools ("Mississippi State University"),
+ :state "Tennessee",
+ :birth-place "Laurel, Mississippi",
+ :alma-maters (nil nil)}

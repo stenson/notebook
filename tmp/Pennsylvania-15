@@ -1,0 +1,7 @@
+{:sortname "Charlie Dent",
+ :district 15,
+ :started 2005,
+ :schools ("Penn State University" "Lehigh University"),
+ :state "Pennsylvania",
+ :birth-place "Allentown, Pennsylvania",
+ :alma-maters ("Pennsylvania State University" "Lehigh University")}

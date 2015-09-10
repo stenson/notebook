@@ -1,0 +1,11 @@
+{:sortname "Ralph Abraham (politician)",
+ :district 5,
+ :started 2015,
+ :schools
+ ("Louisiana State University"
+  "Louisiana State University School of Medicine"),
+ :state "Louisiana",
+ :birth-place "Monroe, Louisiana",
+ :alma-maters
+ ("Louisiana State University"
+  "Louisiana State University School of Medicine")}

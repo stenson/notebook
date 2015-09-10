@@ -1,0 +1,8 @@
+{:sortname "Charles Boustany",
+ :district 3,
+ :started 2005,
+ :schools
+ ("University of Southwestern Louisiana" "Louisiana State University"),
+ :state "Louisiana",
+ :birth-place "Lafayette, Louisiana",
+ :alma-maters ("University of Louisiana, Lafayette")}

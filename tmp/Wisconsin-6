@@ -1,0 +1,11 @@
+{:sortname "Glenn Grothman",
+ :district 6,
+ :started 2015,
+ :schools
+ ("University of Wisconsin–Madison"
+  "University of Wisconsin Law School"),
+ :state "Wisconsin",
+ :birth-place "Milwaukee, Wisconsin",
+ :alma-maters
+ ("University of Wisconsin–Madison"
+  "University of Wisconsin Law School")}

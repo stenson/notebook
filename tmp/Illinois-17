@@ -1,0 +1,9 @@
+{:sortname "Cheri Bustos",
+ :district 17,
+ :started 2013,
+ :schools
+ ("University of Maryland" "University of Illinois at Springfield"),
+ :state "Illinois",
+ :birth-place "Springfield, Illinois",
+ :alma-maters
+ ("University of Maryland" "University of Illinois, Springfield")}

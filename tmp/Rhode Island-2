@@ -1,0 +1,7 @@
+{:sortname "James_Langevin",
+ :district 2,
+ :started 2001,
+ :schools ("Rhode Island College" "Harvard University"),
+ :state "Rhode Island",
+ :birth-place "Providence, Rhode Island",
+ :alma-maters ("Rhode Island College" "Harvard University")}

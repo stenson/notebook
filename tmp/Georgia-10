@@ -1,0 +1,10 @@
+{:sortname "Jody Hice",
+ :district 10,
+ :started 2015,
+ :schools
+ ("Asbury University"
+  "Southwestern Baptist Theological Seminary"
+  "Luther Rice University"),
+ :state "Georgia",
+ :birth-place "Atlanta, Georgia",
+ :alma-maters (nil)}

@@ -1,0 +1,9 @@
+{:sortname "Mark Sanford",
+ :district 1,
+ :started 2013,
+ :schools ("Furman University" "University of Virginia"),
+ :state "South Carolina",
+ :birth-place "Fort Lauderdale, Florida",
+ :alma-maters
+ ("Furman University"
+  "University of Virginia Darden School of Business")}

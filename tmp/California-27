@@ -1,0 +1,9 @@
+{:sortname "Judy Chu",
+ :district 27,
+ :started 2009,
+ :schools ("University of California, Los Angeles"),
+ :state "California",
+ :birth-place "Los Angeles",
+ :alma-maters
+ ("University of California, Los Angeles"
+  "California School of Professional Psychology")}

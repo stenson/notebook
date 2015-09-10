@@ -1,0 +1,7 @@
+{:sortname "Elizabeth Esty",
+ :district 5,
+ :started 2013,
+ :schools ("Harvard University" "Yale University"),
+ :state "Connecticut",
+ :birth-place "Oak Park, Illinois",
+ :alma-maters ("Harvard University" "Yale Law School")}

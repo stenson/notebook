@@ -1,0 +1,7 @@
+{:sortname "Gerry Connolly",
+ :district 11,
+ :started 2009,
+ :schools (nil "Harvard University"),
+ :state "Virginia",
+ :birth-place "Boston",
+ :alma-maters ("Bachelor of Arts" "Harvard University")}

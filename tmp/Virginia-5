@@ -1,0 +1,9 @@
+{:sortname "Robert Hurt (politician)",
+ :district 5,
+ :started 2011,
+ :schools
+ ("Hampden-Sydney College" "Mississippi College School of Law"),
+ :state "Virginia",
+ :birth-place "New York City",
+ :alma-maters
+ ("Mississippi College School of Law" "Hampden-Sydney College")}

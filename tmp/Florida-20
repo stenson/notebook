@@ -1,0 +1,10 @@
+{:sortname "Alcee Hastings",
+ :district 20,
+ :started 1993,
+ :schools ("Fisk University"),
+ :state "Florida",
+ :birth-place "Altamonte Springs, Florida",
+ :alma-maters
+ ("Howard University"
+  "Fisk University"
+  "Florida A&M University College of Law")}

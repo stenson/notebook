@@ -1,0 +1,9 @@
+{:sortname "Barbara Lee",
+ :district 13,
+ :started 1998,
+ :schools ("Mills College" "University of California, Berkeley"),
+ :state "California",
+ :birth-place "El Paso",
+ :alma-maters
+ ("Mills College"
+  "University of California, Berkeley School of Social Welfare")}

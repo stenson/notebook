@@ -1,0 +1,13 @@
+{:sortname "Joe Heck",
+ :district 3,
+ :started 2011,
+ :schools
+ ("Pennsylvania State University"
+  "Philadelphia College of Osteopathic Medicine"
+  "U.S. Army War College"),
+ :state "Nevada",
+ :birth-place "Queens",
+ :alma-maters
+ ("Pennsylvania State University"
+  "Philadelphia College of Osteopathic Medicine"
+  "United States Army War College")}

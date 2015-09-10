@@ -1,0 +1,9 @@
+{:sortname "Dan Benishek",
+ :district 1,
+ :started 2011,
+ :schools
+ ("University of Michigan"
+  "Wayne State University School of Medicine"),
+ :state "Michigan",
+ :birth-place "Iron River, Michigan",
+ :alma-maters ("University of Michigan")}

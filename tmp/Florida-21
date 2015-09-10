@@ -1,0 +1,8 @@
+{:sortname "Ted Deutch",
+ :district 21,
+ :started 2010,
+ :schools
+ ("University of Michigan" "University of Michigan Law School"),
+ :state "Florida",
+ :birth-place "Bethlehem, Pennsylvania",
+ :alma-maters (nil nil)}

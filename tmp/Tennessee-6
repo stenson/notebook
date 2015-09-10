@@ -1,0 +1,7 @@
+{:sortname "Diane Black",
+ :district 6,
+ :started 2011,
+ :schools ("Belmont University"),
+ :state "Tennessee",
+ :birth-place "Baltimore",
+ :alma-maters (nil)}

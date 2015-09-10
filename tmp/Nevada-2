@@ -1,0 +1,9 @@
+{:sortname "Mark Amodei",
+ :district 2,
+ :started 2011,
+ :schools
+ ("University of Nevada, Reno"
+  "University of the Pacific (United States)"),
+ :state "Nevada",
+ :birth-place "Carson City, Nevada",
+ :alma-maters (nil)}

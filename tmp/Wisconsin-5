@@ -1,0 +1,7 @@
+{:sortname "Jim Sensenbrenner",
+ :district 5,
+ :started 1979,
+ :schools ("Stanford University" "University of Wisconsin"),
+ :state "Wisconsin",
+ :birth-place "Chicago, Illinois",
+ :alma-maters ("Stanford University")}

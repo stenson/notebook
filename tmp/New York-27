@@ -1,0 +1,11 @@
+{:sortname "Chris Collins (American politician)",
+ :district 27,
+ :started 2013,
+ :schools
+ ("North Carolina State University"
+  "University of Alabama at Birmingham"),
+ :state "New York",
+ :birth-place "Schenectady, New York",
+ :alma-maters
+ ("North Carolina State University"
+  "University of Alabama at Birmingham")}

@@ -1,0 +1,13 @@
+{:sortname "Paul Cook (politician)",
+ :district 8,
+ :started 2013,
+ :schools
+ ("Southern Connecticut State University"
+  "California State University, San Bernardino"
+  "University of California, Riverside"),
+ :state "California",
+ :birth-place "Meriden, Connecticut",
+ :alma-maters
+ ("California State University, San Bernardino"
+  "Southern Connecticut State University"
+  "University of California, Riverside")}

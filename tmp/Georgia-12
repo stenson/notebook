@@ -1,0 +1,7 @@
+{:sortname "Rick W. Allen",
+ :district 12,
+ :started 2015,
+ :schools ("Auburn University"),
+ :state "Georgia",
+ :birth-place "Augusta, Georgia",
+ :alma-maters ("Auburn University")}

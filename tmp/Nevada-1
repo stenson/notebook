@@ -1,0 +1,13 @@
+{:sortname "Dina Titus",
+ :district 1,
+ :started 2013,
+ :schools
+ ("College of William & Mary"
+  "University of Georgia"
+  "Florida State University"),
+ :state "Nevada",
+ :birth-place "Thomasville, Georgia",
+ :alma-maters
+ ("College of William & Mary"
+  "University of Georgia"
+  "Florida State University")}

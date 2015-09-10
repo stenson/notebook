@@ -1,0 +1,8 @@
+{:sortname "Ted Poe",
+ :district 2,
+ :started 2005,
+ :schools
+ ("Abilene Christian University" "University of Houston Law Center"),
+ :state "Texas",
+ :birth-place "Temple, Texas",
+ :alma-maters ("Abilene Christian University")}

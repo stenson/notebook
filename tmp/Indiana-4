@@ -1,0 +1,11 @@
+{:sortname "Todd Rokita",
+ :district 4,
+ :started 2011,
+ :schools
+ ("Wabash College"
+  "Indiana University Robert H. McKinney School of Law"),
+ :state "Indiana",
+ :birth-place "Chicago, Illinois",
+ :alma-maters
+ ("Indiana University Robert H. McKinney School of Law"
+  "Wabash College")}

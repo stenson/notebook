@@ -1,0 +1,7 @@
+{:sortname "Ted Yoho",
+ :district 3,
+ :started 2013,
+ :schools ("University of Florida"),
+ :state "Florida",
+ :birth-place "Minneapolis",
+ :alma-maters ("Broward College" "University of Florida")}

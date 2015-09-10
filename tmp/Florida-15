@@ -1,0 +1,10 @@
+{:sortname "Dennis A. Ross",
+ :district 15,
+ :started 2011,
+ :schools ("Auburn University" "Cumberland School of Law"),
+ :state "Florida",
+ :birth-place "Lakeland, Florida",
+ :alma-maters
+ ("University of Florida"
+  "Auburn University"
+  "Cumberland School of Law")}

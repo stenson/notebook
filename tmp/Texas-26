@@ -1,0 +1,12 @@
+{:sortname "Michael C. Burgess",
+ :district 26,
+ :started 2003,
+ :schools
+ ("University of North Texas"
+  "University of Texas Health Science Center at Houston"),
+ :state "Texas",
+ :birth-place "Rochester, Minnesota",
+ :alma-maters
+ ("University of North Texas"
+  "The University of Texas Health Science Center at Houston"
+  "University of Texas at Dallas")}

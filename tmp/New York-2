@@ -1,0 +1,7 @@
+{:sortname "Peter T. King",
+ :district 2,
+ :started 1993,
+ :schools ("St. Francis College" "University of Notre Dame"),
+ :state "New York",
+ :birth-place "New York City",
+ :alma-maters ("St. Francis College" "University of Notre Dame")}

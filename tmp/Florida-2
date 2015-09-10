@@ -1,0 +1,9 @@
+{:sortname "Gwen Graham",
+ :district 2,
+ :started 2015,
+ :schools
+ ("University of North Carolina at Chapel Hill"
+  "Washington College of Law"),
+ :state "Florida",
+ :birth-place "Miami Lakes, Florida",
+ :alma-maters (nil nil "Washington College of Law")}

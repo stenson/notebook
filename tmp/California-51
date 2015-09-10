@@ -1,0 +1,9 @@
+{:sortname "Juan Vargas",
+ :district 51,
+ :started 2013,
+ :schools
+ ("Harvard Law School" "Fordham University" "University of San Diego"),
+ :state "California",
+ :birth-place "National City, California",
+ :alma-maters
+ ("Harvard Law School" "Fordham University" "University of San Diego")}

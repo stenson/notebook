@@ -1,0 +1,9 @@
+{:sortname "Bob Latta",
+ :district 5,
+ :started 2007,
+ :schools ("Bowling Green State University" "University of Toledo"),
+ :state "Ohio",
+ :birth-place "Bluffton, Ohio",
+ :alma-maters
+ ("Bowling Green State University"
+  "University of Toledo College of Law")}

@@ -1,0 +1,7 @@
+{:sortname "Tom Marino",
+ :district 10,
+ :started 2011,
+ :schools ("Lycoming College" "Dickinson School of Law"),
+ :state "Pennsylvania",
+ :birth-place "Williamsport, Pennsylvania",
+ :alma-maters ("Lycoming College" "Dickinson School of Law")}

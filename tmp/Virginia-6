@@ -1,0 +1,8 @@
+{:sortname "Bob Goodlatte",
+ :district 6,
+ :started 1993,
+ :schools ("Bates College" "Washington and Lee University"),
+ :state "Virginia",
+ :birth-place "Holyoke, Massachusetts",
+ :alma-maters
+ ("Bates College" "Washington and Lee University School of Law")}

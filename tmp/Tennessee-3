@@ -1,0 +1,8 @@
+{:sortname "Chuck Fleischmann",
+ :district 3,
+ :started 2011,
+ :schools
+ ("University of Illinois" "University of Tennessee College of Law"),
+ :state "Tennessee",
+ :birth-place "New York City, New York",
+ :alma-maters ("University of Illinois")}

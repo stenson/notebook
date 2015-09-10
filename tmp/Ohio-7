@@ -1,0 +1,7 @@
+{:sortname "Bob Gibbs",
+ :district 7,
+ :started 2011,
+ :schools ("Ohio State University Agricultural Technical Institute"),
+ :state "Ohio",
+ :birth-place "Peru, Indiana",
+ :alma-maters (nil)}

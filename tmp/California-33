@@ -1,0 +1,7 @@
+{:sortname "Ted Lieu",
+ :district 33,
+ :started 2015,
+ :schools ("Stanford University" "Georgetown University"),
+ :state "California",
+ :birth-place "Taipei",
+ :alma-maters ("Stanford University" "Georgetown University")}

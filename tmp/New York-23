@@ -1,0 +1,10 @@
+{:sortname "Tom Reed (politician)",
+ :district 23,
+ :started 2010,
+ :schools
+ ("Alfred University"
+  "Ohio Northern University, Pettit College of Law"),
+ :state "New York",
+ :birth-place "Joliet, Illinois",
+ :alma-maters
+ ("Alfred University" "Ohio Northern University Pettit College of Law")}

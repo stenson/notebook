@@ -1,0 +1,7 @@
+{:sortname "John Sarbanes",
+ :district 3,
+ :started 2007,
+ :schools ("Princeton University" "Harvard Law School"),
+ :state "Maryland",
+ :birth-place "Baltimore, Maryland",
+ :alma-maters ("Princeton University" "Harvard Law School")}

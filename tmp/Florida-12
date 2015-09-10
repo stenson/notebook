@@ -1,0 +1,8 @@
+{:sortname "Gus Bilirakis",
+ :district 12,
+ :started 2007,
+ :schools
+ ("University of Florida" "Stetson University College of Law"),
+ :state "Florida",
+ :birth-place "Gainesville, Florida",
+ :alma-maters ("University of Florida" "Stetson University")}

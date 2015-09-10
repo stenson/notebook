@@ -1,0 +1,10 @@
+{:sortname "David Price (U.S. politician)",
+ :district 4,
+ :started 1997,
+ :schools
+ ("Mars Hill College"
+  "University of North Carolina at Chapel Hill"
+  "Yale University"),
+ :state "North Carolina",
+ :birth-place "Erwin, Tennessee",
+ :alma-maters ("Mars Hill College")}

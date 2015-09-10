@@ -1,0 +1,8 @@
+{:sortname "Michelle Lujan Grisham",
+ :district 1,
+ :started 2013,
+ :schools
+ ("University of New Mexico" "University of New Mexico School of Law"),
+ :state "New Mexico",
+ :birth-place "Los Alamos, New Mexico",
+ :alma-maters (nil nil)}

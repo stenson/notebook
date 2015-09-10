@@ -1,0 +1,7 @@
+{:sortname "Tom Rice",
+ :district 7,
+ :started 2013,
+ :schools ("University of South Carolina"),
+ :state "South Carolina",
+ :birth-place "Charleston, South Carolina",
+ :alma-maters ("University of South Carolina")}

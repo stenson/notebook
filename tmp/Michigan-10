@@ -1,0 +1,7 @@
+{:sortname "Candice Miller",
+ :district 10,
+ :started 2003,
+ :schools ("Macomb Community College" "Northwood University"),
+ :state "Michigan",
+ :birth-place "St. Clair Shores, Michigan",
+ :alma-maters ("Macomb Community College" "Northwood University")}

@@ -1,0 +1,9 @@
+{:sortname "Martha McSally",
+ :district 2,
+ :started 2015,
+ :schools ("United States Air Force Academy"),
+ :state "Arizona",
+ :birth-place "Warwick, Rhode Island",
+ :alma-maters
+ ("United States Air Force Academy"
+  "John F. Kennedy School of Government")}

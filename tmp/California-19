@@ -1,0 +1,7 @@
+{:sortname "Zoe Lofgren",
+ :district 19,
+ :started 1995,
+ :schools ("Stanford University" "Santa Clara University"),
+ :state "California",
+ :birth-place "San Mateo, California",
+ :alma-maters ("Stanford University")}

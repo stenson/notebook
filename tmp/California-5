@@ -1,0 +1,8 @@
+{:sortname "Mike Thompson (California politician)",
+ :district 5,
+ :started 1999,
+ :schools ("California State University, Chico"),
+ :state "California",
+ :birth-place "St. Helena, California",
+ :alma-maters
+ ("California State University, Chico" "Napa Valley College")}

@@ -1,0 +1,8 @@
+{:sortname "Doug Lamborn",
+ :district 5,
+ :started 2007,
+ :schools ("University of Kansas"),
+ :state "Colorado",
+ :birth-place "Leavenworth, Kansas",
+ :alma-maters
+ ("University of Kansas" "University of Kansas School of Law")}

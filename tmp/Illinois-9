@@ -1,0 +1,7 @@
+{:sortname "Jan Schakowsky",
+ :district 9,
+ :started 1999,
+ :schools ("University of Illinois at Urbana–Champaign"),
+ :state "Illinois",
+ :birth-place "Chicago",
+ :alma-maters (nil nil)}

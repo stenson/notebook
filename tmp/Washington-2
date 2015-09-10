@@ -1,0 +1,7 @@
+{:sortname "Rick Larsen",
+ :district 2,
+ :started 2001,
+ :schools ("Pacific Lutheran University" "University of Minnesota"),
+ :state "Washington",
+ :birth-place "Arlington, Washington",
+ :alma-maters ("Pacific Lutheran University")}

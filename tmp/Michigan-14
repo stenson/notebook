@@ -1,0 +1,7 @@
+{:sortname "Brenda Lawrence",
+ :district 14,
+ :started 2015,
+ :schools ("Central Michigan University"),
+ :state "Michigan",
+ :birth-place "Detroit, Michigan",
+ :alma-maters (nil)}

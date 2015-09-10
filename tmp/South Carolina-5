@@ -1,0 +1,11 @@
+{:sortname "Mick Mulvaney",
+ :district 5,
+ :started 2011,
+ :schools
+ ("Georgetown University"
+  "University of North Carolina at Chapel Hill"),
+ :state "South Carolina",
+ :birth-place "Alexandria, Virginia",
+ :alma-maters
+ ("Edmund A. Walsh School of Foreign Service"
+  "University of North Carolina School of Law")}

@@ -1,0 +1,10 @@
+{:sortname "Danny K. Davis",
+ :district 7,
+ :started 1997,
+ :schools
+ ("University of Arkansas at Pine Bluff"
+  "Chicago State University"
+  "Union Institute and University"),
+ :state "Illinois",
+ :birth-place "Parkdale, Arkansas",
+ :alma-maters ("University of Arkansas at Pine Bluff")}

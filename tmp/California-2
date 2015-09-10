@@ -1,0 +1,11 @@
+{:sortname "Jared Huffman",
+ :district 2,
+ :started 2013,
+ :schools
+ ("University of California, Santa Barbara"
+  "Boston College Law School"),
+ :state "California",
+ :birth-place "Independence, Missouri",
+ :alma-maters
+ ("University of California, Santa Barbara"
+  "Boston College Law School")}

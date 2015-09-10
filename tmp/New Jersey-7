@@ -1,0 +1,9 @@
+{:sortname "Leonard Lance",
+ :district 7,
+ :started 2009,
+ :schools
+ ("Lehigh University" "Vanderbilt University" "Princeton University"),
+ :state "New Jersey",
+ :birth-place "Easton, Pennsylvania",
+ :alma-maters
+ ("Lehigh University" "Vanderbilt University" "Princeton University")}

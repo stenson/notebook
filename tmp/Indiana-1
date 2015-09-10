@@ -1,0 +1,13 @@
+{:sortname "Pete Visclosky",
+ :district 1,
+ :started 1985,
+ :schools
+ ("Indiana University Northwest"
+  "University of Notre Dame"
+  "Georgetown University"),
+ :state "Indiana",
+ :birth-place "Gary, Indiana",
+ :alma-maters
+ ("Indiana University Northwest"
+  "Notre Dame Law School"
+  "Georgetown University Law Center")}

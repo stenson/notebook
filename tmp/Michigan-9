@@ -1,0 +1,11 @@
+{:sortname "Sander M. Levin",
+ :district 9,
+ :started 1983,
+ :schools
+ ("University of Chicago" "Columbia University" "Harvard Law School"),
+ :state "Michigan",
+ :birth-place "Detroit",
+ :alma-maters
+ ("University of Chicago"
+  "School of International and Public Affairs, Columbia University"
+  "Harvard Law School")}

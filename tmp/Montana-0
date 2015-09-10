@@ -1,0 +1,13 @@
+{:sortname "Ryan Zinke",
+ :district 0,
+ :started 2015,
+ :schools
+ ("University of Oregon"
+  "National University (California)"
+  "University of San Diego"),
+ :state "Montana",
+ :birth-place "Bozeman, Montana",
+ :alma-maters
+ ("University of Oregon"
+  "National University (California)"
+  "University of San Diego")}

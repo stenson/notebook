@@ -1,0 +1,9 @@
+{:sortname "Tom Cole",
+ :district 4,
+ :started 2003,
+ :schools
+ ("Grinnell College" "Yale University" "University of Oklahoma"),
+ :state "Oklahoma",
+ :birth-place "Shreveport, Louisiana",
+ :alma-maters
+ ("Grinnell College" "Yale University" "University of Oklahoma")}

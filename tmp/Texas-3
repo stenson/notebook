@@ -1,0 +1,7 @@
+{:sortname "Sam Johnson",
+ :district 3,
+ :started 1991,
+ :schools ("Southern Methodist University"),
+ :state "Texas",
+ :birth-place "San Antonio, Texas",
+ :alma-maters ("Southern Methodist University")}

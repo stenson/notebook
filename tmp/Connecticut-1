@@ -1,0 +1,7 @@
+{:sortname "John B. Larson",
+ :district 1,
+ :started 1999,
+ :schools ("Central Connecticut State University"),
+ :state "Connecticut",
+ :birth-place "Hartford, Connecticut",
+ :alma-maters ("Central Connecticut State University")}

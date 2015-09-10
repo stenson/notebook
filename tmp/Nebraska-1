@@ -1,0 +1,10 @@
+{:sortname "Jeff Fortenberry",
+ :district 1,
+ :started 2005,
+ :schools
+ ("Louisiana State University"
+  "Georgetown University"
+  "Franciscan University of Steubenville"),
+ :state "Nebraska",
+ :birth-place "Baton Rouge, Louisiana",
+ :alma-maters ("Louisiana State University")}

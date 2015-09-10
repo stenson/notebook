@@ -1,0 +1,15 @@
+{:sortname "Rick Nolan",
+ :district 8,
+ :started 2013,
+ :schools
+ ("College of Saint Benedict and Saint John's University"
+  "University of Minnesota"
+  "University of Maryland"
+  "St. Cloud State University"),
+ :state "Minnesota",
+ :birth-place "Brainerd, Minnesota",
+ :alma-maters
+ ("College of Saint Benedict and Saint John's University"
+  "University of Minnesota"
+  "University of Maryland, College Park"
+  "St. Cloud State University")}

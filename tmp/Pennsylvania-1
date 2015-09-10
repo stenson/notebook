@@ -1,0 +1,7 @@
+{:sortname "Bob Brady",
+ :district 1,
+ :started 1998,
+ :schools ("St. Thomas More High School"),
+ :state "Pennsylvania",
+ :birth-place "Philadelphia",
+ :alma-maters (nil)}

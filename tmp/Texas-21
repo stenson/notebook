@@ -1,0 +1,8 @@
+{:sortname "Lamar S. Smith",
+ :district 21,
+ :started 1987,
+ :schools
+ ("Yale University" "Southern Methodist University School of Law"),
+ :state "Texas",
+ :birth-place "San Antonio",
+ :alma-maters ("Yale College" "Dedman School of Law")}

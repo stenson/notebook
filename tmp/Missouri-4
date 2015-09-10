@@ -1,0 +1,9 @@
+{:sortname "Vicky Hartzler",
+ :district 4,
+ :started 2011,
+ :schools
+ ("University of Missouri" "Central Missouri State University"),
+ :state "Missouri",
+ :birth-place "Archie, Missouri",
+ :alma-maters
+ ("University of Missouri" "Central Missouri State University")}

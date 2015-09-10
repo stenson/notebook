@@ -1,0 +1,7 @@
+{:sortname "Curt Clawson",
+ :district 19,
+ :started 2014,
+ :schools ("Purdue University" "Harvard Business School"),
+ :state "Florida",
+ :birth-place "Tacoma, Washington",
+ :alma-maters ("University of Utah" nil nil "Harvard Business School")}

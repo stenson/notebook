@@ -1,0 +1,8 @@
+{:sortname "Elijah Cummings",
+ :district 7,
+ :started 1996,
+ :schools ("Howard University" "University of Maryland"),
+ :state "Maryland",
+ :birth-place "Baltimore",
+ :alma-maters
+ ("Howard University" "University of Maryland School of Law")}

@@ -1,0 +1,8 @@
+{:sortname "Patrick McHenry",
+ :district 10,
+ :started 2005,
+ :schools ("North Carolina State University" "Belmont Abbey College"),
+ :state "North Carolina",
+ :birth-place "Gastonia, North Carolina",
+ :alma-maters
+ ("North Carolina State University" "Belmont Abbey College")}

@@ -1,0 +1,9 @@
+{:sortname "Keith Rothfus",
+ :district 12,
+ :started 2013,
+ :schools
+ ("University at Buffalo, The State University of New York"
+  "University of Notre Dame"),
+ :state "Pennsylvania",
+ :birth-place "Endicott, New York",
+ :alma-maters ("Buffalo State College" "Notre Dame Law School")}

@@ -1,0 +1,7 @@
+{:sortname "John Katko",
+ :district 24,
+ :started 2015,
+ :schools ("Niagara University" "Syracuse University College of Law"),
+ :state "New York",
+ :birth-place "Syracuse, New York",
+ :alma-maters ("Niagara University" "Syracuse University")}

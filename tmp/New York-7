@@ -1,0 +1,9 @@
+{:sortname "Nydia Velázquez",
+ :district 7,
+ :started 1993,
+ :schools ("University of Puerto Rico" "New York University"),
+ :state "New York",
+ :birth-place "Yabucoa, Puerto Rico",
+ :alma-maters
+ ("University of Puerto Rico, Río Piedras Campus"
+  "New York University")}

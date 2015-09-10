@@ -1,0 +1,11 @@
+{:sortname "Chris Van Hollen",
+ :district 8,
+ :started 2003,
+ :schools
+ ("Swarthmore College" "Harvard University" "Georgetown University"),
+ :state "Maryland",
+ :birth-place "Karachi",
+ :alma-maters
+ ("Swarthmore College"
+  "John F. Kennedy School of Government"
+  "Georgetown University Law Center")}

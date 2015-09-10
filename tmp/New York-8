@@ -1,0 +1,13 @@
+{:sortname "Hakeem Jeffries",
+ :district 8,
+ :started 2013,
+ :schools
+ ("New York University School of Law"
+  "Georgetown University"
+  "Binghamton University"),
+ :state "New York",
+ :birth-place "Brooklyn",
+ :alma-maters
+ ("Binghamton University"
+  "McCourt School of Public Policy"
+  "New York University School of Law")}

@@ -1,0 +1,9 @@
+{:sortname "Eric Swalwell",
+ :district 15,
+ :started 2013,
+ :schools
+ ("University of Maryland, College Park"
+  "University of Maryland School of Law"),
+ :state "California",
+ :birth-place "Sac City, Iowa",
+ :alma-maters ("Campbell University" nil nil nil nil)}

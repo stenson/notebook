@@ -1,0 +1,11 @@
+{:sortname "Stephen F. Lynch",
+ :district 8,
+ :started 2001,
+ :schools
+ ("Wentworth Institute of Technology" "Boston College Law School"),
+ :state "Massachusetts",
+ :birth-place "Boston",
+ :alma-maters
+ ("Wentworth Institute of Technology"
+  "Boston College Law School"
+  "John F. Kennedy School of Government")}

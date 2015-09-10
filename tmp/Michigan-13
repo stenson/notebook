@@ -1,0 +1,7 @@
+{:sortname "John Conyers",
+ :district 13,
+ :started 1965,
+ :schools ("Wayne State University"),
+ :state "Michigan",
+ :birth-place "Highland Park, Michigan",
+ :alma-maters ("Wayne State University")}

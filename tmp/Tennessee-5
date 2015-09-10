@@ -1,0 +1,11 @@
+{:sortname "Jim Cooper",
+ :district 5,
+ :started 2003,
+ :schools
+ ("University of North Carolina" "Oriel College" "Harvard Law School"),
+ :state "Tennessee",
+ :birth-place "Nashville, Tennessee",
+ :alma-maters
+ ("University of North Carolina at Chapel Hill"
+  "Oxford University"
+  "Harvard Law School")}

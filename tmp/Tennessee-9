@@ -1,0 +1,8 @@
+{:sortname "Steve Cohen",
+ :district 9,
+ :started 2007,
+ :schools ("Vanderbilt University" "University of Memphis"),
+ :state "Tennessee",
+ :birth-place "Memphis, Tennessee",
+ :alma-maters
+ ("Vanderbilt University" "Cecil C. Humphreys School of Law")}

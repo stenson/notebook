@@ -1,0 +1,7 @@
+{:sortname "Ron DeSantis",
+ :district 6,
+ :started 2013,
+ :schools ("Yale University" "Harvard Law School"),
+ :state "Florida",
+ :birth-place "Jacksonville",
+ :alma-maters ("Yale College" "Harvard Law School")}

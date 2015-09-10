@@ -1,0 +1,7 @@
+{:sortname "David McKinley",
+ :district 1,
+ :started 2011,
+ :schools ("Purdue University"),
+ :state "West Virginia",
+ :birth-place "Wheeling, West Virginia",
+ :alma-maters ("Purdue University")}

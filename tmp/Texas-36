@@ -1,0 +1,11 @@
+{:sortname "Brian Babin",
+ :district 36,
+ :started 2015,
+ :schools
+ ("Lamar University"
+  "Dental School at the University of Texas Health Science Center at San Antonio"),
+ :state "Texas",
+ :birth-place "Port Arthur, Texas",
+ :alma-maters
+ ("Lamar University"
+  "The Dental School at The University of Texas Health Science Center at San Antonio")}

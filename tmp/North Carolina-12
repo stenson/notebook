@@ -1,0 +1,9 @@
+{:sortname "Alma Adams",
+ :district 12,
+ :started 2014,
+ :schools
+ ("North Carolina Agricultural and Technical State University"
+  "Ohio State University"),
+ :state "North Carolina",
+ :birth-place "High Point, North Carolina",
+ :alma-maters ("North Carolina A&T State University")}

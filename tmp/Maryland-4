@@ -1,0 +1,9 @@
+{:sortname "Donna Edwards",
+ :district 4,
+ :started 2008,
+ :schools
+ ("Wake Forest University"
+  "University of New Hampshire School of Law"),
+ :state "Maryland",
+ :birth-place "Yanceyville, North Carolina",
+ :alma-maters ("Wake Forest University" nil nil)}

@@ -1,0 +1,9 @@
+{:sortname "Frank Guinta",
+ :district 1,
+ :started 2015,
+ :schools
+ ("Assumption College" "University of New Hampshire School of Law"),
+ :state "New Hampshire",
+ :birth-place "Edison, New Jersey",
+ :alma-maters
+ ("Assumption College" "University of New Hampshire School of Law")}

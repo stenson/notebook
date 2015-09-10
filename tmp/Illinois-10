@@ -1,0 +1,13 @@
+{:sortname "Robert Dold",
+ :district 10,
+ :started 2015,
+ :schools
+ ("Denison University"
+  "Indiana University"
+  "Kellogg School of Management"),
+ :state "Illinois",
+ :birth-place "Evanston, Illinois",
+ :alma-maters
+ ("Denison University"
+  "Indiana University"
+  "Kellogg School of Management")}

@@ -1,0 +1,8 @@
+{:sortname "Kathy Castor",
+ :district 14,
+ :started 2007,
+ :schools ("Emory University"),
+ :state "Florida",
+ :birth-place "Miami",
+ :alma-maters
+ ("Emory University" "Florida State University College of Law")}

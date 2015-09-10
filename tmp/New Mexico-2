@@ -1,0 +1,9 @@
+{:sortname "Steve Pearce (politician)",
+ :district 2,
+ :started 2011,
+ :schools
+ ("New Mexico State University" "Eastern New Mexico University"),
+ :state "New Mexico",
+ :birth-place "Lamesa, Texas",
+ :alma-maters
+ ("New Mexico State University" "Eastern New Mexico University")}

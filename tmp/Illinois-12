@@ -1,0 +1,7 @@
+{:sortname "Mike Bost",
+ :district 12,
+ :started 2015,
+ :schools ("University of Illinois"),
+ :state "Illinois",
+ :birth-place "Murphysboro, Illinois",
+ :alma-maters (nil)}

@@ -1,0 +1,7 @@
+{:sortname "Steve Israel",
+ :district 3,
+ :started 2001,
+ :schools ("George Washington University"),
+ :state "New York",
+ :birth-place "Brooklyn",
+ :alma-maters ("George Washington University")}

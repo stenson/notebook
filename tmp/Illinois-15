@@ -1,0 +1,8 @@
+{:sortname "John Shimkus",
+ :district 15,
+ :started 1997,
+ :schools
+ ("United States Military Academy" "Southern Illinois University"),
+ :state "Illinois",
+ :birth-place "Collinsville, Illinois",
+ :alma-maters ("US Military Academy")}

@@ -1,0 +1,7 @@
+{:sortname "Paul Ryan",
+ :district 1,
+ :started 1999,
+ :schools ("Miami University"),
+ :state "Wisconsin",
+ :birth-place "Janesville, Wisconsin",
+ :alma-maters ("Miami University")}

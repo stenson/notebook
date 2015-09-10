@@ -1,0 +1,7 @@
+{:sortname "Ryan Costello",
+ :district 6,
+ :started 2015,
+ :schools ("Ursinus College" "Villanova University School of Law"),
+ :state "Pennsylvania",
+ :birth-place "Phoenixville, Pennsylvania",
+ :alma-maters (nil)}

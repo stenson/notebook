@@ -1,0 +1,13 @@
+{:sortname "Terri Sewell",
+ :district 7,
+ :started 2011,
+ :schools
+ ("Princeton University"
+  "Harvard School of Law"
+  "University of Oxford"),
+ :state "Alabama",
+ :birth-place "Huntsville, Alabama",
+ :alma-maters
+ ("Woodrow Wilson School of Public and International Affairs"
+  "St Hilda's College, Oxford"
+  "Harvard Law School")}

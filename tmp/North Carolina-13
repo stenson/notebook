@@ -1,0 +1,8 @@
+{:sortname "George Holding",
+ :district 13,
+ :started 2013,
+ :schools
+ ("Wake Forest University" "Wake Forest University School of Law"),
+ :state "North Carolina",
+ :birth-place "Raleigh, North Carolina",
+ :alma-maters (nil)}

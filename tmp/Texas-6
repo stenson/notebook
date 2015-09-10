@@ -1,0 +1,7 @@
+{:sortname "Joe Barton",
+ :district 6,
+ :started 1985,
+ :schools ("Texas A&M University" "Purdue University"),
+ :state "Texas",
+ :birth-place "Waco, Texas",
+ :alma-maters ("Texas A&M University")}

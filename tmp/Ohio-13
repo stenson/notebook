@@ -1,0 +1,9 @@
+{:sortname "Tim Ryan (politician)",
+ :district 13,
+ :started 2003,
+ :schools
+ ("Bowling Green State University"
+  "University of New Hampshire School of Law"),
+ :state "Ohio",
+ :birth-place "Niles, Ohio",
+ :alma-maters ("Bowling Green State University")}

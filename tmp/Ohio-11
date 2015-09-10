@@ -1,0 +1,9 @@
+{:sortname "Marcia Fudge",
+ :district 11,
+ :started 2008,
+ :schools
+ ("Ohio State University" "Cleveland-Marshall College of Law"),
+ :state "Ohio",
+ :birth-place "Cleveland, Ohio",
+ :alma-maters
+ ("Ohio State University" "Cleveland-Marshall College of Law")}

@@ -1,0 +1,10 @@
+{:sortname "Joyce Beatty",
+ :district 3,
+ :started 2013,
+ :schools
+ ("Central State University"
+  "Wright State University"
+  "University of Cincinnati"),
+ :state "Ohio",
+ :birth-place "Dayton, Ohio",
+ :alma-maters ("Central State University")}

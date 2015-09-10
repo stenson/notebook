@@ -1,0 +1,13 @@
+{:sortname "Eddie Bernice Johnson",
+ :district 30,
+ :started 1991,
+ :schools
+ ("Saint Mary's College (Indiana)"
+  "Texas Christian University"
+  "Southern Methodist University"),
+ :state "Texas",
+ :birth-place "Waco, Texas",
+ :alma-maters
+ ("Saint Mary's College (Indiana)"
+  "Texas Christian University"
+  "Southern Methodist University")}

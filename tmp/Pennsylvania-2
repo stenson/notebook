@@ -1,0 +1,8 @@
+{:sortname "Chaka Fattah",
+ :district 2,
+ :started 1995,
+ :schools ("University of Pennsylvania"),
+ :state "Pennsylvania",
+ :birth-place "Philadelphia, Pennsylvania",
+ :alma-maters
+ ("Community College of Philadelphia" "University of Pennsylvania")}

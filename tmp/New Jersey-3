@@ -1,0 +1,7 @@
+{:sortname "Tom MacArthur",
+ :district 3,
+ :started 2015,
+ :schools ("Hofstra University"),
+ :state "New Jersey",
+ :birth-place "Hebron, Connecticut",
+ :alma-maters ("Hofstra University")}

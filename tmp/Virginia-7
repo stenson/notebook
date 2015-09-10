@@ -1,0 +1,13 @@
+{:sortname "Dave Brat",
+ :district 7,
+ :started 2014,
+ :schools
+ ("Hope College"
+  "Princeton Theological Seminary"
+  "American University"),
+ :state "Virginia",
+ :birth-place "Detroit, Michigan",
+ :alma-maters
+ ("Hope College"
+  "Princeton Theological Seminary"
+  "American University")}

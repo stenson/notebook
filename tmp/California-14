@@ -1,0 +1,11 @@
+{:sortname "Jackie Speier",
+ :district 14,
+ :started 2008,
+ :schools
+ ("University of California, Davis"
+  "University of California, Hastings College of the Law"),
+ :state "California",
+ :birth-place "San Francisco",
+ :alma-maters
+ ("University of California, Davis"
+  "University of California, Hastings College of the Law")}

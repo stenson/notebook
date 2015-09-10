@@ -1,0 +1,8 @@
+{:sortname "Peter Welch",
+ :district 0,
+ :started 2007,
+ :schools
+ ("College of the Holy Cross" "University of California, Berkeley"),
+ :state "Vermont",
+ :birth-place "Springfield, Massachusetts",
+ :alma-maters ("College of the Holy Cross" "UC Berkeley School of Law")}

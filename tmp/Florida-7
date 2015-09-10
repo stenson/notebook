@@ -1,0 +1,7 @@
+{:sortname "John Mica",
+ :district 7,
+ :started 1993,
+ :schools ("University of Florida"),
+ :state "Florida",
+ :birth-place "Binghamton, New York",
+ :alma-maters ("Miami Dade College" "University of Florida")}

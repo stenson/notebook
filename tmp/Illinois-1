@@ -1,0 +1,13 @@
+{:sortname "Bobby Rush",
+ :district 1,
+ :started 1993,
+ :schools
+ ("Roosevelt University"
+  "University of Illinois at Urbana–Champaign"
+  "McCormick Theological Seminary"),
+ :state "Illinois",
+ :birth-place "Albany, Georgia",
+ :alma-maters
+ ("Roosevelt University"
+  "University of Illinois at Chicago"
+  "McCormick Theological Seminary")}

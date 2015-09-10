@@ -1,0 +1,7 @@
+{:sortname "John Moolenaar",
+ :district 4,
+ :started 2015,
+ :schools ("Hope College" "Harvard University"),
+ :state "Michigan",
+ :birth-place "Midland, Michigan",
+ :alma-maters ("Hope College" "Harvard University")}

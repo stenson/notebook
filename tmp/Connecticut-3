@@ -1,0 +1,10 @@
+{:sortname "Rosa DeLauro",
+ :district 3,
+ :started 1991,
+ :schools ("Marymount College, Tarrytown"),
+ :state "Connecticut",
+ :birth-place "New Haven, Connecticut",
+ :alma-maters
+ ("Marymount College, Tarrytown"
+  "London School of Economics"
+  "Columbia University")}

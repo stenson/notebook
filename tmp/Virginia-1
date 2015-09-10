@@ -1,0 +1,13 @@
+{:sortname "Rob Wittman",
+ :district 1,
+ :started 2007,
+ :schools
+ ("Virginia Polytechnic Institute and State University"
+  "University of North Carolina at Chapel Hill"
+  "Virginia Commonwealth University"),
+ :state "Virginia",
+ :birth-place "Washington, D.C.",
+ :alma-maters
+ ("Virginia Tech"
+  "University of North Carolina"
+  "Virginia Commonwealth University")}

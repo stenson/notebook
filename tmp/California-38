@@ -1,0 +1,10 @@
+{:sortname "Linda Sánchez",
+ :district 38,
+ :started 2003,
+ :schools
+ ("University of California, Berkeley"
+  "University of California, Los Angeles"),
+ :state "California",
+ :birth-place "Orange, California",
+ :alma-maters
+ ("University of California, Berkeley" "UCLA School of Law")}

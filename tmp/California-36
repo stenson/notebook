@@ -1,0 +1,8 @@
+{:sortname "Raul Ruiz (politician)",
+ :district 36,
+ :started 2013,
+ :schools
+ ("University of California, Los Angeles" "Harvard University"),
+ :state "California",
+ :birth-place "Zacatecas, Zacatecas",
+ :alma-maters (nil nil "Harvard University")}

@@ -1,0 +1,7 @@
+{:sortname "John Yarmuth",
+ :district 3,
+ :started 2007,
+ :schools ("Yale University"),
+ :state "Kentucky",
+ :birth-place "Louisville, Kentucky",
+ :alma-maters ("Yale University")}

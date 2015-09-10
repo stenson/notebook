@@ -1,0 +1,7 @@
+{:sortname "Fred Upton",
+ :district 6,
+ :started 1987,
+ :schools ("University of Michigan"),
+ :state "Michigan",
+ :birth-place "St. Joseph, Michigan",
+ :alma-maters ("University of Michigan")}

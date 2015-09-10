@@ -1,0 +1,11 @@
+{:sortname "Jim Bridenstine",
+ :district 1,
+ :started 2013,
+ :schools
+ ("Rice University"
+  "Samuel Curtis Johnson Graduate School of Management"),
+ :state "Oklahoma",
+ :birth-place "Ann Arbor, Michigan",
+ :alma-maters
+ ("Rice University"
+  "Samuel Curtis Johnson Graduate School of Management")}

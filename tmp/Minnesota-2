@@ -1,0 +1,8 @@
+{:sortname "John Kline (politician)",
+ :district 2,
+ :started 2003,
+ :schools ("Rice University" "Shippensburg University"),
+ :state "Minnesota",
+ :birth-place "Allentown, Pennsylvania",
+ :alma-maters
+ ("Rice University" "Shippensburg University of Pennsylvania")}

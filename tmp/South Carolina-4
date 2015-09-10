@@ -1,0 +1,8 @@
+{:sortname "Trey Gowdy",
+ :district 4,
+ :started 2011,
+ :schools
+ ("Baylor University" "University of South Carolina School of Law"),
+ :state "South Carolina",
+ :birth-place "Greenville, South Carolina",
+ :alma-maters ("Baylor University" nil nil)}

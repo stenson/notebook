@@ -1,0 +1,11 @@
+{:sortname "Dana Rohrabacher",
+ :district 48,
+ :started 1989,
+ :schools
+ ("California State University, Long Beach"
+  "University of Southern California"),
+ :state "California",
+ :birth-place "Coronado, California",
+ :alma-maters
+ ("California State University, Long Beach"
+  "University of Southern California")}

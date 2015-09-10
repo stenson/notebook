@@ -1,0 +1,11 @@
+{:sortname "Peter Roskam",
+ :district 6,
+ :started 2007,
+ :schools
+ ("University of Illinois at Urbana–Champaign"
+  "Chicago–Kent College of Law"),
+ :state "Illinois",
+ :birth-place "Hinsdale, Illinois",
+ :alma-maters
+ ("University of Illinois at Urbana–Champaign"
+  "Chicago-Kent College of Law")}

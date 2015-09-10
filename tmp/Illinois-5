@@ -1,0 +1,13 @@
+{:sortname "Mike Quigley (politician)",
+ :district 5,
+ :started 2009,
+ :schools
+ ("Roosevelt University"
+  "Loyola University Chicago School of Law"
+  "University of Chicago"),
+ :state "Illinois",
+ :birth-place "Indianapolis, Indiana",
+ :alma-maters
+ ("Roosevelt University"
+  "University of Chicago"
+  "Loyola University Chicago School of Law")}

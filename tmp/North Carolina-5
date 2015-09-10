@@ -1,0 +1,9 @@
+{:sortname "Virginia Foxx",
+ :district 5,
+ :started 2005,
+ :schools
+ ("University of North Carolina at Chapel Hill"
+  "University of North Carolina at Greensboro"),
+ :state "North Carolina",
+ :birth-place "The Bronx",
+ :alma-maters (nil nil nil nil)}

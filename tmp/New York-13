@@ -1,0 +1,8 @@
+{:sortname "Charles B. Rangel",
+ :district 13,
+ :started 1971,
+ :schools ("New York University" "St. John's University (NY)"),
+ :state "New York",
+ :birth-place nil,
+ :alma-maters
+ ("New York University" "St. John's University School of Law")}

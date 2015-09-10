@@ -1,0 +1,9 @@
+{:sortname "Lou Barletta",
+ :district 11,
+ :started 2011,
+ :schools
+ ("Luzerne County Community College"
+  "Bloomsburg University of Pennsylvania"),
+ :state "Pennsylvania",
+ :birth-place "Hazleton, Pennsylvania",
+ :alma-maters (nil)}

@@ -1,0 +1,8 @@
+{:sortname "Cathy McMorris Rodgers",
+ :district 5,
+ :started 2005,
+ :schools ("Pensacola Christian College" "University of Washington"),
+ :state "Washington",
+ :birth-place "Salem, Oregon",
+ :alma-maters
+ ("Pensacola Christian College" "University of Washington")}

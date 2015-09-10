@@ -1,0 +1,14 @@
+{:sortname "Tammy Duckworth",
+ :district 8,
+ :started 2013,
+ :schools
+ ("University of Hawaiʻi at Mānoa"
+  "George Washington University"
+  "Northern Illinois University"),
+ :state "Illinois",
+ :birth-place "Bangkok",
+ :alma-maters
+ ("University of Hawaii at Manoa"
+  "George Washington University"
+  "Northern Illinois University"
+  "Capella University")}

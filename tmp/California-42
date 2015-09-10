@@ -1,0 +1,7 @@
+{:sortname "Ken Calvert",
+ :district 42,
+ :started 1993,
+ :schools ("Chaffey College" "San Diego State University"),
+ :state "California",
+ :birth-place "Corona, California",
+ :alma-maters ("Chaffey College" "San Diego State University")}

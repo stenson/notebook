@@ -1,0 +1,9 @@
+{:sortname "André Carson",
+ :district 7,
+ :started 2008,
+ :schools
+ ("Concordia University Wisconsin" "Indiana Wesleyan University"),
+ :state "Indiana",
+ :birth-place "Indianapolis, Indiana",
+ :alma-maters
+ ("Concordia University Wisconsin" "Indiana Wesleyan University")}

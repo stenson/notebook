@@ -1,0 +1,13 @@
+{:sortname "Al Green (politician)",
+ :district 9,
+ :started 2005,
+ :schools
+ ("Florida A&M University"
+  "Tuskeegee Institute"
+  "Texas Southern University"),
+ :state "Texas",
+ :birth-place "New Orleans",
+ :alma-maters
+ ("Florida A&M University"
+  "Tuskegee University"
+  "Texas Southern University")}

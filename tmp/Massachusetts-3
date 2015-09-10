@@ -1,0 +1,7 @@
+{:sortname "Niki Tsongas",
+ :district 3,
+ :started 2007,
+ :schools ("Smith College" "Boston University"),
+ :state "Massachusetts",
+ :birth-place "Chico, California",
+ :alma-maters (nil)}

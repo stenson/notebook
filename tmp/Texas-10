@@ -1,0 +1,11 @@
+{:sortname "Michael McCaul",
+ :district 10,
+ :started 2005,
+ :schools
+ ("Trinity University (Texas)"
+  "St. Mary's University, Texas"
+  "John F. Kennedy School of Government"),
+ :state "Texas",
+ :birth-place "Dallas",
+ :alma-maters
+ ("Trinity University (Texas)" "St. Mary's University School of Law")}

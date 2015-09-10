@@ -1,0 +1,7 @@
+{:sortname "Debbie Dingell",
+ :district 12,
+ :started 2015,
+ :schools ("Georgetown University"),
+ :state "Michigan",
+ :birth-place "Detroit, Michigan",
+ :alma-maters (nil)}

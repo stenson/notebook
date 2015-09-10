@@ -1,0 +1,13 @@
+{:sortname "Mike Turner",
+ :district 10,
+ :started 2003,
+ :schools
+ ("Ohio Northern University"
+  "Case Western Reserve University"
+  "University of Dayton"),
+ :state "Ohio",
+ :birth-place "Dayton, Ohio",
+ :alma-maters
+ ("Ohio Northern University"
+  "Case Western Reserve"
+  "University of Dayton")}

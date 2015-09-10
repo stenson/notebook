@@ -1,0 +1,8 @@
+{:sortname "John Culberson",
+ :district 7,
+ :started 2001,
+ :schools
+ ("Southern Methodist University" "South Texas College of Law"),
+ :state "Texas",
+ :birth-place "Houston, Texas",
+ :alma-maters ("Southern Methodist University")}

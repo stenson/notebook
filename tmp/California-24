@@ -1,0 +1,13 @@
+{:sortname "Lois Capps",
+ :district 24,
+ :started 1998,
+ :schools
+ ("Pacific Lutheran University"
+  "Yale University"
+  "University of California, Santa Barbara"),
+ :state "California",
+ :birth-place "Ladysmith, Wisconsin",
+ :alma-maters
+ ("Pacific Lutheran University"
+  "Yale University"
+  "University of California, Santa Barbara")}

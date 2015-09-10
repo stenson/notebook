@@ -1,0 +1,9 @@
+{:sortname "Jim McDermott",
+ :district 7,
+ :started 1989,
+ :schools ("Wheaton College (Illinois)" "University of Illinois"),
+ :state "Washington",
+ :birth-place "Chicago",
+ :alma-maters
+ ("Wheaton College (Illinois)"
+  "University of Illinois College of Medicine")}

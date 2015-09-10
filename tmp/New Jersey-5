@@ -1,0 +1,8 @@
+{:sortname "Scott Garrett",
+ :district 5,
+ :started 2003,
+ :schools ("Montclair State University" "Rutgers University"),
+ :state "New Jersey",
+ :birth-place "Englewood, New Jersey",
+ :alma-maters
+ ("Montclair State University" "Rutgers School of Law–Camden")}

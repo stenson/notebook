@@ -1,0 +1,7 @@
+{:sortname "Adam Schiff",
+ :district 28,
+ :started 2001,
+ :schools ("Stanford University" "Harvard University"),
+ :state "California",
+ :birth-place "Framingham, Massachusetts",
+ :alma-maters ("Stanford University" "Harvard Law School")}

@@ -9,4 +9,5 @@
                  [com.cemerick/url "0.1.1"]
                  [mvxcvi/puget "0.8.1"]
                  [yesparql "0.1.5"]
-                 [clj-http "2.0.0"]])
+                 [clj-http "2.0.0"]
+                 [me.raynes/fs "1.4.6"]])

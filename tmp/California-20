@@ -1,0 +1,10 @@
+{:sortname "Sam Farr",
+ :district 20,
+ :started 1993,
+ :schools
+ ("Willamette University"
+  "Santa Clara University"
+  "Monterey Institute of International Studies"),
+ :state "California",
+ :birth-place nil,
+ :alma-maters ("Willamette University")}

@@ -1,0 +1,7 @@
+{:sortname "Betty McCollum",
+ :district 4,
+ :started 2001,
+ :schools ("College of St. Catherine"),
+ :state "Minnesota",
+ :birth-place "Minneapolis, Minnesota",
+ :alma-maters ("College of St. Catherine")}

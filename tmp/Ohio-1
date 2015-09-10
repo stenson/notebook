@@ -1,0 +1,8 @@
+{:sortname "Steve Chabot",
+ :district 1,
+ :started 2011,
+ :schools ("College of William & Mary" "Northern Kentucky University"),
+ :state "Ohio",
+ :birth-place "Cincinnati",
+ :alma-maters
+ ("College of William & Mary" "Salmon P. Chase College of Law")}

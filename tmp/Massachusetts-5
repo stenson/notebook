@@ -1,0 +1,8 @@
+{:sortname "Katherine Clark",
+ :district 5,
+ :started 2013,
+ :schools
+ ("St. Lawrence University" "Cornell University" "Harvard University"),
+ :state "Massachusetts",
+ :birth-place "New Haven, Connecticut",
+ :alma-maters (nil)}

@@ -1,0 +1,9 @@
+{:sortname "Corrine Brown",
+ :district 5,
+ :started 1993,
+ :schools ("Florida A&M University"),
+ :state "Florida",
+ :birth-place "Jacksonville, Florida",
+ :alma-maters
+ ("Florida A&M University"
+  "University of Florida College of Education")}

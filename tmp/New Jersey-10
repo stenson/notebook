@@ -1,0 +1,7 @@
+{:sortname "Donald Payne, Jr.",
+ :district 10,
+ :started 2012,
+ :schools ("Kean University"),
+ :state "New Jersey",
+ :birth-place "Newark, New Jersey",
+ :alma-maters (nil)}

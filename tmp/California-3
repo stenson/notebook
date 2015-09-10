@@ -1,0 +1,9 @@
+{:sortname "John Garamendi",
+ :district 3,
+ :started 2009,
+ :schools
+ ("University of California, Berkeley" "Harvard Business School"),
+ :state "California",
+ :birth-place "Camp Blanding",
+ :alma-maters
+ ("University of California, Berkeley" "Harvard Business School")}

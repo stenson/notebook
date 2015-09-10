@@ -1,0 +1,9 @@
+{:sortname "Emanuel Cleaver",
+ :district 5,
+ :started 2005,
+ :schools
+ ("Prairie View A&M University" "St. Paul School of Theology"),
+ :state "Missouri",
+ :birth-place "Waxahachie, Texas",
+ :alma-maters
+ ("Prairie View A&M University" "Saint Paul School of Theology")}

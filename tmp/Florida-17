@@ -1,0 +1,10 @@
+{:sortname "Tom Rooney (politician)",
+ :district 17,
+ :started 2009,
+ :schools ("Washington & Jefferson College" "University of Florida"),
+ :state "Florida",
+ :birth-place "Philadelphia",
+ :alma-maters
+ ("Washington & Jefferson College"
+  "University of Florida"
+  "University of Miami School of Law")}

@@ -1,0 +1,7 @@
+{:sortname "Tom McClintock",
+ :district 4,
+ :started 2009,
+ :schools ("University of California, Los Angeles"),
+ :state "California",
+ :birth-place "White Plains, New York",
+ :alma-maters ("University of California, Los Angeles")}

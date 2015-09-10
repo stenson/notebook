@@ -1,0 +1,8 @@
+{:sortname "Dutch Ruppersberger",
+ :district 2,
+ :started 2003,
+ :schools
+ ("University of Maryland, College Park" "University of Baltimore"),
+ :state "Maryland",
+ :birth-place "Baltimore",
+ :alma-maters (nil nil "University of Baltimore School of Law")}

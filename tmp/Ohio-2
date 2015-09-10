@@ -1,0 +1,7 @@
+{:sortname "Brad Wenstrup",
+ :district 2,
+ :started 2013,
+ :schools ("University of Cincinnati"),
+ :state "Ohio",
+ :birth-place "Cincinnati, Ohio",
+ :alma-maters (nil)}

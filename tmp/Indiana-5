@@ -1,0 +1,11 @@
+{:sortname "Susan Brooks",
+ :district 5,
+ :started 2013,
+ :schools
+ ("Miami University of Ohio"
+  "Indiana University Robert H. McKinney School of Law"),
+ :state "Indiana",
+ :birth-place "Fort Wayne, Indiana",
+ :alma-maters
+ ("Miami University"
+  "Indiana University Robert H. McKinney School of Law")}

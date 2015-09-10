@@ -1,0 +1,7 @@
+{:sortname "Mike Honda",
+ :district 17,
+ :started 2001,
+ :schools ("San Jose State University"),
+ :state "California",
+ :birth-place "Walnut Grove, California",
+ :alma-maters ("San Jose State University")}

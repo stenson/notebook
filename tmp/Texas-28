@@ -1,0 +1,9 @@
+{:sortname "Henry Cuellar",
+ :district 28,
+ :started 2005,
+ :schools
+ ("Edmund A. Walsh School of Foreign Service"
+  "University of Texas at Austin"),
+ :state "Texas",
+ :birth-place "Laredo, Texas",
+ :alma-maters ("Laredo Community College")}

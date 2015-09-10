@@ -1,0 +1,9 @@
+{:sortname "Keith Ellison",
+ :district 5,
+ :started 2007,
+ :schools
+ ("Wayne State University" "University of Minnesota Law School"),
+ :state "Minnesota",
+ :birth-place "Detroit",
+ :alma-maters
+ ("Wayne State University" "University of Minnesota Law School")}

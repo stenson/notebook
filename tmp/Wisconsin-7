@@ -1,0 +1,11 @@
+{:sortname "Sean Duffy",
+ :district 7,
+ :started 2011,
+ :schools
+ ("Saint Mary's University of Minnesota"
+  "William Mitchell College of Law"),
+ :state "Wisconsin",
+ :birth-place "Hayward, Wisconsin",
+ :alma-maters
+ ("Saint Mary's University of Minnesota"
+  "William Mitchell College of Law")}

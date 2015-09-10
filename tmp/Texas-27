@@ -1,0 +1,11 @@
+{:sortname "Blake Farenthold",
+ :district 27,
+ :started 2011,
+ :schools
+ ("University of Texas at Austin"
+  "St. Mary's University School of Law"),
+ :state "Texas",
+ :birth-place "Corpus Christi, Texas",
+ :alma-maters
+ ("University of Texas at Austin"
+  "St. Mary's University School of Law")}

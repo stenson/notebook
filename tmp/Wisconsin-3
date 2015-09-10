@@ -1,0 +1,10 @@
+{:sortname "Ron Kind",
+ :district 3,
+ :started 1997,
+ :schools ("London School of Economics" "University of Minnesota"),
+ :state "Wisconsin",
+ :birth-place "La Crosse, Wisconsin",
+ :alma-maters
+ ("Harvard College"
+  "London School of Economics"
+  "University of Minnesota")}

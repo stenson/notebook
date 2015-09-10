@@ -1,0 +1,9 @@
+{:sortname "Mike Simpson",
+ :district 2,
+ :started 1999,
+ :schools ("Utah State University"),
+ :state "Idaho",
+ :birth-place "Burley, Idaho",
+ :alma-maters
+ ("Utah State University"
+  "Washington University School of Dental Medicine")}

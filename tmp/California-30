@@ -1,0 +1,9 @@
+{:sortname "Brad Sherman",
+ :district 30,
+ :started 1997,
+ :schools
+ ("University of California, Los Angeles" "Harvard Law School"),
+ :state "California",
+ :birth-place "Los Angeles",
+ :alma-maters
+ ("University of California, Los Angeles" "Harvard Law School")}
