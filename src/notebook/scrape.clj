@@ -184,9 +184,30 @@
 (defn read-local-ushr []
   (map read-string (map slurp (fs/list-dir "tmp/"))))
 
+(defn degrees->decimal [d m s]
+  (let [truncate #(.floatValue (with-precision 10 %))]
+    (+ d (truncate (/ m 60.)) (truncate (/ s 3600)))))
+
+(defn get-coords-for-place [place]
+  (let [wiki (:content (wikipedia-json place))]
+    (if-let [coords (->> (map #(re-find #"\{\{([Cc]oord.*)\}\}" %) wiki)
+                         (remove nil?)
+                         (first)
+                         (second))]
+      (if (re-find #"missing" coords)
+
+        (let [[d1 m1 s1 _ d2 m2 s2] (->> (string/split coords #"\|")
+                                           (drop 1)
+                                           (take 8)
+                                           (map str->int))]
+            [(degrees->decimal d1 m1 s1)
+             (degrees->decimal d2 m2 s2)])))))
+
 (defn collect-places [xs]
   (->> (map #(select-keys % [:birth-place :alma-maters :schools]) xs)
        (map vals)
        (flatten)
        (remove nil?)
        (into #{})))
+
+(collect-places (read-local-ushr))
