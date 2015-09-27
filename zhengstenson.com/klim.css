@@ -1,0 +1,18 @@
+
+@font-face {
+  font-family: 'TiemposWeb';
+  src: url('style/klim/TiemposTextWeb-Regular.eot?t=1');
+  src: url('style/klim/TiemposTextWeb-Regular.eot?#iefix') format('embedded-opentype'),
+  url('style/klim/TiemposTextWeb-Regular.woff?t=1') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'TiemposWeb';
+  src: url('style/klim/TiemposTextWeb-RegularItalic.eot?t=1');
+  src: url('style/klim/TiemposTextWeb-RegularItalic.eot?#iefix') format('embedded-opentype'),
+  url('style/klim/TiemposTextWeb-RegularItalic.woff?t=1') format('woff');
+  font-weight: normal;
+  font-style: italic;
+}
