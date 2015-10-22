@@ -2,3 +2,72 @@
   padding: 0;
   margin: 0;
 }
+
+body {
+  font-family: "FoundersGroteskWeb", serif;
+  background: #eee;
+  color: #222;
+}
+
+#container {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+#outer {
+  max-width: 600px;
+  min-width: 200px;
+  margin: auto auto;
+  background: white;
+  box-shadow: 0 0 30px rgba(0,0,0,0.1);
+}
+
+#inner {
+  padding: 30px 34px;
+}
+
+a {
+  color: royalblue;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  display: block;
+}
+
+li a {
+  display: block;
+  padding: 20px 10px;
+  border-right: 10px solid #eee;
+  margin-bottom: 4px;
+}
+
+li a:hover {
+  border-right-color: lightskyblue;
+}
+
+span.title {
+  display: block;
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+span.about {
+  font-family: "PitchWeb", monospace;
+  font-style: italic;
+  color: #333;
+  font-size: 16px;
+  display: block;
+}
+
+span.date {
+  color: seagreen;
+  font-family: "PitchWeb", monospace;
+  font-style: italic;
+  font-size: 12px;
+  display: block;
+}
