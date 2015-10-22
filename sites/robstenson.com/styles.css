@@ -44,6 +44,16 @@ a {
   display: block;
 }
 
+#about {
+  max-width: 400px;
+  min-width: 200px;
+  margin: auto auto;
+  font-family: "PitchWeb", serif;
+  font-style: italic;
+  font-size: 14px;
+  text-align: justify;
+}
+
 ul {
   list-style: none;
 }
