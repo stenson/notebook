@@ -16,3 +16,12 @@
   font-weight: normal;
   font-style: italic;
 }
+
+@font-face {
+  font-family: 'EubieScript';
+  src: url('style/daifoldes/EubieScript-Regular.eot?t=1');
+  src: url('style/daifoldes/EubieScript-Regular.eot?#iefix') format('embedded-opentype'),
+  url('style/daifoldes/EubieScriptWOFF-Regular.woff?t=1') format('woff');
+  font-weight: normal;
+  font-style: italic;
+}

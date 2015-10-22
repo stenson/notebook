@@ -14,20 +14,21 @@
     (spit "wedding.html" (:html html))))
 
 (defn favicon [size]
-  [:link {:href  (format "/favicon-%sx%s.png" size size)
+  [:link {:href  (format "favicon-%sx%s.png" size size)
           :sizes (format "%sx%s" size size)
           :rel   "icon"
           :type  "image/png"}])
 
 (defn favicons [& sizes]
   (->> (map favicon sizes)
-       (conj [:link {:href "/favicon.ico" :rel "icon" :type "image/x-icon"}])))
+       (conj [:link {:href "favicon.ico" :rel "icon" :type "image/x-icon"}])))
 
 (defn inline-style [& styles]
   [:style {:type "text/css"}
    (garden/css {:pretty-print? false} styles)])
 
-(let [content (slurp "wedding.html")]
+(let [;content (slurp "wedding.html")
+      content (:html (gdoc/as-hiero-html essay))]
   (spit
     "zhengstenson.com/index.html"
     (html5
@@ -44,6 +45,8 @@
           [:div#text-outer
            [:div#text-inner
             [:h1 "Diana &amp; Rob"]
-            [:h3 "Past to Present"]
+            [:img.sz {:src "sz-512.png" :width 32}]
             [:div.content
-             content]]]]]))))
+             content]]]]
+         [:script {:type "text/javascript"
+                   :src "hyphenator.js"}]]))))
