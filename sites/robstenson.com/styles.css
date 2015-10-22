@@ -4,7 +4,6 @@
 }
 
 body {
-  font-family: "FoundersGroteskWeb", serif;
   background: #eee;
   color: #222;
 }
@@ -23,12 +22,26 @@ body {
 }
 
 #inner {
-  padding: 30px 34px;
+  padding: 30px 24px;
 }
 
 a {
   color: royalblue;
   text-decoration: none;
+}
+
+#cameo {
+  width: 60px;
+  margin: 80px auto 20px auto;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid white;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+#cameo img {
+  width: 100%;
+  display: block;
 }
 
 ul {
@@ -41,33 +54,59 @@ li {
 
 li a {
   display: block;
-  padding: 20px 10px;
+  padding: 20px 20px;
   border-right: 10px solid #eee;
   margin-bottom: 4px;
 }
 
 li a:hover {
   border-right-color: lightskyblue;
+  background: whitesmoke;
+}
+
+span {
+  font-family: "PitchWeb", monospace;
+  font-style: italic;
 }
 
 span.title {
+  font-family: "FoundersGroteskWeb", serif;
+  font-style: normal;
   display: block;
   font-size: 24px;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
+  color: #447;
+}
+
+span.subtitle {
+  color: dodgerblue;
+  font-size: 18px;
+  margin-top: -4px;
+  margin-bottom: 12px;
+  display: block;
 }
 
 span.about {
-  font-family: "PitchWeb", monospace;
-  font-style: italic;
-  color: #333;
   font-size: 16px;
   display: block;
+  color: salmon;
 }
 
 span.date {
   color: seagreen;
-  font-family: "PitchWeb", monospace;
-  font-style: italic;
   font-size: 12px;
-  display: block;
+  display: inline-block;
+}
+
+span.pipe {
+  display: inline-block;
+  margin: 0 4px;
+  color: #888;
+  font-size: 12px;
+}
+
+span.where {
+  color: darkorchid;
+  display: inline-block;
+  font-size: 12px;
 }

@@ -8,6 +8,9 @@
           :rel   "icon"
           :type  "image/png"}])
 
+(defn now []
+  (quot (System/currentTimeMillis) 1000))
+
 (defn favicons [& sizes]
   (->> (map favicon sizes)
        (conj [:link {:href "favicon.ico" :rel "icon" :type "image/x-icon"}])))
@@ -18,12 +21,12 @@
 
 (defn style-link [href]
   [:link {:type "text/css"
-          :href (format "%s.css" href)
-          :rel "stylesheet"}])
+          :href (format "%s.css?n=%s" href (now))
+          :rel  "stylesheet"}])
 
 (defn js-link [href]
   [:script {:type "text/javascript"
-            :src  (format "%s.js" href)}])
+            :src  (format "%s.js?n=%s" href (now))}])
 
 (defn basic [title {:keys [styles scripts]} content]
   (html5
