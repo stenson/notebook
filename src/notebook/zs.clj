@@ -7,20 +7,15 @@
 
 (def essay "14ANhea-S4bz9GOOOPIwCqfhKyGFpWQ2oQHtW1K-kHuQ")
 
-(defn build-site []
-  (spit
-    "sites/zhengstenson.com/index.html"
-    (html/basic
-      "Zheng Stenson Wedding"
-      {:styles  ["klim"
-                 "style"]
-       :scripts ["hyphenator"]}
-      [:div#container
-       [:div#text-outer
-        [:div#text-inner
-         [:h1 "Diana &amp; Rob"]
-         [:img.sz {:src "sz-512.png" :width 32}]
-         [:div.content
-          (:html (gdoc/as-hiero-html essay))]]]])))
-
-(build-site)
+(html/refresh
+  "zhengstenson.com"
+  "Zheng Stenson Wedding"
+  {:styles  ["klim" "style"]
+   :scripts ["hyphenator"]}
+  [:div#container
+   [:div#text-outer
+    [:div#text-inner
+     [:h1 "Diana &amp; Rob"]
+     [:img.sz {:src "sz-512.png" :width 32}]
+     [:div.content
+      (:html (gdoc/parse :html essay))]]]])

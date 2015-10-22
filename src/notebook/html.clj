@@ -38,3 +38,8 @@
        (list
          content
          (list (map js-link scripts)))])))
+
+(defn refresh [site title options content]
+  (spit
+    (format "sites/%s/index.html" site)
+    (basic title options content)))

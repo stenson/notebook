@@ -39,5 +39,7 @@
                 (str " "))]
     (hiero/parse md {})))
 
-(defn as-hiero-html [gid]
-  (html->hieronymus->html (read-html (g-dld gid "html"))))
+(defn parse [style gid]
+  (case style
+    :html (html->hieronymus->html (read-html (g-dld gid "html")))
+    :txt (hiero/parse (str " " (slurp (g-dld gid "txt"))) {})))
