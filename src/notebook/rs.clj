@@ -1,6 +1,7 @@
 (ns notebook.rs
   (:require [notebook.html :as html]
-            [notebook.gdoc :as gdoc]))
+            [notebook.gdoc :as gdoc]
+            [notebook.hiero :as hiero]))
 
 (defn essay [title subtitle link where about date]
   [:li
@@ -20,9 +21,15 @@
    :scripts ["hyphenator"]}
   [:div#container
    [:div#outer-outer
+    [:div#intro "Recent Writings"]
     [:div#outer
      [:div#inner
       [:ul
+       (essay "Searching on Interstate 10" nil
+              "http://lit.vulf.de/interstate-10/"
+              "lit.vulf"
+              "“We moved westward, downloading obscure Wikipedia articles...”"
+              "Oct 27, 2015")
        (essay "How to Get Hired at Twitter in 2011" nil
               "https://medium.com/@robstenson/how-to-get-hired-at-twitter-in-2011-22f03e8082ab#.a1hli53ft"
               "medium.com"
@@ -60,6 +67,12 @@
      [:img#rob {:src "me.png"}]]
     [:div#about
      (:html
-       (gdoc/parse
-         :txt
-         "13RSoNcQRUus9_13cy-2a3AQa_zJlFm39MvKu3YaoJvA"))]]])
+       (hiero/parse-p
+         "Rob Stenson writes words, code, and clawhammer banjo tunes.
+         He is a partner at [Goodhertz, Inc.](https://goodhertz.co)
+         and a recording artist on the [Vulf Records](https://vulf.bandcamp.com/)
+         label. Though previously a resident of (in chronological order)
+         Jacksonville, Cleveland, New York, San Francisco, and Boston,
+         Rob currently lives among palm tree emoji in Los Angeles, CA
+         with his fiancée and a dog named Alphonso. He also has a
+         [Twitter account](https://twitter.com/robstenson)."))]]])

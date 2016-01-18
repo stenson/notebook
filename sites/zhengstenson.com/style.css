@@ -5,8 +5,8 @@
 
 body {
   font-family: "TiemposWeb",Georgia,serif;
-  /*background: url(palm-bg-bw.jpg) no-repeat center center fixed;*/
-  background: #F7F7F7;
+  background: url(palm-bg.jpg) no-repeat center center fixed;
+  /*background: #F7F7F7;*/
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -31,6 +31,23 @@ h1 {
   font-family: "EubieScript", serif;
   font-size: 64px;
   text-align: left;
+}
+
+#dh {
+  width: 180px;
+  height: 180px;
+  position: absolute;
+  top: -30px;
+  right: 120px;
+  background: rgba(255,255,255,0.5);
+  border: 6px solid #A5202C;
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  transform: rotate(15deg);
+}
+
+#dh img {
+  width: 100%;
 }
 
 h3 {
@@ -60,7 +77,7 @@ h3 {
 
 #text-inner .content {
   font-family: "TiemposWeb",Georgia,serif;
-  line-height: 200%;
+  line-height: 170%;
   background-color: rgba(255,255,255,0.7);
   padding: 1px 40px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
@@ -85,4 +102,15 @@ figure {
 
 figure img {
   width: 100%;
+}
+
+ul {
+  list-style: none;
+  margin: 20px 0 26px;
+}
+
+span.punct {
+  display: inline-block;
+  width: 40px;
+  font-size: 24px;
 }

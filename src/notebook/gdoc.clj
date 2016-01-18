@@ -43,3 +43,22 @@
   (case style
     :html (html->hieronymus->html (read-html (g-dld gid "html")))
     :txt (hiero/parse (str " " (slurp (g-dld gid "txt"))) {})))
+
+(defn align-to-cols [cols txt]
+  (->> (string/split txt #"\s")
+       (reduce
+         (fn [acc s]
+           (let [lines (butlast acc)
+                 line (last acc)]
+             (if (> (count line) cols)
+               (concat lines [(string/trim line) s])
+               (concat lines [(str line " " s)]))))
+         [""])
+       (string/join "\n")))
+
+(defn as-clj-str-collection [gid]
+  (->> (g-dld gid "txt")
+       (slurp)
+       (string/split-lines)
+       (remove empty?)
+       (mapv (partial align-to-cols 40))))
