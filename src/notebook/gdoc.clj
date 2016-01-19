@@ -39,10 +39,13 @@
                 (str " "))]
     (hiero/parse md {})))
 
-(defn parse [style gid]
-  (case style
-    :html (html->hieronymus->html (read-html (g-dld gid "html")))
-    :txt (hiero/parse (str " " (slurp (g-dld gid "txt"))) {})))
+(defn parse
+  ([style gid]
+    (parse style gid true))
+  ([style gid add-space?]
+   (case style
+     :html (html->hieronymus->html (read-html (g-dld gid "html")))
+     :txt (hiero/parse (str (if add-space? " ") (slurp (g-dld gid "txt"))) {}))))
 
 (defn align-to-cols [cols txt]
   (->> (string/split txt #"\s")

@@ -1,0 +1,56 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+body {
+  background: whitesmoke;
+  font-family: Georgia, serif;
+}
+
+#header-container {
+  background: royalblue;
+  margin-bottom: 40px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+#header {
+  color: white;
+  font-family: Helvetica, sans-serif;
+  text-align: center;
+  padding: 10px 0px;
+}
+
+.tip {
+  background: deeppink;
+  color: white;
+}
+
+.posts-container,
+.post-container {
+  max-width: 700px;
+  margin: auto auto;
+  background: white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+ul .post-link a {
+  display: block;
+  text-decoration: none;
+  color: white;
+  background: deeppink;
+  padding: 10px;
+}
+
+.post {
+  padding: 20px;
+  font-size: 18px;
+}
+
+.post p {
+  margin-bottom: 20px;
+}

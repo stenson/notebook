@@ -17,3 +17,8 @@
   (-> (as-txt ps)
       (hiero/parse {})
       (:html)))
+
+(defn <-txt [txt]
+  (-> (str " " txt)
+      (hiero/parse {})
+      (:html)))

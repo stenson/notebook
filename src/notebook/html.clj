@@ -1,6 +1,7 @@
 (ns notebook.html
   (:require [garden.core :as garden]
-            [hiccup.page :refer [html5]]))
+            [hiccup.page :refer [html5]]
+            [me.raynes.fs :as fs]))
 
 (defn favicon [size]
   [:link {:href  (format "favicon-%sx%s.png" size size)
@@ -43,6 +44,8 @@
          (list (map js-link scripts)))])))
 
 (defn refresh [site title options content]
-  (spit
-    (format "sites/%s/index.html" site)
-    (basic title options content)))
+  (let [folder (format "sites/%s" site)]
+    (fs/mkdirs folder)
+    (spit
+      (str folder "/index.html")
+      (basic title options content))))
