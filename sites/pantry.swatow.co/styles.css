@@ -8,21 +8,29 @@ ul {
 }
 
 body {
-  background: whitesmoke;
-  font-family: Georgia, serif;
+  background: white;
+  font-family: TiemposTextWeb, Georgia, serif;
 }
 
 #header-container {
-  background: royalblue;
+  background: white;
   margin-bottom: 40px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  border-bottom: 4px solid rgba(255,255,255,0.2);
 }
 
 #header {
-  color: white;
-  font-family: Helvetica, sans-serif;
+  color: rgba(255,255,255,0.5);
+  font-family: "DomaineSansDisplay-BoldItalic", serif;
   text-align: center;
-  padding: 10px 0px;
+  padding: 20px 0 16px 0;
+  font-size: 14px;
+  max-width: 700px;
+  margin: auto auto;
+}
+
+.logo {
+  width: 128px;
+  height: 128px;
 }
 
 .tip {
@@ -30,20 +38,47 @@ body {
   color: white;
 }
 
-.posts-container,
 .post-container {
-  max-width: 700px;
-  margin: auto auto;
   background: white;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  border-bottom: 1px solid #eee;
 }
 
-ul .post-link a {
+.post-container-inner {
+  max-width: 700px;
+  margin: auto auto;
+}
+
+ul .post-container-inner {
+  padding: 20px 0 24px 0;
+}
+
+h3 {
+  font-family: "DomaineSansDisplay-BoldItalic", Georgia, serif;
+  font-size: 54px;
+  max-width: 100%;
+  line-height: 48px;
+  color: gold;
+  padding: 10px 0 0;
+}
+
+h6 {
+  font-size: 18px;
+  font-style: italic;
+  max-width: 60%;
+  color: rgb(220,50,60);
+  margin-top: 10px;
+}
+
+ul .post-container a {
   display: block;
   text-decoration: none;
-  color: white;
-  background: deeppink;
+  color: #557;
+  background: transparent;
   padding: 10px;
+}
+
+ul .post-container .lede {
+
 }
 
 .post {
