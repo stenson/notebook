@@ -18,9 +18,12 @@ body {
   border-bottom: 4px solid rgba(255,255,255,0.2);
 }
 
+#header, h1, h2, h3, h4, h5, h6 {
+  font-family: "DomaineSansDisplay-BoldItalic", serif;
+}
+
 #header {
   color: rgba(255,255,255,0.5);
-  font-family: "DomaineSansDisplay-BoldItalic", serif;
   text-align: center;
   padding: 20px 0 16px 0;
   font-size: 14px;
@@ -34,8 +37,10 @@ body {
 }
 
 .tip {
-  background: deeppink;
-  color: white;
+  background: white;
+  border: 2px solid #eee;
+  padding: 20px !important;
+  margin: 10px -20px !important;
 }
 
 .post-container {
@@ -57,16 +62,39 @@ h3 {
   font-size: 54px;
   max-width: 100%;
   line-height: 48px;
-  color: gold;
+  color: #E0C117;
   padding: 10px 0 0;
+}
+
+/*.post h3 {*/
+  /*color: rgb(220,50,60);*/
+  /*border-bottom: 1px solid gold;*/
+  /*margin-bottom: 40px;*/
+/*}*/
+
+.post-header {
+  padding-bottom: 24px;
+  position: relative;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 60px;
 }
 
 h6 {
   font-size: 18px;
-  font-style: italic;
-  max-width: 60%;
+  font-style: normal;
+  max-width: 80%;
   color: rgb(220,50,60);
   margin-top: 10px;
+  font-family: "FoundersGroteskWeb", sans-serif;
+}
+
+h6 .sep {
+  opacity: 0.2;
+}
+
+h6 .date {
+  opacity: 0.5;
+  font-family: "FoundersGroteskWeb", sans-serif;
 }
 
 ul .post-container a {
@@ -75,17 +103,149 @@ ul .post-container a {
   color: #557;
   background: transparent;
   padding: 10px;
+  position: relative;
 }
 
 ul .post-container .lede {
 
 }
 
+.sketch {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  height: 100px;
+}
+
+.sketch img {
+  width: 100%;
+  height: 100%;
+}
+
 .post {
-  padding: 20px;
-  font-size: 18px;
+  padding: 10px;
 }
 
 .post p {
   margin-bottom: 20px;
+}
+
+strong.inlined {
+  font-family: "FoundersGroteskWeb", sans-serif;
+  font-size: 120%;
+  color: rgb(220,50,60);
+}
+
+p.classic {
+  width: 80%;
+  margin: 0;
+  padding: 10px 0 10px 0;
+  line-height: 160%;
+  font-size: 16px;
+}
+
+.post ul.bullets,
+.post ol.numbers {
+  font-size: 15px;
+  list-style: none;
+}
+
+.post li {
+  margin-bottom: 10px;
+  text-indent: -17px;
+  margin-left: 33px;
+  font-size: 15px;
+  line-height: 150%;
+  width: 90%;
+}
+
+.post span.punct {
+  width: 17px;
+  display: inline-block;
+  color: #444;
+  font-family: "FoundersGroteskWeb", serif;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 1px;
+}
+
+.post sup {
+  font-family: "FoundersGroteskWeb", serif;
+  line-height: 100%;
+}
+
+figure {
+  margin: 20px 0;
+}
+
+figure img {
+  width: 100%;
+}
+
+.post .section {
+  position: relative;
+  background: whitesmoke;
+  width: 90%;
+  margin: 20px 0;
+}
+
+.post .section.right {
+  margin-left: -30px;
+  padding-left: 30px;
+  /*border-left: 1px solid #eee;*/
+}
+
+.post .section-start {
+  /*height: 4px;*/
+}
+
+.post .section-end {
+  height: 10px;
+}
+
+.post .spandrel {
+  position: absolute;
+  width: 16px;
+  height: 4px;
+  background: #eee;
+}
+
+.post .section.left .section-start .spandrel {
+  top: 0;
+  right: 0;
+}
+
+.post .section.left .section-end .spandrel {
+  bottom: 0;
+  right: 0;
+}
+
+.post .section.right .section-start .spandrel {
+  top: 0;
+  left: 0;
+}
+
+.post .section.right .section-end .spandrel {
+  bottom: 0;
+  left: 0;
+}
+
+.section .section-start h5 {
+  font-style: italic;
+  margin: 0;
+  text-align: left;
+  font-size: 24px;
+  color: #444;
+  padding-bottom: 0;
+  padding-top: 20px;
+}
+
+.section p.classic {
+  width: 90%;
+}
+
+.post a {
+  color: royalblue;
+  text-decoration: none;
 }

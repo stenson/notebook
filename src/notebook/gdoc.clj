@@ -5,6 +5,8 @@
             [clojure.set :as set])
   (:import (java.net URL)))
 
+#_(read-html (g-dld "1uXDM4acSAxXTcYtwqoSmZK7XDxIWP7l40Ne6t9GAv9s" "html"))
+
 (defn g-dld [id fmt]
   (format (string/join
             "" ["https://docs.google.com/feeds/download/"
@@ -34,17 +36,33 @@
 
 (defn html->hieronymus->html [h]
   (let [md (->> (html/select h [:p])
-                (map p->md)
+                ;(map p->md)
                 (string/join "\n\n")
                 (str " "))]
     (hiero/parse md {})))
+
+(defn html-as-hieronymized-text [h]
+  (->> (html/select h [:p])
+       (map (fn [el]
+              (let [t (html/text el)]
+                (if (not (empty? t))
+                  t
+                  (when-let [img (first (html/select el [:img]))]
+                    (let [{:keys [style src]} (:attrs img)]
+                      (format "ƒ«img:%s»(ß:max-width:700px)" src)))))))
+       (remove nil?)
+       (string/join "\n\n")))
 
 (defn parse
   ([style gid]
     (parse style gid true))
   ([style gid add-space?]
    (case style
-     :html (html->hieronymus->html (read-html (g-dld gid "html")))
+     ;:html (html->hieronymus->html (read-html (g-dld gid "html")))
+     :html (-> (g-dld gid "html")
+               (read-html)
+               (html-as-hieronymized-text)
+               (hiero/parse {}))
      :txt (hiero/parse (str (if add-space? " ") (slurp (g-dld gid "txt"))) {}))))
 
 (defn align-to-cols [cols txt]
