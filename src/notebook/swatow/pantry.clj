@@ -3,9 +3,7 @@
             [notebook.gdoc :as gdoc]
             [puget.printer :as puget]))
 
-#_(def book-links
-  [["Little Guide Book" "http://www.amazon.com/gp/product/9814561290/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=9814561290&linkCode=as2&tag=swatpant-20&linkId=544XZ5IOV7ZQQF4U"]
-   ["Little Guide Book" "http://www.amazon.com/gp/product/0684847396/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0684847396&linkCode=as2&tag=swatpant-20&linkId=TLRCL5UCZQORBAT2"]])
+; TODO add support for footnote-style links in hiero
 
 (def all-posts (atom []))
 

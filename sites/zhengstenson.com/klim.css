@@ -1,27 +1,25 @@
 
 @font-face {
   font-family: 'TiemposWeb';
-  src: url('style/klim/TiemposTextWeb-Regular.eot?t=1');
-  src: url('style/klim/TiemposTextWeb-Regular.eot?#iefix') format('embedded-opentype'),
-  url('style/klim/TiemposTextWeb-Regular.woff?t=1') format('woff');
+  src: url('/style/klim/TiemposTextWeb-Regular.eot?t=1');
+  src: url('/style/klim/TiemposTextWeb-Regular.eot?#iefix') format('embedded-opentype'),
+  url('/style/klim/TiemposTextWeb-Regular.woff?t=1') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'TiemposWeb';
-  src: url('style/klim/TiemposTextWeb-RegularItalic.eot?t=1');
-  src: url('style/klim/TiemposTextWeb-RegularItalic.eot?#iefix') format('embedded-opentype'),
-  url('style/klim/TiemposTextWeb-RegularItalic.woff?t=1') format('woff');
+  src: url('/style/klim/TiemposTextWeb-RegularItalic.eot?t=1');
+  src: url('/style/klim/TiemposTextWeb-RegularItalic.eot?#iefix') format('embedded-opentype'),
+  url('/style/klim/TiemposTextWeb-RegularItalic.woff?t=1') format('woff');
   font-weight: normal;
   font-style: italic;
 }
 
 @font-face {
   font-family: 'EubieScript';
-  src: url('style/daifoldes/EubieScript-Regular.eot?t=1');
-  src: url('style/daifoldes/EubieScript-Regular.eot?#iefix') format('embedded-opentype'),
-  url('style/daifoldes/EubieScriptWOFF-Regular.woff?t=1') format('woff');
+  src: url('/style/daifoldes/EubieScriptWOFF-Regular.woff') format('woff');
   font-weight: normal;
-  font-style: italic;
+  font-style: normal;
 }

@@ -1,0 +1,7 @@
+<ul class="clearfix"><% $pieces.each do |piece| %>
+  <li>
+    <a href="/pieces/<%= piece.url_title %>">
+      <img src="/<%= piece.photos[0].urls[:medium] %>"/>
+    </a>
+  </li><% end %>
+</ul>

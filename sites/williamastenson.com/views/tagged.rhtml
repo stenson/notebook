@@ -1,0 +1,9 @@
+<!-- template for displaying a list of images -->
+<ul class="clearfix"><% $tagged.each do |photo| %>
+  <li>
+    <a href="/photos/<%= photo.url_title %>">
+     <img src="/<%= photo.urls[:medium] %>"/>
+    </a>
+  </li>
+  <% end %>
+</ul>

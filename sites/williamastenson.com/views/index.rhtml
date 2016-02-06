@@ -1,0 +1,9 @@
+<ul class="clearfix"><% $pieces.each do |piece| %>
+  <li>
+    <a class="iphoto"
+       href="/pieces/<%= piece.url_title %>"
+       data-photos="<%= piece.photos.map{ |p| p.critical_stuff }.join(";") %>">
+      <img src="/<%= piece.photos[0].urls[:medium] %>"/>
+    </a>
+  </li><% end %>
+</ul>

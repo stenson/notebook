@@ -29,6 +29,9 @@
   [:script {:type "text/javascript"
             :src  (format "%s.js?n=%s" href (now))}])
 
+(defn inline-js [src]
+  [:script {:type "text/javascript"} src])
+
 (defn basic [title {:keys [styles scripts]} content]
   (html5
     {:lang "en"}
@@ -37,7 +40,9 @@
        [:meta {:charset "utf-8"}]
        [:title title]
        (list (favicons 16 32 96))
-       (list (map style-link styles))]
+       (if (string? styles)
+         (format [:style {:type "text/css"} styles])
+         (list (map style-link styles)))]
       [:body
        (list
          content

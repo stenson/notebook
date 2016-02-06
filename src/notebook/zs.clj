@@ -3,6 +3,7 @@
             [puget.printer :refer [cprint]]
             [notebook.gdoc :as gdoc]
             [hiccup.page :refer [html5]]
+            [notebook.css :refer [ß ß+]]
             [notebook.html :as html]
             [notebook.hiero :refer [<-txt as-txt]]))
 
@@ -14,29 +15,6 @@
 ; Deathdays
 ; International year of the pulse (http://www.fao.org/pulses-2016/en/)
 
-(def deets
-  ["___"
-   "### Future"
-   "So for now, Los Angeles is home (the background
-    of this site is the upward view from our driveway),
-    and we’ve decided to get married. Yes, we’ve
-    been engaged for over a year now, and we’ve
-    been cohabitating for over 5 years, and dating
-    for almost 9. But there’s no time like the
-    present!"
-   "So, here are the deets:"
-   "- _The day_ —  June 25, 2016"
-   "- _The venue_ — The Carondelet House, Los\nAngeles, CA"
-   "On the 24th, Brit & Kate will be hosting
-    a Rehearsal Dinner at the Fig House in Los
-    Angeles. Given that over 90% of all you wedding
-    guests are non-Angelenos, you’re also all
-    invited to that soiree — a more casual affair,
-    complete with an accordion & clarinet duo,
-    arranged in honor of the music once heard
-    at Brit & Kate’s own wedding (not their idea;
-    Rob’s idea)."])
-
 (def site "zhengstenson.com")
 
 (defn txt [f]
@@ -44,7 +22,79 @@
        (slurp)
        (<-txt)))
 
-(html/refresh
+(defn q [question answer]
+  [:div.q
+   [:h3.question question]
+   [:p.answer answer]])
+
+(def mapgl true)
+
+(def pages
+  [{:slug "about"
+    :title "Diana & Rob"
+    :html [:div#text-inner (txt :essay)]}
+   {:slug "details"
+    :title "Details"
+    :css [(if mapgl
+            "https://api.tiles.mapbox.com/mapbox-gl-js/v0.13.1/mapbox-gl"
+            "https://api.mapbox.com/mapbox.js/v2.3.0/mapbox")]
+    :js [(if mapgl
+           "https://api.tiles.mapbox.com/mapbox-gl-js/v0.13.1/mapbox-gl"
+           "https://api.mapbox.com/mapbox.js/v2.3.0/mapbox")
+         (if mapgl
+           "/map"
+           "/map-classic")]
+    :html [:div
+           [:div#map]
+           [:div#text-inner
+            [:div#details
+             [:h3 "Details"]
+             [:p "(tbd)"]]]]}
+   {:slug "registry"
+    :title "Registry"
+    :html [:div#text-inner
+           [:h3 "Registry"]
+           [:p "(tbd)"]]}])
+
+(defn page
+  ([html]
+    (page nil html))
+  ([{:keys [slug title js css]} html]
+   (html/refresh
+     (str "zhengstenson.com" (when slug (str "/" slug)))
+     (str "Zheng & Stenson Wedding" (when title (str " — " title)))
+     {:styles (concat ["/klim"
+                       "/style"]
+                      css)
+      :scripts (concat ["/hyphenator"]
+                       js)}
+     [:div#container
+      [:div#header-container
+       [:div#header
+        [:a#home {:href "/"}
+         [:img#logo {:src "/sz-circle.png" :alt "Zheng & Stenson"}]
+         [:h3 "Zheng & Stenson"]]]]
+      [:div#navigation-container
+       [:div#navigation
+        (for [[title slug]
+              [["Diana & Rob" "about"]
+               ["Details" "details"]
+               ["Registry" "registry"]]]
+          [:div.nav-item-container
+           [:a.nav-item {:href (str "/" slug)}
+            [:span title]]])]]
+      (if html
+        [:div#content-outer
+         [:div#content
+          html]])])))
+
+(do
+  (page nil)
+  (doall
+    (for [p pages]
+      (page p (:html p)))))
+
+#_(html/refresh
   site
   "Zheng Stenson Wedding"
   {:styles ["klim" "style"]
