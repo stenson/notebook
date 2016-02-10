@@ -1,6 +1,7 @@
 * {
   padding: 0;
   margin: 0;
+  list-style: none;
 }
 
 body {
@@ -124,12 +125,12 @@ a.nav-item:hover span {
 }
 
 #text-inner h3 {
-  font-size: 28px;
-  color: #333;
+  font-size: 40px;
+  color: rgb(216, 50, 50);
   margin-bottom: 20px;
 }
 
-p {
+#text-inner p {
   margin-bottom: 18px;
 }
 
@@ -147,13 +148,42 @@ span.punct {
 
 .mapboxgl-popup {
   max-width: 400px;
-  font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: TiemposWeb,serif;
+  font-size: 18px;
+  text-align: center;
 }
 
 .marker-title {
-  font-weight: 700;
+  font-family: EubieScript, serif;
+  font-size: 40px;
+  height: 40px;
+  padding: 10px;
+  color: rgb(216, 50, 50);
 }
 
 .mapboxgl-control-container {
   display: none;
+}
+
+.mapboxgl-popup-close-button {
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  border: none;
+  border-radius: 0 3px 0 0;
+  cursor: pointer;
+  background-color: rgba(0,0,0,0);
+  font-size: 18px;
+  color: #555;
+}
+
+#details span {
+  color: #888;
+  font-style: italic;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.q {
+  margin-bottom: 50px;
 }

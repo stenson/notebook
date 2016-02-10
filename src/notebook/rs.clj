@@ -25,6 +25,11 @@
     [:div#outer
      [:div#inner
       [:ul
+       (essay "Through the Sea, 1945" nil
+              "https://medium.com/@robstenson/through-the-sea-1945-235acff7d406"
+              "medium.com"
+              "Two ensigns consider their own deaths during the Battle of Okinawa"
+              "Feb 9, 2016")
        (essay "Searching on Interstate 10" nil
               "http://lit.vulf.de/interstate-10/"
               "lit.vulf"

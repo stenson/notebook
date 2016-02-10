@@ -5,7 +5,7 @@ var markers = {
   "features": [{
     "type": "Feature",
     "properties": {
-      "description": "<div class=\"marker-title\">Carondelet House</div><p>Wedding Venue</p>",
+      "description": "<div class=\"marker-title\">Carondelet House</div><p>627 S Carondelet St<br/>Los Angeles, CA<br/>90057</p>",
       "title": "Wedding Venue",
       "marker-symbol": "airport",
       "title-anchor": "bottom"
@@ -17,7 +17,7 @@ var markers = {
   }, {
     "type": "Feature",
     "properties": {
-      "description": "<div class=\"marker-title\">Fig House</div><p>Rehearsal Dinner Venue</p>",
+      "description": "<div class=\"marker-title\">The Fig House</div><p>6433 N Figueroa St<br/>Los Angeles<br/>CA 90042</p>",
       "marker-symbol": "star",
       "title": "Rehearsal Dinner",
       "title-anchor": "bottom"
@@ -29,7 +29,7 @@ var markers = {
   }, {
     "type": "Feature",
     "properties": {
-      "description": "<div class=\"marker-title\">Langham Huntington</div><p>Hotel</p>",
+      "description": "<div class=\"marker-title\">Langham Huntington</div><p>1401 S Oak Knoll Ave<br/>Pasadena, CA<br/>91106</p>",
       "title": "The Hotel",
       "marker-symbol": "harbor",
       "title-anchor": "top"
@@ -45,8 +45,8 @@ var markers = {
 var map = new mapboxgl.Map({
   container: 'map', // container id
   //style: 'mapbox://styles/stenson/cikbjaczf006q9um5iewjv7y0',
-  style: 'mapbox://styles/mapbox/light-v8',
-  //style: "mapbox://styles/stenson/cikbqkt2t006g9fm18v2zxtkz",
+  //style: 'mapbox://styles/mapbox/light-v8',
+  style: "mapbox://styles/stenson/cikbqkt2t006g9fm18v2zxtkz",
   center: [
     -118.208023,
     34.095621
@@ -77,10 +77,10 @@ map.on('style.load', function () {
       "text-rotate": -20
     },
     "paint": {
-      "text-color": "gold",
-      "text-halo-color": "#BC332F",
+      "text-color": "#BC332F",
+      "text-halo-color": "white",
       "text-halo-width": "2",
-      "text-halo-blur": "0.2"
+      "text-halo-blur": "0.3"
     }
   });
 });

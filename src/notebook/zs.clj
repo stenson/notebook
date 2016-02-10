@@ -48,8 +48,18 @@
            [:div#map]
            [:div#text-inner
             [:div#details
-             [:h3 "Details"]
-             [:p "(tbd)"]]]]}
+             (q "When & Where is the Rehearsal Dinner?"
+                [:ul
+                 [:li [:span "When"] "June 25th, 2016"]
+                 [:li [:span "When"] "?"]
+                 [:li [:span "Where"] "The Fig House"]
+                 [:li [:span "Where"] "6433 N Figueroa St Los Angeles, CA 90042"]])
+             (q "When & Where is the Wedding?"
+                [:ul
+                 [:li [:span "When"] "June 26th, 2016"]
+                 [:li [:span "When"] "5pm - Midnight"]
+                 [:li [:span "Where"] "The Carondelet House"]
+                 [:li [:span "Where"] "627 S Carondelet St Los Angeles, CA 90057"]])]]]}
    {:slug "registry"
     :title "Registry"
     :html [:div#text-inner
@@ -63,11 +73,8 @@
    (html/refresh
      (str "zhengstenson.com" (when slug (str "/" slug)))
      (str "Zheng & Stenson Wedding" (when title (str " — " title)))
-     {:styles (concat ["/klim"
-                       "/style"]
-                      css)
-      :scripts (concat ["/hyphenator"]
-                       js)}
+     {:styles (concat css ["/klim" "/style"])
+      :scripts (concat ["/hyphenator"] js)}
      [:div#container
       [:div#header-container
        [:div#header
