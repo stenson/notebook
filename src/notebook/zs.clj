@@ -32,7 +32,13 @@
 (def pages
   [{:slug "about"
     :title "Diana & Rob"
-    :html [:div#text-inner (txt :essay)]}
+    :html
+    [:div#text-inner
+     [:div.text (txt :essay)]
+     [:div.date "— September, 2015"]
+     [:div#cameo
+      [:div#cameo-inner]
+      [:img#alf {:src "/dog.png"}]]]}
    {:slug "details"
     :title "Details"
     :css [(if mapgl
@@ -64,7 +70,32 @@
     :title "Registry"
     :html [:div#text-inner
            [:h3 "Registry"]
-           [:p "(tbd)"]]}])
+           [:p
+            "Because we’ve been living together for
+            a little over 5 years now, we've already
+            collected most of the the classic home
+            essentials."]
+           [:p
+            "That said, there are still some kitchen
+            things we’d love to add to our collection
+            (since we love kitchen things), so you’ll
+            see some of those on our Zola registry."]
+           [:p
+            "But! The big thing for us is our honeymoon
+            trip, on which we’ll be visiting Diana’s
+            grandmothers and extended family in Southern
+            China, before we head to Vietnam and
+            Singapore (where we’ll be doing some
+            tasty research)."]
+           [:p "Here’s our "
+            [:a {:style (ß {:background "royalblue"
+                            :color "white"
+                            :padding "4px"
+                            :display "inline-block"
+                            :text-decoration "none"})
+                 :target "_blank"
+                 :href "https://www.zola.com/registry/dianaandrob"}
+             "Zola registry"] "."]]}])
 
 (defn page
   ([html]

@@ -187,3 +187,22 @@ span.punct {
 .q {
   margin-bottom: 50px;
 }
+
+.date {
+  text-align: right;
+  font-style: italic;
+}
+
+#cameo {
+  width: 150px;
+  margin: 80px auto 20px auto;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid white;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+#cameo img {
+  width: 100%;
+  display: block;
+}
