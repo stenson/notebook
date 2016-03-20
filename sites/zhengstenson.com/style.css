@@ -206,3 +206,23 @@ span.punct {
   width: 100%;
   display: block;
 }
+
+#portrait {
+  margin: 20px auto 100px auto;
+  width: 600px;
+  height: 348px;
+  border: 1px solid white;
+  overflow: hidden;
+  /*box-shadow: 0 0 10px rgba(0,0,0,0.1);*/
+}
+
+#portrait img {
+  width: 600px;
+  opacity: 0.6;
+}
+
+li.small {
+  font-style: italic;
+  font-size: 12px;
+  padding: 8px 0;
+}

@@ -25,6 +25,16 @@
     [:div#outer
      [:div#inner
       [:ul
+       (essay "Garbage in, Garbage out" nil
+              "http://www.atlasobscura.com/articles/is-this-the-first-time-anyone-printed-garbage-in-garbage-out"
+              "Atlas Obscura"
+              "The early computing phrase’s history is rife with bad information"
+              "March 14, 2016")
+       (essay "Thrill of the Arts" nil
+              "http://lit.vulf.de/thrill-of-the-arts/"
+              "lit.vulf"
+              "Liner notes written for Vulfpeck’s 2015 album"
+              "March 3, 2016")
        (essay "Through the Sea, 1945" nil
               "https://medium.com/@robstenson/through-the-sea-1945-235acff7d406"
               "medium.com"

@@ -56,16 +56,17 @@
             [:div#details
              (q "When & Where is the Rehearsal Dinner?"
                 [:ul
-                 [:li [:span "When"] "June 25th, 2016"]
+                 [:li [:span "When"] "June 24th, 2016"]
                  [:li [:span "When"] "?"]
                  [:li [:span "Where"] "The Fig House"]
                  [:li [:span "Where"] "6433 N Figueroa St Los Angeles, CA 90042"]])
              (q "When & Where is the Wedding?"
                 [:ul
-                 [:li [:span "When"] "June 26th, 2016"]
-                 [:li [:span "When"] "5pm - Midnight"]
+                 [:li [:span "When"] "June 25th, 2016"]
+                 [:li [:span "When"] "5:30pm - 11:00pm"]
                  [:li [:span "Where"] "The Carondelet House"]
-                 [:li [:span "Where"] "627 S Carondelet St Los Angeles, CA 90057"]])]]]}
+                 [:li [:span "Where"] "627 S Carondelet St Los Angeles, CA 90057"]
+                 [:li.small "Please arrive early to find your seat"]])]]]}
    {:slug "registry"
     :title "Registry"
     :html [:div#text-inner
@@ -99,8 +100,8 @@
 
 (defn page
   ([html]
-    (page nil html))
-  ([{:keys [slug title js css]} html]
+    (page nil html false))
+  ([{:keys [slug title js css]} html wrap?]
    (html/refresh
      (str "zhengstenson.com" (when slug (str "/" slug)))
      (str "Zheng & Stenson Wedding" (when title (str " — " title)))
@@ -122,15 +123,19 @@
            [:a.nav-item {:href (str "/" slug)}
             [:span title]]])]]
       (if html
-        [:div#content-outer
-         [:div#content
-          html]])])))
+        (if wrap?
+          [:div#content-outer
+           [:div#content
+            html]]
+          html))])))
 
 (do
-  (page nil)
+  (page
+    [:div#portrait
+     [:img {:src "/portrait-small.jpg"}]])
   (doall
     (for [p pages]
-      (page p (:html p)))))
+      (page p (:html p) true))))
 
 #_(html/refresh
   site
