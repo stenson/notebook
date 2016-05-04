@@ -25,6 +25,18 @@
     [:div#outer
      [:div#inner
       [:ul
+       (essay "How to Get Hired at Twitter in 2011" nil
+              "https://medium.com/@robstenson/how-to-get-hired-at-twitter-in-2011-22f03e8082ab#.a1hli53ft"
+              "medium.com"
+              "Ruminations and useless advice from a stint in Silicon Valley"
+              "Aug 21, 2015")
+       (essay "League of Lagers"
+              "An ongoing series"
+              "http://lager.robstenson.com"
+              "League of Lagers"
+              "From the Emperor of Mexico and his personal brewers, to the Lt. General of Okinawa and his call for more concrete, a history of 5
+              international lagers that all kind of taste the same"
+              "March 24, 2016")
        (essay "Garbage in, Garbage out" nil
               "http://www.atlasobscura.com/articles/is-this-the-first-time-anyone-printed-garbage-in-garbage-out"
               "Atlas Obscura"
@@ -45,11 +57,6 @@
               "lit.vulf"
               "“We moved westward, downloading obscure Wikipedia articles...”"
               "Oct 27, 2015")
-       (essay "How to Get Hired at Twitter in 2011" nil
-              "https://medium.com/@robstenson/how-to-get-hired-at-twitter-in-2011-22f03e8082ab#.a1hli53ft"
-              "medium.com"
-              "Ruminations and useless advice from a stint in Silicon Valley"
-              "Aug 21, 2015")
        (essay "Lossy’s Uncharted Waters" nil
               "http://tonal.goodhertz.co/uncharted-waters/"
               "tonal.goodhertz.co"

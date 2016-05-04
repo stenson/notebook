@@ -26,19 +26,21 @@ var markers = {
       "type": "Point",
       "coordinates": [-118.183901, 34.118905]
     }
-  }, {
-    "type": "Feature",
-    "properties": {
-      "description": "<div class=\"marker-title\">Langham Huntington</div><p>1401 S Oak Knoll Ave<br/>Pasadena, CA<br/>91106</p>",
-      "title": "The Hotel",
-      "marker-symbol": "harbor",
-      "title-anchor": "top"
-    },
-    "geometry": {
-      "type": "Point",
-      "coordinates": [-118.133352, 34.119810]
-    }
-  }]
+  },
+  //  {
+  //  "type": "Feature",
+  //  "properties": {
+  //    "description": "<div class=\"marker-title\">Langham Huntington</div><p>1401 S Oak Knoll Ave<br/>Pasadena, CA<br/>91106</p>",
+  //    "title": "The Hotel",
+  //    "marker-symbol": "harbor",
+  //    "title-anchor": "top"
+  //  },
+  //  "geometry": {
+  //    "type": "Point",
+  //    "coordinates": [-118.133352, 34.119810]
+  //  }
+  //}
+  ]
 };
 
 

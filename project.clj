@@ -13,4 +13,5 @@
                  [me.raynes/fs "1.4.6"]
                  [garden "1.3.0-SNAPSHOT"]
                  [hieronymus "0.1.9-SNAPSHOT"]
-                 [overtone "0.9.1"]])
+                 [overtone "0.9.1"]
+                 [clj-spotify "0.1.2"]])

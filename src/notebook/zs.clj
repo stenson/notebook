@@ -36,9 +36,25 @@
     [:div#text-inner
      [:div.text (txt :essay)]
      [:div.date "— September, 2015"]
-     [:div#cameo
-      [:div#cameo-inner]
-      [:img#alf {:src "/dog.png"}]]]}
+     [:div.photos
+      [:div.photo [:img {:src "/img/alf.jpg"}]]
+      [:div.photo.tall [:img {:src "/img/bench.jpg"}]]
+      [:div.photo.tall [:img {:src "/img/wallkiss.jpg"}]]
+      [:div.photo [:img {:src "/img/legs.jpg"}]]
+      [:div.photo [:img {:src "/img/guns.jpg"}]]
+      [:div.photo.tall [:img {:src "/img/kiss.jpg"}]]
+      [:div.photo.tall [:img {:src "/img/lift.jpg"}]]
+      #_[:div.photo [:img {:src "/img/walking.jpg"}]]
+      [:div.photo.tall [:img {:src "/img/wall.jpg"}]]
+      [:div.photo.tall [:img {:src "/img/laugh.jpg"}]]
+      [:div.photo [:img {:src "/img/front.jpg"}]]
+      [:div.photo [:img {:src "/img/sunset.jpg"}]]
+      [:div.photo [:img {:src "/img/city.jpg"}]]]]}
+   {:slug "what-to-do-in-la"
+    :title "What to do in Los Angeles"
+    :html
+    [:div#text-inner
+     [:div.text (txt :la)]]}
    {:slug "details"
     :title "Details"
     :css [(if mapgl
@@ -57,46 +73,48 @@
              (q "When & Where is the Rehearsal Dinner?"
                 [:ul
                  [:li [:span "When"] "June 24th, 2016"]
-                 [:li [:span "When"] "?"]
+                 [:li [:span "When"] "6pm – 10pm"]
                  [:li [:span "Where"] "The Fig House"]
-                 [:li [:span "Where"] "6433 N Figueroa St Los Angeles, CA 90042"]])
+                 [:li [:span "Where"] "6433 N Figueroa St Los Angeles, CA 90042"]
+                 [:li.small "All are invited!; invitations will be mailed separately"]])
              (q "When & Where is the Wedding?"
                 [:ul
                  [:li [:span "When"] "June 25th, 2016"]
-                 [:li [:span "When"] "5:30pm - 11:00pm"]
+                 [:li [:span "When"] "5:30pm – 11:00pm"]
                  [:li [:span "Where"] "The Carondelet House"]
                  [:li [:span "Where"] "627 S Carondelet St Los Angeles, CA 90057"]
-                 [:li.small "Please arrive early to find your seat"]])]]]}
+                 [:li.small "Please arrive at least 15 minutes early to find your seat"]])
+             (q "Where should I stay in Los Angeles?"
+                [:p "If you haven’t already booked a room, we recommend
+                finding a place in Northeast Los Angeles via AirBnB."])
+             (q "What should I wear?!"
+                [:p "Cocktail attire"])
+             (q "Is there parking???"
+                [:p "Yes. There will be valet parking at the Fig House, and a "
+                 [:a {:href "https://www.parkme.com/lot/99490/611-south-carondolet-parking-los-angeles-ca"}
+                  "parking garage"]
+                 " next to the Carondelet House. That said, Uber
+                 and/or Lyft are quickly becoming staples of Los Angeles
+                 transportation, so if you’ll be imbibing, we’d recommend
+                 one of those. We’ll also be running a shuttle from the
+                 Langham Huntington Hotel in Pasadena, to both the rehearsal
+                 dinner and to the wedding. (Details forthcoming.)"])
+             (q "Should I rent a car?"
+                [:p "It’s Los Angeles so... probably. Although a lot of
+                people claim to get around solely with a car share service."])]]]}
    {:slug "registry"
     :title "Registry"
     :html [:div#text-inner
            [:h3 "Registry"]
            [:p
-            "Because we’ve been living together for
-            a little over 5 years now, we've already
-            collected most of the the classic home
-            essentials."]
+            "We know some of you will be traveling many miles
+            to share our big day, and some will be sending warm wishes
+            from afar. Your love and support are the best gifts we could
+            ask for, as we begin a new chapter together!"]
            [:p
-            "That said, there are still some kitchen
-            things we’d love to add to our collection
-            (since we love kitchen things), so you’ll
-            see some of those on our Zola registry."]
-           [:p
-            "But! The big thing for us is our honeymoon
-            trip, on which we’ll be visiting Diana’s
-            grandmothers and extended family in Southern
-            China, before we head to Vietnam and
-            Singapore (where we’ll be doing some
-            tasty research)."]
-           [:p "Here’s our "
-            [:a {:style (ß {:background "royalblue"
-                            :color "white"
-                            :padding "4px"
-                            :display "inline-block"
-                            :text-decoration "none"})
-                 :target "_blank"
-                 :href "https://www.zola.com/registry/dianaandrob"}
-             "Zola registry"] "."]]}])
+            "If you would like to give a gift "
+            [:a {:href "https://www.zola.com/registry/dianaandrob"}
+             "we are registered at Zola."]]]}])
 
 (defn page
   ([html]
@@ -115,11 +133,12 @@
          [:h3 "Zheng & Stenson"]]]]
       [:div#navigation-container
        [:div#navigation
-        (for [[title slug]
-              [["Diana & Rob" "about"]
-               ["Details" "details"]
-               ["Registry" "registry"]]]
-          [:div.nav-item-container
+        (for [[title slug width]
+              [["Diana & Rob" "about" "30%"]
+               ["Details" "details" "20%"]
+               ["Registry" "registry" "20%"]
+               ["Los Angeles" "what-to-do-in-la" "30%"]]]
+          [:div.nav-item-container {:style (str "width:" width)}
            [:a.nav-item {:href (str "/" slug)}
             [:span title]]])]]
       (if html
@@ -131,25 +150,7 @@
 
 (do
   (page
-    [:div#portrait
-     [:img {:src "/portrait-small.jpg"}]])
+    [:h3.large "Diana & Rob are getting married!"])
   (doall
     (for [p pages]
       (page p (:html p) true))))
-
-#_(html/refresh
-  site
-  "Zheng Stenson Wedding"
-  {:styles ["klim" "style"]
-   :scripts ["hyphenator"]}
-  [:div#container
-   [:div#text-outer
-    [:div#text-inner
-     [:h1 "Diana &amp; Rob"]
-     [:div#dh
-      [:a {:href "https://en.wikipedia.org/wiki/Double_Happiness_(calligraphy)"
-           :target "_blank"}
-       [:img {:src "dh.png"}]]]
-     [:img.sz {:src "sz-512.png" :width 32}]
-     [:div.content (txt :essay)]
-     [:div.details (txt :details)]]]])

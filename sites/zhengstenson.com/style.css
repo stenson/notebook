@@ -6,18 +6,48 @@
 
 body {
   font-family: "TiemposWeb",Georgia,serif;
-  background: url(palm-bg.jpg) no-repeat center center fixed;
+  background: url(/img/bg.jpg) no-repeat center center fixed;
   /*background: #F7F7F7;*/
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   width: 100%;
+  background-position: bottom center;
 }
 
 h1, h2, h3, h4, h5 {
   font-family: "EubieScript", "TiemposWeb", serif;
   font-weight: normal;
+}
+
+h4 {
+  font-size: 40px;
+  line-height: 92%;
+  margin-top: 40px;
+  color: rgb(216, 50, 50);
+  margin-bottom: 20px;
+}
+
+h5 {
+  font-size: 30px;
+  line-height: 92%;
+  margin-top: 20px;
+  color: rgba(216, 50, 50, 0.8);
+  margin-bottom: 10px;
+}
+
+ul.bullets {
+  line-height: 100%;
+}
+
+ul.bullets li .punct {
+  color: #aaa;
+}
+
+ul.bullets li a {
+  text-decoration: none;
+  color: royalblue;
 }
 
 #container {
@@ -28,7 +58,7 @@ h1, h2, h3, h4, h5 {
 
 #header-container {
   margin-bottom: 20px;
-  height: 260px;
+  height: 215px;
 }
 
 #header {
@@ -49,7 +79,7 @@ h1, h2, h3, h4, h5 {
   padding-top: 20px;
 }
 
-#header h3 {
+h3 {
   font-size: 39px;
   text-align: center;
   color: rgb(216, 50, 50);
@@ -57,14 +87,18 @@ h1, h2, h3, h4, h5 {
   margin: 0;
 }
 
+h3.large {
+  font-size: 100px;
+}
+
 #navigation {
-  width: 700px;
+  width: 500px;
   height: 100px;
   margin: auto auto;
 }
 
 .nav-item-container {
-  width: 33%;
+  width: 25%;
   float: left;
 }
 
@@ -75,7 +109,8 @@ a.nav-item {
   display: block;
   text-decoration: none;
   text-align: center;
-  padding: 4px 10px;
+  /*padding: 10px 10px 16px 10px;*/
+  /*background: rgba(255,255,255,0.4);*/
 }
 
 a.nav-item span {
@@ -99,6 +134,7 @@ a.nav-item:hover span {
   margin: auto auto;
   background: rgba(255,255,255,0.8);
   border: 10px solid white;
+  overflow: auto;
 }
 
 #text-outer {
@@ -210,19 +246,42 @@ span.punct {
 #portrait {
   margin: 20px auto 100px auto;
   width: 600px;
-  height: 348px;
-  border: 1px solid white;
+  height: 429px;
+  border: 1px solid rgba(255,255,255,0.2);
   overflow: hidden;
   /*box-shadow: 0 0 10px rgba(0,0,0,0.1);*/
 }
 
 #portrait img {
   width: 600px;
-  opacity: 0.6;
+  opacity: 1.0;
 }
 
 li.small {
   font-style: italic;
   font-size: 12px;
   padding: 8px 0;
+}
+
+.photos {
+  margin-top: 80px;
+}
+
+.photo img {
+  width: 100%;
+}
+
+.photo.tall {
+  width: 50%;
+  height: 490px;
+  overflow: hidden;
+  float: left;
+  margin-bottom: 5px;
+}
+
+hr {
+  border: none;
+  border-bottom: 1px dotted #aaa;
+  margin-bottom: 20px;
+  margin-top: 40px;
 }
