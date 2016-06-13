@@ -1,0 +1,95 @@
+* { padding: 0; margin: 0; }
+
+#container {
+  color: #222;
+  margin: auto auto;
+  position: relative;
+  background: #eee;
+  min-height: 1200px;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: "EubieScript", "TiemposWeb", serif;
+  font-weight: normal;
+}
+
+h3 {
+  font-size: 39px;
+  text-align: center;
+  color: rgb(216, 50, 50);
+  padding: 8px 0 0 4px;
+  margin: 0;
+}
+
+#header-container {
+  margin-bottom: 20px;
+  height: 215px;
+}
+
+#header {
+  width: 700px;
+  margin: auto auto;
+}
+
+#home {
+  display: block;
+  text-decoration: none;
+}
+
+#logo {
+  display: block;
+  width: 140px;
+  height: 140px;
+  margin: auto auto;
+  padding-top: 20px;
+}
+
+#content-outer {
+  max-width: 464px;
+  margin: auto auto;
+}
+
+#content {
+  background: white;
+  box-shadow: 0 0 30px rgba(0,0,0,0.1);
+  padding: 50px;
+}
+
+h1 {
+  font-family: "FoundersGroteskCond-SmBd", sans-serif;
+  font-size: 38px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+  margin-top: 100px;
+}
+
+#people {
+  position: relative;
+  margin-top: 20px;
+}
+
+.person {
+  position: relative;
+  font-size: 16px;
+  font-family: "TiemposWeb", serif;
+  height: 20px;
+}
+
+.person span {
+  margin-left: 4px;
+  color: #ccc;
+}
+
+.person strong {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-weight: normal;
+  font-family: "TiemposText-Bold", serif;
+}
+
+.spacer {
+  height: 20px;
+}

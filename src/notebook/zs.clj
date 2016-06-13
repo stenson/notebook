@@ -76,7 +76,7 @@
                  [:li [:span "When"] "6pm – 10pm"]
                  [:li [:span "Where"] "The Fig House"]
                  [:li [:span "Where"] "6433 N Figueroa St Los Angeles, CA 90042"]
-                 [:li.small "All are invited!; invitations will be mailed separately"]])
+                 [:li.small "All are invited!"]])
              (q "When & Where is the Wedding?"
                 [:ul
                  [:li [:span "When"] "June 25th, 2016"]
@@ -148,9 +148,56 @@
             html]]
           html))])))
 
-(do
+#_(do
   (page
     [:h3.large "Diana & Rob are getting married!"])
   (doall
     (for [p pages]
       (page p (:html p) true))))
+
+(defn person
+  ([name]
+    [:div.person [:strong name]])
+  ([role name number]
+   [:div.person
+    [:em role]
+    [:span (repeat number ".")]
+    [:strong name]]))
+
+(defn spacer []
+  [:div.spacer])
+
+(def program
+  (html/refresh
+    (str "zhengstenson.com/program")
+    (str "Zheng & Stenson Wedding — Program")
+    {:styles ["/klim" "/program"]}
+    [:div#container
+     [:div#content-outer
+      [:div#content
+       [:a#home {:href "/"}
+        [:img#logo {:src "/sz-circle.png" :alt "Zheng & Stenson"}]
+        [:h3 "Zheng & Stenson"]]
+       [:h1 "Cast of Characters"]
+       [:div#people
+        (person "Bride" "Diana Danxia Zheng" 32)
+        (person "Groom" "Robert Rush Stenson" 28)
+        (spacer)
+        (person "Maid of Honor" "Lisa Zheng" 34)
+        (person "Best Man" "Jack P. Stratton" 34)
+        (spacer)
+        (person "Bridesmaids" "Stefanie Koening" 26)
+        (person "Rebecca Yae")
+        (person "Molly D. Stenson")
+        (spacer)
+        (person "Groomsman" "William A. Stenson" 23)
+        (person "Michael J. Molina")
+        (person "Jeffrey R. Schwartz")
+        (spacer)
+        (person "Father of the Bride" "Yuepeng Zheng" 20)
+        (person "Mother of the Bride" "Kun Liu" 32)
+        (spacer)
+        (person "Father of the Groom" "Robert Stenson" 17)
+        (person "Mother of the Groom" "Kathleen H. Stenson" 8)
+        (spacer)
+        (person "Officiant" "Theodore Katzman" 29)]]]]))

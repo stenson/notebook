@@ -21,7 +21,7 @@
    :scripts ["hyphenator"]}
   [:div#container
    [:div#outer-outer
-    [:div#intro "Recent Writings"]
+    [:div#intro "Unordered List of Recent Writings"]
     [:div#outer
      [:div#inner
       [:ul
@@ -30,6 +30,26 @@
               "medium.com"
               "Ruminations and useless advice from a stint in Silicon Valley"
               "Aug 21, 2015")
+       (essay "My First Instrument" nil
+              "http://my1stinstrument.com"
+              "my1stinstrument.com"
+              "An ongoing series of interviews with musicians (+ gif portraits)"
+              "April 5, 2016")
+       (essay "Garbage in, Garbage out" nil
+              "http://www.atlasobscura.com/articles/is-this-the-first-time-anyone-printed-garbage-in-garbage-out"
+              "Atlas Obscura"
+              "The early computing phrase’s history is rife with bad information"
+              "March 14, 2016")
+       (essay "Lossy’s Uncharted Waters" nil
+              "http://tonal.goodhertz.co/uncharted-waters/"
+              "tonal.goodhertz.co"
+              "Unnecessarily poetic blog post about a piece of audio software"
+              "Apr 7, 2015")
+       (essay "Thrill of the Arts" nil
+              "http://lit.vulf.de/thrill-of-the-arts/"
+              "lit.vulf"
+              "Liner notes written for Vulfpeck’s 2015 album"
+              "March 3, 2016")
        (essay "League of Lagers"
               "An ongoing series"
               "http://lager.robstenson.com"
@@ -37,16 +57,6 @@
               "From the Emperor of Mexico and his personal brewers, to the Lt. General of Okinawa and his call for more concrete, a history of 5
               international lagers that all kind of taste the same"
               "March 24, 2016")
-       (essay "Garbage in, Garbage out" nil
-              "http://www.atlasobscura.com/articles/is-this-the-first-time-anyone-printed-garbage-in-garbage-out"
-              "Atlas Obscura"
-              "The early computing phrase’s history is rife with bad information"
-              "March 14, 2016")
-       (essay "Thrill of the Arts" nil
-              "http://lit.vulf.de/thrill-of-the-arts/"
-              "lit.vulf"
-              "Liner notes written for Vulfpeck’s 2015 album"
-              "March 3, 2016")
        (essay "Through the Sea, 1945" nil
               "https://medium.com/@robstenson/through-the-sea-1945-235acff7d406"
               "medium.com"
@@ -57,11 +67,6 @@
               "lit.vulf"
               "“We moved westward, downloading obscure Wikipedia articles...”"
               "Oct 27, 2015")
-       (essay "Lossy’s Uncharted Waters" nil
-              "http://tonal.goodhertz.co/uncharted-waters/"
-              "tonal.goodhertz.co"
-              "Unnecessarily poetic blog post about a piece of audio software"
-              "Apr 7, 2015")
        (essay "Why I Play the Banjo" nil
               "https://medium.com/the-banjo/why-i-play-the-banjo-3e312da0eab7"
               "medium.com"
