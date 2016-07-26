@@ -285,3 +285,26 @@ hr {
   margin-bottom: 20px;
   margin-top: 40px;
 }
+
+a.big-link {
+  font-family: "FoundersGroteskCond-SmBd", sans-serif;
+  font-size: 24px;
+  color: rgb(216, 50, 50);
+  text-decoration: none;
+  border-bottom: 1px solid white;
+  padding: 30px;
+  text-transform: uppercase;
+  display: block;
+  margin: auto auto;
+  width: 400px;
+  text-align: center;
+  background: rgba(255,255,255,0.7);
+}
+
+.alt-1 {
+  background: rgb(216,50,50);
+  color: white;
+  padding: 1px 5px;
+  border-radius: 4px;
+  font-style: italic;
+}

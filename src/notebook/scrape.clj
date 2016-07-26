@@ -61,15 +61,25 @@
     {:title   (:title content)
      :content (string/split-lines (or (:* (first (:revisions content))) ""))}))
 
-(defn- extract-infobox [lines]
-  (->> (filter #(re-find #"^\|" %) lines)
-       (map (fn [line]
-              (let [xs (map string/trim (string/split line #"="))]
-                [(keyword (string/replace (first xs) #"^\|([\s]+)?" ""))
-                 (string/join "=" (rest xs))])))
-       (into {})))
+(defn extract-infobox [lines]
+  (let [info (->> (filter #(re-find #"^\|\s?[A-Za-z_]" %) lines)
+                  (filter #(re-find #"\=" %))
+                  (string/join "\n")
+                  #_(map (fn [line]
+                           (let [xs (map string/trim (string/split line #"="))]
+                             [(keyword (string/replace (first xs) #"^\|([\s]+)?" ""))
+                              (string/join "=" (rest xs))])))
+                  #_(into {}))]
+    (->> (string/split info #"\|")
+         (map string/trim)
+         (map #(string/split % #"="))
+         (filter #(= (count %) 2))
+         (map (fn [[k v]] [(keyword (string/trim k))
+                           (string/trim v)]))
+         (vec)
+         (into {}))))
 
-(defn- extract-list [start end [line & lines] out-lines]
+(defn extract-list [start end [line & lines] out-lines]
   (if (nil? out-lines)
     (if (re-find start line)
       (extract-list start end lines [])
@@ -188,26 +198,67 @@
   (let [truncate #(.floatValue (with-precision 10 %))]
     (+ d (truncate (/ m 60.)) (truncate (/ s 3600)))))
 
-(defn get-coords-for-place [place]
-  (let [wiki (:content (wikipedia-json place))]
-    (if-let [coords (->> (map #(re-find #"\{\{([Cc]oord.*)\}\}" %) wiki)
+(defn find-coords [lines]
+  (when-let [coords (->> (map #(re-find #"\{\{([Cc]oord.*)\}\}" %) lines)
                          (remove nil?)
                          (first)
                          (second))]
-      (if (re-find #"missing" coords)
-
+    (if (re-find #"missing" coords)
+      nil
+      (if-let [llfs (re-seq #"[0-9]+\.[0-9]+" coords)]
+        (map #(Float/parseFloat %) llfs)
         (let [[d1 m1 s1 _ d2 m2 s2] (->> (string/split coords #"\|")
-                                           (drop 1)
-                                           (take 8)
-                                           (map str->int))]
-            [(degrees->decimal d1 m1 s1)
-             (degrees->decimal d2 m2 s2)])))))
+                                         (drop 1)
+                                         (take 8)
+                                         (map str->int))]
+          [(degrees->decimal d1 m1 s1)
+           (degrees->decimal d2 m2 s2)])))))
+
+(defn find-ld [which lines]
+  ; needs to distinguish format float vs int
+  (let [p (case which
+            :lat #"\|(latd\s?=\s?.*)"
+            :long #"\|(longd.*)")]
+    (when-let [ld (->> (map #(re-find p %) lines)
+                       (remove nil?)
+                       (first)
+                       (second))]
+      (if-let [fl (re-find #"([0-9]+.[0-9]+)" ld)]
+        (Float/parseFloat (second fl))
+        (let [[d m s] (map #(Integer/parseInt %) (re-seq #"[0-9]+" ld))]
+          (degrees->decimal d m s))))))
+
+(defn get-ll-for-place [place]
+  (let [wiki (:content (wikipedia-json place))
+        {:keys [latd latm lats longd longm longs]} (extract-infobox wiki)]
+    (if (and latd longd)
+      [(if (and latd latm lats)
+         (degrees->decimal (Integer/parseInt latd)
+                           (Integer/parseInt latm)
+                           (Integer/parseInt lats))
+         (Float/parseFloat latd))
+       (if (and longd longm longs)
+         (degrees->decimal (Integer/parseInt longd)
+                           (Integer/parseInt longm)
+                           (Integer/parseInt longs))
+         (Float/parseFloat longd))]
+      (find-coords wiki))))
+
+(defn get-coords-for-place [place]
+  (let [wiki (:content (wikipedia-json place))]
+    (if-let [coords (find-coords wiki)]
+      coords
+      (let [lat (find-ld :lat wiki)
+            long (find-ld :long wiki)]
+        (if (and lat long)
+          [lat long]
+          nil)))))
 
 (defn collect-places [xs]
-  (->> (map #(select-keys % [:birth-place :alma-maters :schools]) xs)
+  (->> (map #(select-keys % [:birth-place #_:alma-maters #_:schools]) xs)
        (map vals)
        (flatten)
        (remove nil?)
        (into #{})))
 
-(collect-places (read-local-ushr))
+;(collect-places (read-local-ushr))

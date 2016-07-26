@@ -32,12 +32,15 @@
 (defn inline-js [src]
   [:script {:type "text/javascript"} src])
 
-(defn basic [title {:keys [styles scripts]} content]
+(defn basic [title {:keys [styles scripts mobile-width]} content]
   (html5
     {:lang "en"}
     (list
       [:head
        [:meta {:charset "utf-8"}]
+       (when mobile-width
+         [:meta {:name "viewport"
+                 :content (format "width=%s, initial-scale=1" mobile-width)}])
        [:title title]
        (list (favicons 16 32 96))
        (if (string? styles)

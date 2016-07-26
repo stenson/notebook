@@ -5,7 +5,8 @@
             [hiccup.page :refer [html5]]
             [notebook.css :refer [ß ß+]]
             [notebook.html :as html]
-            [notebook.hiero :refer [<-txt as-txt]]))
+            [notebook.hiero :refer [<-txt as-txt]]
+            [clojure.java.shell :refer [sh]]))
 
 ;(def map "http://www.bigmapblog.com/2013/birdseye-view-of-los-angeles/")
 
@@ -30,7 +31,16 @@
 (def mapgl true)
 
 (def pages
-  [{:slug "about"
+  [{:slug "recipes"
+    :title "Recipes"
+    :html
+    [:div#text-inner
+     [:div {:style "height:250px"}
+      #_[:div.photo {:style "width:50%;float:left"} [:img {:src "/assembly.gif"}]]
+      #_[:div.photo {:style "width:33%"} [:img {:src "/close.gif"}]]
+      [:div.photo {:style "width:50%;margin:auto auto"} [:img {:src "/redbraise2.gif"}]]]
+     [:div.text (txt :recipe)]]}
+   {:slug "about"
     :title "Diana & Rob"
     :html
     [:div#text-inner
@@ -93,12 +103,14 @@
                 [:p "Yes. There will be valet parking at the Fig House, and a "
                  [:a {:href "https://www.parkme.com/lot/99490/611-south-carondolet-parking-los-angeles-ca"}
                   "parking garage"]
-                 " next to the Carondelet House. That said, Uber
+                 " next to the Carondelet House. Simply say you’re there for a wedding at the Carondelet House next door, we have 20 pre-paid spots reserved (though there will be more spots available). That said, Uber
                  and/or Lyft are quickly becoming staples of Los Angeles
                  transportation, so if you’ll be imbibing, we’d recommend
-                 one of those. We’ll also be running a shuttle from the
+                 one of those. <strike>We’ll also be running a shuttle from the
                  Langham Huntington Hotel in Pasadena, to both the rehearsal
-                 dinner and to the wedding. (Details forthcoming.)"])
+                 dinner and to the wedding. (Details forthcoming.)</strike> Ok, so it turns out the only fast way to drive between the venue and the hotel
+                 is so old (the oldest highway in Los Angeles), that you can’t run shuttles on it. Very sorry for the late notice! But Ubers and Lyfts
+                 are plentiful (and can be shared)."])
              (q "Should I rent a car?"
                 [:p "It’s Los Angeles so... probably. Although a lot of
                 people claim to get around solely with a car share service."])]]]}
@@ -134,10 +146,11 @@
       [:div#navigation-container
        [:div#navigation
         (for [[title slug width]
-              [["Diana & Rob" "about" "30%"]
-               ["Details" "details" "20%"]
-               ["Registry" "registry" "20%"]
-               ["Los Angeles" "what-to-do-in-la" "30%"]]]
+              [["Diana & Rob" "about" "24%"]
+               ["Details" "details" "17%"]
+               ["Registry" "registry" "17%"]
+               ["Los Angeles" "what-to-do-in-la" "24%"]
+               ["Program" "program" "18%"]]]
           [:div.nav-item-container {:style (str "width:" width)}
            [:a.nav-item {:href (str "/" slug)}
             [:span title]]])]]
@@ -148,9 +161,19 @@
             html]]
           html))])))
 
-#_(do
+(do
   (page
-    [:h3.large "Diana & Rob are getting married!"])
+    (list
+      [:h3.large
+       "Diana & Rob are getting married!"]
+      [:a.big-link
+       {:href "/program"
+        :style "margin-top:100px;"}
+       "Click here to see the Wedding Program!"]
+      [:a.big-link
+       {:href "/recipes"
+        :style "margin-bottom:200px;"}
+       "Click here to see how to use your spices!"]))
   (doall
     (for [p pages]
       (page p (:html p) true))))
@@ -167,17 +190,27 @@
 (defn spacer []
   [:div.spacer])
 
-(def program
+(defn program [url]
   (html/refresh
-    (str "zhengstenson.com/program")
+    (str url)
     (str "Zheng & Stenson Wedding — Program")
-    {:styles ["/klim" "/program"]}
+    {:styles ["/klim" "/program"]
+     :mobile-width "500"}
     [:div#container
      [:div#content-outer
       [:div#content
-       [:a#home {:href "/"}
+       [:a#home {:href "http://zhengstenson.com"}
         [:img#logo {:src "/sz-circle.png" :alt "Zheng & Stenson"}]
         [:h3 "Zheng & Stenson"]]
+       [:h1 "Events"]
+       [:div#events
+        (person "5:00 - 5:30" "Guest Arrival" 37)
+        (person "5:30 - 6:00" "Ceremony" 42)
+        (person "6:00 - 7:00" "Cocktail Hour" 35)
+        (person "6:10 - 6:30" "Tea Ceremony" 35)
+        (person "7:00 - 8:30" "Dinner" 48)
+        (person "8:30 - 11:00" "Dancing" 44)
+        (person "9:00" "Cake Cutting" 47)]
        [:h1 "Cast of Characters"]
        [:div#people
         (person "Bride" "Diana Danxia Zheng" 32)
@@ -186,13 +219,16 @@
         (person "Maid of Honor" "Lisa Zheng" 34)
         (person "Best Man" "Jack P. Stratton" 34)
         (spacer)
-        (person "Bridesmaids" "Stefanie Koening" 26)
-        (person "Rebecca Yae")
+        (person "Bridesmaids" "Stefanie L. Koenig" 25)
+        (person "Rebecca H. Yae")
         (person "Molly D. Stenson")
         (spacer)
-        (person "Groomsman" "William A. Stenson" 23)
+        (person "Groomsmen" "William A. Stenson" 25)
         (person "Michael J. Molina")
         (person "Jeffrey R. Schwartz")
+        (spacer)
+        (person "Flower Girl" "Quincey McAvoy" 30)
+        (person "Ring Bearer" "Baron McAvoy" 32)
         (spacer)
         (person "Father of the Bride" "Yuepeng Zheng" 20)
         (person "Mother of the Bride" "Kun Liu" 32)
@@ -200,4 +236,35 @@
         (person "Father of the Groom" "Robert Stenson" 17)
         (person "Mother of the Groom" "Kathleen H. Stenson" 8)
         (spacer)
-        (person "Officiant" "Theodore Katzman" 29)]]]]))
+        (person "Officiant" "Theodore Katzman" 29)]
+       [:h1 "Music"]
+       [:div#music
+        (person "Processional" "" 0)
+        (spacer)
+        (person "(Wedding Party)" "“Nocturne in E-Flat Major”" 4)
+        (person "Ernest Ranglin")
+        (spacer)
+        (person "(Bride)" "“The Frim-Fram Sauce”" 25)
+        (person "The Nat King Cole Trio")
+        (spacer)
+        (person "Recessional" "“My Daily Food”" 30)
+        (person "The Maytals")
+        (spacer)
+        (person "Live Band" "The Vulfpeck" 38)
+        (spacer)
+        (person "DJs" "Andrew Schneiderman" 30)
+        (person "Lloyd Cargo")]
+       [:h1 "Wedding Favors"]
+       [:div#favors
+        (person "Tingly Spice Blend" [:a {:href "/recipes"} "How do I use this?"] 15)
+        (person "Centerpieces" "Fruit & Flowers" 30)
+        (person [:super [:sub "囍"] "Totebags"] "For your favors" 31)]
+       [:h1 "Typefaces"]
+       [:div#typefaces
+        (person "Text" "Tiempos Text" 46)
+        (person "Headers" "Founders Grotesk X-Condensed" 7)]]]]))
+
+(program "zhengstenson.com/program")
+
+(sh "ditto" "sites/zhengstenson.com/" "sites/dzrs.us")
+(program "dzrs.us")

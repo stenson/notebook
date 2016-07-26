@@ -45,7 +45,7 @@ h3 {
 }
 
 #content-outer {
-  max-width: 464px;
+  width: 464px;
   margin: auto auto;
 }
 
@@ -80,6 +80,31 @@ h1 {
 .person span {
   margin-left: 4px;
   color: #ccc;
+}
+
+.person a {
+  color: royalblue;
+  text-decoration: none;
+}
+
+.person sub {
+  vertical-align: baseline;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  padding-right: 2px;
+  color: red;
+  line-height: 16px;
+  font-family: sans-serif;
+}
+
+.note {
+  font-family: "TiemposText-Regular", serif;
+  font-style: italic;
+  font-size: 14px;
+  text-align: center;
+  padding: 10px 0;
+  color: #555;
 }
 
 .person strong {
