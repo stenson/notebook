@@ -7,7 +7,13 @@
             [clj-http.client :as client]
             [clojure.data.json :as json]
             [me.raynes.fs :as fs]
-            [clojure.pprint :refer [pprint]]))
+            [clojure.pprint :refer [pprint]]
+            [notebook.congress.about :as about]
+            [geo
+             [geohash :as geohash]
+             [jts :as jts]
+             [spatial :as spatial]
+             [poly :as poly]]))
 
 (defn fetch [url-str]
   (html/html-resource (as-url url-str)))
@@ -32,11 +38,11 @@
 
 (defn- wikipedia-get-uncached
   ([title]
-    (wikipedia-get-uncached title nil))
+   (wikipedia-get-uncached title nil))
   ([title options]
    (println "GET" title)
    (->> {:action "query"
-         :prop   "revisions"
+         :prop "revisions"
          :rvprop "content"
          :format (get options :format "json")
          :titles title}
@@ -58,7 +64,7 @@
                     (get :pages)
                     (first)
                     (second))]
-    {:title   (:title content)
+    {:title (:title content)
      :content (string/split-lines (or (:* (first (:revisions content))) ""))}))
 
 (defn extract-infobox [lines]
@@ -192,7 +198,11 @@
              full)))))
 
 (defn read-local-ushr []
-  (map read-string (map slurp (fs/list-dir "tmp/"))))
+  (->> (map read-string (map slurp (fs/list-dir "tmp/")))
+       (map (fn [{:keys [state district] :as person}]
+              [(format "%s-%s" state district)
+               person]))
+       (into {})))
 
 (defn degrees->decimal [d m s]
   (let [truncate #(.floatValue (with-precision 10 %))]
@@ -230,21 +240,25 @@
 
 (defn get-ll-for-place [place]
   (let [wiki (:content (wikipedia-json place))
-        {:keys [latd latm lats longd longm longs]} (extract-infobox wiki)]
-    (if (and latd longd)
-      [(if (and latd latm lats)
-         (degrees->decimal (Integer/parseInt latd)
-                           (Integer/parseInt latm)
-                           (Integer/parseInt lats))
-         (Float/parseFloat latd))
-       (if (and longd longm longs)
-         (degrees->decimal (Integer/parseInt longd)
-                           (Integer/parseInt longm)
-                           (Integer/parseInt longs))
-         (Float/parseFloat longd))]
-      (find-coords wiki))))
+        {:keys [latd latm lats longd longm longs]} (extract-infobox wiki)
+        [lat lng] (if (and latd longd)
+                    [(if (and latd latm lats)
+                       (degrees->decimal (Integer/parseInt latd)
+                                         (Integer/parseInt latm)
+                                         (Integer/parseInt lats))
+                       (Float/parseFloat latd))
+                     (- (if (and longd longm longs)
+                          (degrees->decimal (Integer/parseInt longd)
+                                            (Integer/parseInt longm)
+                                            (Integer/parseInt longs))
+                          (Float/parseFloat longd)))]
+                    (let [[lat lng] (find-coords wiki)]
+                      [lat (- lng)]))]
+    ;(jts/coordinate lng lat)
+    ;[lat lng]
+    (spatial/spatial4j-point lat lng)))
 
-(defn get-coords-for-place [place]
+#_(defn get-coords-for-place [place]
   (let [wiki (:content (wikipedia-json place))]
     (if-let [coords (find-coords wiki)]
       coords
@@ -254,7 +268,7 @@
           [lat long]
           nil)))))
 
-(defn collect-places [xs]
+#_(defn collect-places [xs]
   (->> (map #(select-keys % [:birth-place #_:alma-maters #_:schools]) xs)
        (map vals)
        (flatten)
@@ -262,3 +276,54 @@
        (into #{})))
 
 ;(collect-places (read-local-ushr))
+
+(defn feature->polygon [feature]
+  (let [fs (first (get-in feature [:geometry :coordinates]))]
+    (-> (map (fn [[x y]] (jts/coordinate x y)) fs)
+        (jts/linear-ring)
+        (jts/polygon))))
+
+(defn feature->simplified [{:keys [properties] :as feature}]
+  (let [state (get about/state-abbrvs (:STATE properties))]
+    (when state
+      (let [key (format "%s-%s" state (Integer/parseInt (:CONG_DIST properties)))]
+        [key
+         (try
+           (feature->polygon feature)
+           (catch Exception _
+             (println "failed" key)
+             nil))]))))
+
+(defn simplify-features [features]
+  (->> (map feature->simplified features)
+       (remove nil?)
+       (group-by first)
+       (map (fn [[k vs]]
+              (let [polys (remove nil? (map second vs))
+                    num (count polys)]
+                [k
+                 (cond
+                   (= num 0) nil
+                   (= num 1) (first polys)
+                   :else (jts/multi-polygon polys))])))
+       (into {})))
+
+(defn get-district-features []
+  (-> (slurp "src/notebook/congress/geo.json")
+      (json/read-str :key-fn keyword)
+      (:features)))
+
+(defn born-in-district? [people polys district-key]
+  (let [person (get people district-key)
+        birth (get-ll-for-place (:birth-place person))
+        district (get polys district-key)]
+    [(vals (select-keys person [:sortname :birth-place]))
+     birth
+     district
+     (spatial/relate district (spatial/circle birth 10))
+     (* (spatial/distance (spatial/center district) birth)
+        0.000621371)]))
+
+; does state match?
+; possible to check school?
+; how far?

@@ -1,0 +1,310 @@
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+body {
+  font-family: "TiemposWeb",Georgia,serif;
+  background: url(/img/bg.jpg) no-repeat center center fixed;
+  /*background: #F7F7F7;*/
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width: 100%;
+  background-position: bottom center;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: "EubieScript", "TiemposWeb", serif;
+  font-weight: normal;
+}
+
+h4 {
+  font-size: 40px;
+  line-height: 92%;
+  margin-top: 40px;
+  color: rgb(216, 50, 50);
+  margin-bottom: 20px;
+}
+
+h5 {
+  font-size: 30px;
+  line-height: 92%;
+  margin-top: 20px;
+  color: rgba(216, 50, 50, 0.8);
+  margin-bottom: 10px;
+}
+
+ul.bullets {
+  line-height: 100%;
+}
+
+ul.bullets li .punct {
+  color: #aaa;
+}
+
+ul.bullets li a {
+  text-decoration: none;
+  color: royalblue;
+}
+
+#container {
+  color: #222;
+  margin: auto auto;
+  position: relative;
+}
+
+#header-container {
+  margin-bottom: 20px;
+  height: 215px;
+}
+
+#header {
+  width: 700px;
+  margin: auto auto;
+}
+
+#home {
+  display: block;
+  text-decoration: none;
+}
+
+#logo {
+  display: block;
+  width: 140px;
+  height: 140px;
+  margin: auto auto;
+  padding-top: 20px;
+}
+
+h3 {
+  font-size: 39px;
+  text-align: center;
+  color: rgb(216, 50, 50);
+  padding: 8px 0 0 4px;
+  margin: 0;
+}
+
+h3.large {
+  font-size: 100px;
+}
+
+#navigation {
+  width: 500px;
+  height: 100px;
+  margin: auto auto;
+}
+
+.nav-item-container {
+  width: 25%;
+  float: left;
+}
+
+a.nav-item {
+  font-family: EubieScript, serif;
+  font-size: 28px;
+  color: rgb(216, 50, 50);
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  /*padding: 10px 10px 16px 10px;*/
+  /*background: rgba(255,255,255,0.4);*/
+}
+
+a.nav-item span {
+  border-bottom: 3px solid rgb(216, 50, 50);
+}
+
+a.nav-item:hover span {
+  border-bottom-width: 10px;
+}
+
+.nav-item-container:last-child a.nav-item {
+  margin-right: 0;
+}
+
+#content-outer {
+  margin-bottom: 100px;
+}
+
+#content {
+  width: 740px;
+  margin: auto auto;
+  background: rgba(255,255,255,0.8);
+  border: 10px solid white;
+  overflow: auto;
+}
+
+#text-outer {
+  margin: 130px auto 30px auto;
+  max-width: 680px;
+  min-width: 300px;
+  /*position: relative;*/
+}
+
+#text-inner {
+  padding: 40px;
+  text-align: left;
+  font-size: 17px;
+  -webkit-hyphens: auto;
+  /*margin-left: -20%;*/
+}
+
+#text-inner .content {
+  font-family: "TiemposWeb",Georgia,serif;
+  line-height: 170%;
+  background-color: rgba(255,255,255,0.7);
+  padding: 1px 40px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+#text-inner h3 {
+  font-size: 40px;
+  color: rgb(216, 50, 50);
+  margin-bottom: 20px;
+}
+
+#text-inner p {
+  margin-bottom: 18px;
+}
+
+span.punct {
+  display: inline-block;
+  width: 40px;
+  font-size: 24px;
+}
+
+#map {
+  width: 100%;
+  height: 400px;
+  border-bottom: 10px solid white;
+}
+
+.mapboxgl-popup {
+  max-width: 400px;
+  font-family: TiemposWeb,serif;
+  font-size: 18px;
+  text-align: center;
+}
+
+.marker-title {
+  font-family: EubieScript, serif;
+  font-size: 40px;
+  height: 40px;
+  padding: 10px;
+  color: rgb(216, 50, 50);
+}
+
+.mapboxgl-control-container {
+  display: none;
+}
+
+.mapboxgl-popup-close-button {
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  border: none;
+  border-radius: 0 3px 0 0;
+  cursor: pointer;
+  background-color: rgba(0,0,0,0);
+  font-size: 18px;
+  color: #555;
+}
+
+#details span {
+  color: #888;
+  font-style: italic;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.q {
+  margin-bottom: 50px;
+}
+
+.date {
+  text-align: right;
+  font-style: italic;
+}
+
+#cameo {
+  width: 150px;
+  margin: 80px auto 20px auto;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid white;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+#cameo img {
+  width: 100%;
+  display: block;
+}
+
+#portrait {
+  margin: 20px auto 100px auto;
+  width: 600px;
+  height: 429px;
+  border: 1px solid rgba(255,255,255,0.2);
+  overflow: hidden;
+  /*box-shadow: 0 0 10px rgba(0,0,0,0.1);*/
+}
+
+#portrait img {
+  width: 600px;
+  opacity: 1.0;
+}
+
+li.small {
+  font-style: italic;
+  font-size: 12px;
+  padding: 8px 0;
+}
+
+.photos {
+  margin-top: 80px;
+}
+
+.photo img {
+  width: 100%;
+}
+
+.photo.tall {
+  width: 50%;
+  height: 490px;
+  overflow: hidden;
+  float: left;
+  margin-bottom: 5px;
+}
+
+hr {
+  border: none;
+  border-bottom: 1px dotted #aaa;
+  margin-bottom: 20px;
+  margin-top: 40px;
+}
+
+a.big-link {
+  font-family: "FoundersGroteskCond-SmBd", sans-serif;
+  font-size: 24px;
+  color: rgb(216, 50, 50);
+  text-decoration: none;
+  border-bottom: 1px solid white;
+  padding: 30px;
+  text-transform: uppercase;
+  display: block;
+  margin: auto auto;
+  width: 400px;
+  text-align: center;
+  background: rgba(255,255,255,0.7);
+}
+
+.alt-1 {
+  background: rgb(216,50,50);
+  color: white;
+  padding: 1px 5px;
+  border-radius: 4px;
+  font-style: italic;
+}
