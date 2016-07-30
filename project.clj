@@ -13,6 +13,8 @@
                  [me.raynes/fs "1.4.6"]
                  [factual/geo "1.0.0"]
                  [factual/factual-clojure-driver "1.5.4"]
+                 [org.apache.pdfbox/pdfbox "1.8.2"]
+                 [rodeo "2.0.1"]
                  [garden "1.3.0-SNAPSHOT"]
                  [hieronymus "0.1.9-SNAPSHOT"]
                  [overtone "0.9.1"]

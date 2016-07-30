@@ -11,6 +11,17 @@
                            (:latitude r)])]
    :proper-name [:P373 identity]})
 
+(defn search [query]
+  (let [resp (->> {:action "wbsearchentities"
+                   :language "en"
+                   :format "json"
+                   :search query}
+                  (url/map->query)
+                  (format "https://www.wikidata.org/w/api.php?%s")
+                  (client/get))
+        data (json/read-str (:body resp) :key-fn keyword)]
+    (map :id (:search data))))
+
 (defn q [qnum]
   (let [as-key (keyword qnum)
         resp (->> {:action "wbgetentities"
@@ -28,6 +39,14 @@
         claim (first (get record pk))
         raw (get-in claim [:mainsnak :datavalue :value])]
     (func raw)))
+
+(defn geocode [query]
+  (->> (search query)
+       (map q)
+       (map (fn [rec]
+              (q-from-claim :coords rec)))
+       (remove #(some nil? %))
+       (first)))
 
 (defn birth-place [qnum]
   (let [person (q qnum)
