@@ -11,7 +11,9 @@
                  (map (fn [{:keys [identifier scheme]}]
                         [(keyword scheme) identifier]))
                  (into {}))]
-    (assoc person :wikidata-q (get ids :wikidata))))
+    (-> person
+        (assoc :wikidata-q (get ids :wikidata))
+        (assoc :bioguide (get ids :bioguide)))))
 
 (defn expand [person]
   (assoc person :birth-place (wikidata/birth-place (:wikidata-q person))))
@@ -121,3 +123,9 @@
                  (json/write-str))]
     (spit (format "tmp/__%s.json" (string/lower-case state))
           data)))
+
+(def bioguide-lookup
+  (->> (:persons (raw-congress))
+       (map mapify)
+       (map (fn [m] [(:bioguide m) m]) )
+       (into {})))

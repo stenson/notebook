@@ -125,10 +125,13 @@
   (->> members
        (filter #(and (= abbrv (:StateId %)) (= "RP" (:MemberTypeId %))))))
 
+(defn slug-or-member->bio [s-or-m]
+  (if (string? s-or-m)
+    (get-by-district s-or-m)
+    (get-bio s-or-m)))
+
 (defn save-geo-bio [slug-or-member]
-  (let [bio (if (string? slug-or-member)
-              (get-by-district slug-or-member)
-              (get-bio slug-or-member))
+  (let [bio (slug-or-member->bio slug-or-member)
         places (simplify-places bio)
         path (format "tmp/__district--%s.json" (:slug bio))]
     [(dissoc places :district)
@@ -146,3 +149,9 @@
        (apply concat)
        (geojson/collect)
        (json/write-str)))
+
+(defn calc-stats [slug-or-member]
+  (let [bio (slug-or-member->bio slug-or-member)
+        places (simplify-places bio)]
+    [bio
+     places]))

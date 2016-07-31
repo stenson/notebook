@@ -66,8 +66,10 @@
       [(spatial/longitude center)
        (spatial/latitude center)])))
 
+(def all-districts (get-district-features))
+
 (defn district-lookup [districts?]
-  (->> (or districts? (get-district-features))
+  (->> (or districts? all-districts)
        (map (fn [district]
               (let [ps (:properties district)
                     district-num (to-i (:CD114FP ps))
