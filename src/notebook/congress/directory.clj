@@ -9,10 +9,26 @@
             [notebook.districts :as districts]
             [notebook.geojson :as geojson]
             [notebook.colors :as colors]
-            [me.raynes.fs :as fs]))
+            [me.raynes.fs :as fs]
+            [geo.jts :as jts]
+            [geo.spatial :as spatial]
+            [cemerick.url :as url]))
 
 (def all "http://memberguide.gpo.gov/Congressional.svc/GetMembers/114")
 (def bio-fmt "http://memberguide.gpo.gov/Congressional.svc/GetMember/%s")
+
+(defn geonames [q]
+  (let [body (->> (url/map->query {:q q :username "robstenson" :type "json" :maxRows 1})
+                  (format "http://api.geonames.org/search?%s")
+                  (client/get)
+                  (:body))
+        ll (-> (json/read-str body :key-fn keyword)
+               (:geonames)
+               (first)
+               (select-keys [:lat :lng])
+               (vals)
+               (reverse))]
+    (map #(Float/parseFloat %) ll)))
 
 (def geocodio-api "8f995738c589587cc7fa9f97aff9d995971f550")
 
@@ -45,7 +61,7 @@
       (assoc :slug (str (:StateId member) "-" (:District member)))))
 
 (defn attempt-city-geocode [where]
-  (let [[city state] (string/split where #",")
+  #_(let [[city state] (string/split where #",")
         long-state (get about/state-abbrvs (string/trim state))
         long (str city ", " long-state)]
     (if-let [ll (wikidata/geocode where)]
@@ -59,7 +75,8 @@
               (if-let [ll (wikidata/geocode city)]
                 ll))))
         (if-let [ll (wikidata/geocode city)]
-          ll)))))
+          ll))))
+  (geonames where))
 
 (defn as-features [{:keys [offices hometown birth-place district]} bio]
   (let [color (colors/random)]
@@ -114,6 +131,20 @@
                    (attempt-city-geocode birth-place)]
      :district (get (districts/district-lookup nil) (:slug bio))}))
 
+(defn geo-places [{:keys [offices hometown birth-place district]}]
+  (let [to-coord (fn [place]
+                   (let [pt (apply
+                              spatial/spatial4j-point
+                              (reverse (second place)))]
+                     (spatial/circle pt 5000)))]
+    {:offices (map to-coord offices)
+     :hometown (to-coord hometown)
+     :birth-place (to-coord birth-place)
+     :district (->> (first (get-in district [:geometry :coordinates]))
+                    (map #(apply jts/coordinate %))
+                    (jts/linear-ring)
+                    (jts/polygon))}))
+
 (defn get-by-district [slug]
   (->> members
        (filter #(= "RP" (:MemberTypeId %)))
@@ -151,7 +182,18 @@
        (json/write-str)))
 
 (defn calc-stats [slug-or-member]
-  (let [bio (slug-or-member->bio slug-or-member)
-        places (simplify-places bio)]
-    [bio
-     places]))
+  (let [inside? (fn [a b]
+                  (let [relation (spatial/relate a b)]
+                    (or (= :contains relation)
+                        (= :intersects relation))))
+        bio (slug-or-member->bio slug-or-member)
+        places (simplify-places bio)
+        {:keys [offices birth-place hometown district]} (geo-places places)]
+    {:birth-place (first (:birth-place places))
+     :hometown (first (:hometown places))
+     :name (string/trim (:Name bio))
+     :slug (:slug bio)
+     :party (:PartyId bio)
+     :born-there (inside? district birth-place)
+     :lives-there (inside? district hometown)
+     :offices (map (partial inside? district) offices)}))
