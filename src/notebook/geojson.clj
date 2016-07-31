@@ -2,8 +2,7 @@
 
 (defn make [geometry-type coordinates properties style]
   {:type "Feature"
-   :properties properties
-   :style style
+   :properties (merge properties style)
    :geometry {:type geometry-type
               :coordinates coordinates}})
 

@@ -1,7 +1,8 @@
 (ns notebook.wikidata
   (:require [cemerick.url :as url]
             [clj-http.client :as client]
-            [clojure.data.json :as json]))
+            [clojure.data.json :as json]
+            [puget.printer :as puget]))
 
 ;https://www.wikidata.org/w/api.php?action=wbgetentities&ids=Q330149&languages=en&format=json
 
@@ -41,12 +42,18 @@
     (func raw)))
 
 (defn geocode [query]
-  (->> (search query)
-       (map q)
-       (map (fn [rec]
-              (q-from-claim :coords rec)))
-       (remove #(some nil? %))
-       (first)))
+  (let [f (format "tmp/_geocode_%s" query)]
+    (try
+      (read-string (slurp f))
+      (catch Exception _
+        (let [pair (->> (search query)
+                        (map q)
+                        (map (fn [rec]
+                               (q-from-claim :coords rec)))
+                        (remove #(some nil? %))
+                        (first))]
+          (spit f (with-out-str (pr pair)))
+          pair)))))
 
 (defn birth-place [qnum]
   (let [person (q qnum)

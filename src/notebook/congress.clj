@@ -4,17 +4,7 @@
             [clojure.string :as string]
             [notebook.geojson :as geojson]
             [notebook.colors :as colors]
-            [notebook.districts :as districts]
-            [me.raynes.fs :as fs]
-            [rodeo.core :as rodeo]))
-
-#_(def geocodio-api "8f995738c589587cc7fa9f97aff9d995971f550")
-
-#_(defn geocode [where]
-  (let [raw (rodeo/single where :api-key geocodio-api)
-        best (:location (first (:results raw)))]
-    [(:lng best)
-     (:lat best)]))
+            [notebook.districts :as districts]))
 
 (defn mapify [person]
   (let [ids (->> (:identifiers person)
@@ -113,7 +103,7 @@
         member-lookup (->> (:persons raw)
                            (map mapify)
                            ;(map expand)
-                           (map prune)
+                           ;(map prune)
                            (map (fn [{:keys [id] :as p}]
                                   [id p]))
                            (into {}))]
