@@ -2,7 +2,8 @@
   (:require [cemerick.url :as url]
             [clj-http.client :as client]
             [clojure.data.json :as json]
-            [puget.printer :as puget]))
+            [puget.printer :as puget]
+            [notebook.http :as http]))
 
 ;https://www.wikidata.org/w/api.php?action=wbgetentities&ids=Q330149&languages=en&format=json
 
@@ -13,26 +14,22 @@
    :proper-name [:P373 identity]})
 
 (defn search [query]
-  (let [resp (->> {:action "wbsearchentities"
-                   :language "en"
-                   :format "json"
-                   :search query}
-                  (url/map->query)
-                  (format "https://www.wikidata.org/w/api.php?%s")
-                  (client/get))
-        data (json/read-str (:body resp) :key-fn keyword)]
-    (map :id (:search data))))
+  (let [res (http/fetch-json
+              "https://www.wikidata.org/w/api.php"
+              {:action "wbsearchentities"
+               :language "en"
+               :format "json"
+               :search query})]
+    (map :id (:search res))))
 
 (defn q [qnum]
   (let [as-key (keyword qnum)
-        resp (->> {:action "wbgetentities"
-                   :languages "en"
-                   :format "json"
-                   :ids qnum}
-                  (url/map->query)
-                  (format "https://www.wikidata.org/w/api.php?%s")
-                  (client/get))
-        data (json/read-str (:body resp) :key-fn keyword)]
+        data (http/fetch-json
+               "https://www.wikidata.org/w/api.php"
+               {:action "wbgetentities"
+                :languages "en"
+                :format "json"
+                :ids qnum})]
     (:claims (get (:entities data) as-key))))
 
 (defn q-from-claim [prop-key record]
