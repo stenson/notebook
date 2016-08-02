@@ -1,0 +1,54 @@
+* { margin: 0; padding: 0; }
+
+body {
+  background: white;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+#container {
+  width: 800px;
+  margin: 50px auto;
+}
+
+#map {
+  height: 500px;
+  width: 100%;
+  background: #ddd;
+}
+
+path:hover {
+  fill-opacity: .7;
+}
+
+.background {
+  fill: none;
+  pointer-events: all;
+}
+
+.feature {
+  fill: #ccc;
+  cursor: pointer;
+}
+
+.feature.active {
+  fill: orange;
+}
+
+.state-boundaries {
+  fill: none;
+  stroke: white;
+  stroke-width: 1px;
+}
+
+.district-boundaries {
+  fill: none;
+  stroke: white;
+  stroke-width: 0.5px;
+}
+
+.mesh {
+  fill: none;
+  stroke: #fff;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}

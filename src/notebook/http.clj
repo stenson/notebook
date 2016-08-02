@@ -32,6 +32,7 @@
     (try
       (read-string (slurp f))
       (catch Exception _
+        (println "Geocodio: " where)
         (let [res (->> (rodeo/batch where :api-key geocodio-api)
                        (:results)
                        (map #(:location (first (:results (:response %)))))

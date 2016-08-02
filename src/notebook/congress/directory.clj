@@ -42,59 +42,27 @@
         body (:body (client/get (format bio-fmt mid)))]
     (spit (format "tmp/_member-%s.json" mid) body)))
 
+(defn get-slug [{:keys [StateId District]}]
+  (str StateId "-" (if (= "At Large" District)
+                     "0"
+                     District)))
+
 (defn get-bio [member]
   (-> (slurp (format "tmp/_member-%s.json" (:MemberId member)))
       (json/read-str :key-fn keyword)
-      (assoc :slug (str (:StateId member) "-" (:District member)))))
+      (assoc :slug (get-slug member))))
 
 (defn attempt-city-geocode [where who]
-  (let [out (geonames where)]
-    (if (empty? out)
-      (do
-        (println "N/A: " (:Name who) where)
-        nil)
-      out)))
-
-(defn as-features [{:keys [offices hometown birth-place district]} bio]
-  (let [color (colors/random)
-        slug (:slug bio)]
-    (geojson/collect
-      [(map (fn [[address ll]]
-              (geojson/make
-                "Point"
-                ll
-                {:address address
-                 :type "office"
-                 :slug slug}
-                {:marker-color color
-                 :marker-size "small"}))
-            offices)
-       (geojson/make
-         "Point"
-         (second hometown)
-         {:name (first hometown)
-          :type "hometown"
-          :slug slug}
-         {:marker-color color
-          :marker-size "medium"})
-       (geojson/make
-         "Point"
-         (second birth-place)
-         {:name (first birth-place)
-          :type "birth-place"}
-         {:marker-color color
-          :marker-size "large"
-          :slug slug})
-       (update-in
-         district
-         [:properties]
-         (fn [props]
-           (merge props
-                  (dissoc
-                    bio
-                    :OfficeList)
-                  {:fill color
-                   :fill-opacity 0.5})))])))
+  (let [state-abbrv (last (string/split where #", "))
+        where-mod (if (get about/state-abbrvs state-abbrv)
+                    (str where ", USA")
+                    where)]
+    (let [out (geonames where-mod)]
+      (if (empty? out)
+        (do
+          (println "N/A: " (:Name who) where-mod)
+          nil)
+        out))))
 
 (defn simplify-places [bio]
   (let [representative? (= "RP" (:MemberTypeId bio))
@@ -133,7 +101,7 @@
 (defn get-by-district [slug]
   (->> members
        (filter #(= "RP" (:MemberTypeId %)))
-       (filter #(= slug (str (:StateId %) "-" (:District %))))
+       (filter #(= slug (get-slug %)))
        (first)
        (get-bio)))
 
@@ -145,32 +113,6 @@
   (if (string? s-or-m)
     (get-by-district s-or-m)
     (get-bio s-or-m)))
-
-(defn save-geo-bio [slug-or-member]
-  (let [bio (slug-or-member->bio slug-or-member)
-        places (simplify-places bio)
-        path (format "tmp/__district--%s.json" (:slug bio))
-        features (as-features places bio)]
-    (spit path (json/write-str features))
-    features))
-
-(defn combine-geo-bios [matcher]
-  (->> (fs/list-dir "tmp")
-       (filter #(re-find matcher (fs/base-name %)))
-       (map slurp)
-       (map #(json/read-str % :key-fn keyword))
-       (map :features)
-       (apply concat)
-       (geojson/collect)
-       (json/write-str)))
-
-(defn save-all-geo-bios []
-  (let [features (->> representatives
-                      (map save-geo-bio)
-                      (map :features)
-                      (apply concat)
-                      (geojson/collect))]
-    (spit "tmp/____everyone.json" (json/write-str features))))
 
 (defn calc-stats [slug-or-member]
   (let [inside? (fn [a b]
@@ -201,8 +143,76 @@
                         0.000621371)))
        :offices-out-of-district (->> (map (partial inside? district) offices)
                                      (some false?)
-                                     (boolean))
-       })))
+                                     (boolean))})))
+
+(defn as-features [{:keys [offices hometown birth-place district]} bio]
+  (let [color (colors/random)
+        slug (:slug bio)]
+    (geojson/collect
+      (drop
+        3
+        [(map (fn [[address ll]]
+                (geojson/make
+                  "Point"
+                  ll
+                  {:address address
+                   :type "office"
+                   :slug slug}
+                  {:marker-color color
+                   :marker-size "small"}))
+              offices)
+         (geojson/make
+           "Point"
+           (second hometown)
+           {:name (first hometown)
+            :type "hometown"
+            :slug slug}
+           {:marker-color color
+            :marker-size "medium"})
+         (geojson/make
+           "Point"
+           (second birth-place)
+           {:name (first birth-place)
+            :type "birth-place"}
+           {:marker-color color
+            :marker-size "large"
+            :slug slug})
+         (update-in
+           district
+           [:properties]
+           (fn [props]
+             (merge props
+                    (assoc (calc-stats bio)
+                      :gpo (dissoc bio :OfficeList :SocialMediaList))
+                    {:fill color
+                     :fill-opacity 0.5})))]))))
+
+(defn save-geo-bio [slug-or-member]
+  (let [bio (slug-or-member->bio slug-or-member)
+        places (simplify-places bio)
+        path (format "tmp/__district--%s.json" (:slug bio))
+        features (as-features places bio)]
+    (spit path (json/write-str features))
+    features))
+
+(defn combine-geo-bios [matcher]
+  (->> (fs/list-dir "tmp")
+       (filter #(re-find matcher (fs/base-name %)))
+       (map slurp)
+       (map #(json/read-str % :key-fn keyword))
+       (map :features)
+       (apply concat)
+       (geojson/collect)
+       (json/write-str)))
+
+(defn save-all-geo-bios []
+  (let [features (->> representatives
+                      (map save-geo-bio)
+                      (map :features)
+                      (apply concat)
+                      (geojson/collect))]
+    (spit "sites/robstenson.com/articles/birthplaces/members.json"
+          (json/write-str features))))
 
 (defn state-stats [state]
   (let [stats (->> (get-by-state state)
@@ -220,8 +230,7 @@
                        [(get-percent which stats)
                         (get-percent which r)
                         (get-percent which d)])]
-    [[:counts [:r r-count
-               :d d-count]]
+    [[:counts [:r r-count :d d-count]]
      [:born-in-state (get-percents :born-in-state)]
      [:born-in-us (get-percents :born-in-us)]
      [:born-there (get-percents :born-there)]

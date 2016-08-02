@@ -2,7 +2,8 @@
   (:require [clojure.data.json :as json]
             [geo.jts :as jts]
             [notebook.congress.about :as about]
-            [geo.spatial :as spatial])
+            [geo.spatial :as spatial]
+            [notebook.geojson :as geojson])
   (:import (com.vividsolutions.jts.simplify TopologyPreservingSimplifier)))
 ;http://www.vividsolutions.com/jts/javadoc/com/vividsolutions/jts/simplify/TopologyPreservingSimplifier.html
 
@@ -67,6 +68,12 @@
        (spatial/latitude center)])))
 
 (def all-districts (get-district-features))
+
+(defn four-color [fs]
+  (->> fs
+       (map (fn [f]
+              (let [s (geojson/to-shape f)]
+                )))))
 
 (defn district-lookup [districts?]
   (->> (or districts? all-districts)
