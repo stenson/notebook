@@ -5,19 +5,62 @@ body {
   font-family: "Source Sans Pro", sans-serif;
 }
 
+html, body {
+  height: 100%;
+}
+
 #container {
-  width: 800px;
-  margin: 50px auto;
+  width: 100%;
+  height: 100%;
 }
 
 #map {
-  height: 500px;
+  height: 100%;
   width: 100%;
-  background: #ddd;
+  background: whitesmoke;
 }
 
-path:hover {
-  fill-opacity: .7;
+.mapboxgl-popup {
+  max-width: 400px;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+.mapboxgl-popup-content {
+  padding: 20px;
+  box-shadow: 0 0px 15px rgba(0,0,0,0.10);
+}
+
+.mapboxgl-popup-close-button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  border: none;
+  border-radius: 0 3px 0 0;
+  cursor: pointer;
+  background-color: rgba(0,0,0,0);
+  display: block;
+  padding: 7px 10px 8px;
+  font-size: 15px;
+  color: #333;
+}
+
+h3 {
+  font-weight: 300;
+}
+
+.details {
+  margin-top: 10px;
+  border-top: 1px solid #ddd;
+  padding-top: 10px;
+}
+
+.details span {
+  text-transform: uppercase;
+  color: #aaa;
+  width: 58px;
+  display: inline-block;
+  text-align: left;
+  margin-right: 5px;
 }
 
 .background {
@@ -34,15 +77,51 @@ path:hover {
   fill: orange;
 }
 
+#land-border {
+  fill: none;
+  stroke: peru;
+  stroke-width: 2px;
+  stroke-opacity: 0.1;
+}
+
+.districts path {
+  fill-opacity: 0.2;
+  stroke-opacity: 0.2;
+}
+
+.districts path:hover {
+  fill-opacity: 1.0;
+}
+
+.same-exact-place {
+  fill: indianred;
+}
+
+.born-there {
+  fill: #888;
+}
+
+.born-in-state {
+  fill: #aaa;
+}
+
+.born-in-us {
+  fill: #ddd;
+}
+
+.foreign {
+  fill: royalblue;
+}
+
 .state-boundaries {
   fill: none;
-  stroke: white;
-  stroke-width: 1px;
+  stroke: peru;
+  stroke-width: 0.5px;
 }
 
 .district-boundaries {
   fill: none;
-  stroke: white;
+  stroke: burlywood;
   stroke-width: 0.5px;
 }
 

@@ -74,6 +74,9 @@
                       (if state
                         bp
                         (str city ", " state-id)))
+        birth-state (let [naive (string/trim (last (string/split state #", ")))]
+                      (if (get about/state-abbrvs naive)
+                        naive))
         offices (->> (:OfficeList bio)
                      (filter #(= state (:StateDescription %)))
                      (map (fn [{:keys [Street City Zip]}]
@@ -81,6 +84,7 @@
         info {:offices (map vector offices (http/geocode offices))
               :hometown [hometown
                          (attempt-city-geocode hometown bio)]
+              :birth-state birth-state
               :birth-place [birth-place
                             (attempt-city-geocode birth-place bio)]}]
     (if representative?
@@ -123,17 +127,38 @@
     (println (:slug bio))
     (let [places (simplify-places bio)
           state (get states/states (:StateId bio))
-          {:keys [offices birth-place hometown district]} (geo-places places)]
-      {:birth-place (first (:birth-place places))
+          {:keys [offices birth-place hometown district]} (geo-places places)
+          same-exact-place (= (first (:hometown places))
+                              (first (:birth-place places)))
+          born-there (inside? district birth-place)
+          born-in-state (inside? (:shape state) birth-place)
+          born-in-us (inside? states/nation birth-place)
+          birth-score (if same-exact-place
+                        0
+                        (if born-there
+                          1
+                          (if born-in-state
+                            2
+                            (if born-in-us
+                              3
+                              4))))
+          party-id (:PartyID bio)]
+      {:party-int (if (= "R" party-id)
+                    0
+                    (if (= "D" party-id)
+                      1
+                      2))
+       :birth-score birth-score
+       :birth-place (first (:birth-place places))
+       :birth-state (:birth-state places)
        :hometown (first (:hometown places))
        :name (string/trim (:Name bio))
        :slug (:slug bio)
        :party (:PartyId bio)
-       :same-exact-place (= (first (:hometown places))
-                            (first (:birth-place places)))
-       :born-in-state (inside? (:shape state) birth-place)
-       :born-in-us (inside? states/nation birth-place)
-       :born-there (inside? district birth-place)
+       :same-exact-place same-exact-place
+       :born-in-state born-in-state
+       :born-in-us born-in-us
+       :born-there born-there
        :lives-there (inside? district hometown)
        :distance (Math/round
                    (float
@@ -147,45 +172,62 @@
 
 (defn as-features [{:keys [offices hometown birth-place district]} bio]
   (let [color (colors/random)
-        slug (:slug bio)]
+        slug (:slug bio)
+        stats (calc-stats bio)
+        offices-points (map (fn [[address ll]]
+                              (geojson/make
+                                "Point"
+                                ll
+                                {:address address
+                                 :type "office"
+                                 :slug slug}
+                                {:marker-color color
+                                 :marker-size "small"}))
+                            offices)
+        hometown-point (geojson/make
+                         "Point"
+                         (second hometown)
+                         {:name (first hometown)
+                          :type "hometown"
+                          :slug slug}
+                         {:marker-color color
+                          :marker-size "medium"})
+        birthplace-point (geojson/make
+                           "Point"
+                           (second birth-place)
+                           {:name (first birth-place)
+                            :type "birth-place"
+                            :birth-score (:birth-score stats)}
+                           {:marker-color color
+                            :marker-size "large"
+                            :slug slug})]
     (geojson/collect
-      (drop
-        3
-        [(map (fn [[address ll]]
-                (geojson/make
-                  "Point"
-                  ll
-                  {:address address
-                   :type "office"
-                   :slug slug}
-                  {:marker-color color
-                   :marker-size "small"}))
-              offices)
-         (geojson/make
-           "Point"
-           (second hometown)
-           {:name (first hometown)
-            :type "hometown"
-            :slug slug}
-           {:marker-color color
-            :marker-size "medium"})
-         (geojson/make
-           "Point"
-           (second birth-place)
-           {:name (first birth-place)
-            :type "birth-place"}
-           {:marker-color color
-            :marker-size "large"
-            :slug slug})
-         (update-in
-           district
-           [:properties]
-           (fn [props]
-             (merge props
-                    (assoc (calc-stats bio)
-                      :gpo (dissoc bio :OfficeList :SocialMediaList))
-                    {:fill color
-                     :fill-opacity 0.5})))]))))
+      [#_offices
+       #_hometown
+       #_birthplace-point
+       #_(geojson/make
+         "LineString"
+         [(second birth-place)
+          (second hometown)]
+         {:slug slug
+          :birth-score (:birth-score stats)}
+         {})
+       (update-in
+         district
+         [:properties]
+         (fn [props]
+           (merge props
+                  (assoc stats
+                    :gpo (dissoc bio :OfficeList :SocialMediaList)
+                    :point {:hometown hometown-point
+                            :birthplace birthplace-point})
+                  {:fill color
+                   :fill-opacity 0.5})))])))
+
+(defn calc-geo-bio [slug-or-member]
+  (let [bio (slug-or-member->bio slug-or-member)
+        places (simplify-places bio)]
+    (as-features places bio)))
 
 (defn save-geo-bio [slug-or-member]
   (let [bio (slug-or-member->bio slug-or-member)
@@ -195,7 +237,7 @@
     (spit path (json/write-str features))
     features))
 
-(defn combine-geo-bios [matcher]
+#_(defn combine-geo-bios [matcher]
   (->> (fs/list-dir "tmp")
        (filter #(re-find matcher (fs/base-name %)))
        (map slurp)
@@ -207,11 +249,13 @@
 
 (defn save-all-geo-bios []
   (let [features (->> representatives
-                      (map save-geo-bio)
+                      (map calc-geo-bio)
                       (map :features)
                       (apply concat)
+                      (filter (fn [{:keys [properties]}]
+                                (= 4 (:birth-score properties))))
                       (geojson/collect))]
-    (spit "sites/robstenson.com/articles/birthplaces/members.json"
+    (spit "sites/robstenson.com/articles/birthplaces/_districts.json"
           (json/write-str features))))
 
 (defn state-stats [state]

@@ -69,12 +69,6 @@
 
 (def all-districts (get-district-features))
 
-(defn four-color [fs]
-  (->> fs
-       (map (fn [f]
-              (let [s (geojson/to-shape f)]
-                )))))
-
 (defn district-lookup [districts?]
   (->> (or districts? all-districts)
        (map (fn [district]
@@ -91,6 +85,7 @@
                               {:slug slug
                                :district district-num
                                :state state-abbrv
+                               :fips (get about/reverse-fips state-abbrv)
                                :name (format "%s, %s"
                                              state-name
                                              (:NAMELSAD ps))})

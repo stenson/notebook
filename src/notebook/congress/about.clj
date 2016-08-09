@@ -114,3 +114,9 @@
    64 ["FM" "Federated States of Micronesia"]
    23 ["ME" "Maine"]
    29 ["MO" "Missouri"]})
+
+(def reverse-fips
+  (->> fips
+       (map (fn [[fips [abbrv longname]]]
+              [abbrv fips]))
+       (into {})))
