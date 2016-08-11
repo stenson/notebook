@@ -142,7 +142,7 @@
                             (if born-in-us
                               3
                               4))))
-          party-id (:PartyID bio)]
+          party-id (:PartyId bio)]
       {:party-int (if (= "R" party-id)
                     0
                     (if (= "D" party-id)
@@ -217,10 +217,10 @@
          [:properties]
          (fn [props]
            (merge props
-                  (assoc stats
+                  stats
+                  #_(assoc stats
                     :gpo (dissoc bio :OfficeList :SocialMediaList)
-                    :point {:hometown hometown-point
-                            :birthplace birthplace-point})
+                    :point {:hometown hometown-point :birthplace birthplace-point})
                   {:fill color
                    :fill-opacity 0.5})))])))
 
@@ -252,10 +252,10 @@
                       (map calc-geo-bio)
                       (map :features)
                       (apply concat)
-                      (filter (fn [{:keys [properties]}]
+                      #_(filter (fn [{:keys [properties]}]
                                 (= 4 (:birth-score properties))))
                       (geojson/collect))]
-    (spit "sites/robstenson.com/articles/birthplaces/_districts.json"
+    (spit "sites/robstenson.com/articles/birthplaces/_all-districts.json"
           (json/write-str features))))
 
 (defn state-stats [state]

@@ -12,50 +12,25 @@ var map = new mapboxgl.Map({
 
 map.on("load", function() {
 
-  map.addSource("members", {
-    type: "geojson",
-    data: "/_districts.json"
-  });
-
-  map.addLayer({
-    id: "members-layer",
-    type: "fill",
-    source: "members",
-    paint: {
-      'fill-color': {
-        property: 'party-int',
-        stops: [
-          [0, "indianred"],
-          [1, "royalblue"]
-        ]
-      }
-    },
-    filter: //[
-      //[">", "distance", 2000],
-      ["==", "birth-score", 4]
-    //]
-  }, "countries");
+  //map.addSource("members", {
+  //  type: "geojson",
+  //  data: "/_districts.json"
+  //});
 
   //map.addLayer({
-  //  id: "members-lines",
-  //  type: "line",
-  //  source: "members",
-  //  minzoom: 5,
-  //  paint: {
-  //    'line-color': 'rgba(255, 255, 255, 0.45)',
-  //    'line-width': 0.3
-  //  }
-  //}, "countries");
-  //
-  //map.addLayer({
-  //  id: "members-highlight",
+  //  id: "members-layer",
   //  type: "fill",
   //  source: "members",
   //  paint: {
-  //    'fill-color': 'rgba(200, 100, 240, 0.1)',
-  //    'fill-outline-color': 'rgba(200, 100, 240, 1)'
+  //    'fill-color': {
+  //      property: 'party-int',
+  //      stops: [
+  //        [0, "indianred"],
+  //        [1, "royalblue"]
+  //      ]
+  //    }
   //  },
-  //  filter: [["==", "name", ""]]
+  //  filter: ["==", "birth-score", 4]
   //}, "countries");
 
   map.on("click", function(e) {
@@ -72,8 +47,8 @@ map.on("load", function() {
         "<h1>" + feature.properties.slug + "</h1>",
         "<h2>" + feature.properties.name + "</h2>",
         "<div class='details'>",
-        "<h3><span>From</span> " + feature.properties["birth-place"] + "</h3>",
-        "<h3><span>To</span> " + feature.properties["hometown"] + "</h3>",
+        "<h3><span>Born</span> " + feature.properties["birth-place"] + "</h3>",
+        "<h3><span>Lives</span> " + feature.properties["hometown"] + "</h3>",
         "</div>"
       ].join("\n"))
       .addTo(map);
