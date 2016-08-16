@@ -21,15 +21,15 @@
    :scripts ["hyphenator"]}
   [:div#container
    [:div#outer-outer
-    [:div#intro "Unordered List of Recent Writings"]
+    [:div#intro "Unordered List of Recent Writings & Podcasts"]
     [:div#outer
      [:div#inner
       [:ul
-       (essay "How to Get Hired at Twitter in 2011" nil
-              "https://medium.com/@robstenson/how-to-get-hired-at-twitter-in-2011-22f03e8082ab#.a1hli53ft"
-              "medium.com"
-              "Ruminations and useless advice from a stint in Silicon Valley"
-              "Aug 21, 2015")
+       (essay "Holy Trinities, Ep. 1 — Snare" nil
+              "http://tonal.goodhertz.co/holy-trinities-snare/"
+              "tonal.goodhertz.co"
+              "A podcast I produced and edited about Jack Stratton’s favorite snares from snare history"
+              "May 26, 2106")
        (essay "My First Instrument" nil
               "http://my1stinstrument.com"
               "my1stinstrument.com"
@@ -40,11 +40,6 @@
               "Atlas Obscura"
               "The early computing phrase’s history is rife with bad information"
               "March 14, 2016")
-       (essay "Lossy’s Uncharted Waters" nil
-              "http://tonal.goodhertz.co/uncharted-waters/"
-              "tonal.goodhertz.co"
-              "Unnecessarily poetic blog post about a piece of audio software"
-              "Apr 7, 2015")
        (essay "Thrill of the Arts" nil
               "http://lit.vulf.de/thrill-of-the-arts/"
               "lit.vulf"
@@ -67,6 +62,16 @@
               "lit.vulf"
               "“We moved westward, downloading obscure Wikipedia articles...”"
               "Oct 27, 2015")
+       (essay "How to Get Hired at Twitter in 2011" nil
+              "https://medium.com/@robstenson/how-to-get-hired-at-twitter-in-2011-22f03e8082ab#.a1hli53ft"
+              "medium.com"
+              "Ruminations and useless advice from a stint in Silicon Valley"
+              "Aug 21, 2015")
+       (essay "Lossy’s Uncharted Waters" nil
+              "http://tonal.goodhertz.co/uncharted-waters/"
+              "tonal.goodhertz.co"
+              "Unnecessarily poetic blog post about a piece of audio software"
+              "Apr 7, 2015")
        (essay "Why I Play the Banjo" nil
               "https://medium.com/the-banjo/why-i-play-the-banjo-3e312da0eab7"
               "medium.com"
@@ -88,7 +93,12 @@
               "/pdfs/roygbiv.pdf"
               "academic"
               "A paper I once presented at the TAG conference in 2008"
-              "Oct 25, 2007")]]]
+              "Oct 25, 2007")
+       (essay "The Met Goes Greek... and Roman" nil
+              "http://columbiaspectator.com/2007/04/25/met-goes-greekand-roman"
+              "Columbia Spectator"
+              "A review of the newly-renovated Greek and Roman galleries at the Met"
+              "Apr 25, 2007")]]]
     [:div#cameo
      [:div#cameo-inner]
      [:img#rob {:src "me.png"}]]
