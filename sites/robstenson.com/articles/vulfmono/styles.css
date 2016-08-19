@@ -14,7 +14,7 @@ body {
 p {
   padding: 14px 20px;
   margin: 0 20px;
-  font-size: 34px;
+  font-size: 28px;
   line-height: 54px;
   color: #222;
   border-radius: 14px;
@@ -40,8 +40,8 @@ h1 {
 }
 
 figure {
-  max-width: 200px;
-  margin: auto auto;
+  max-width: 300px;
+  margin: 20px auto;
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
   padding: 10px 0;

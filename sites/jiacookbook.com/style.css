@@ -1,0 +1,32 @@
+@font-face {
+  font-family: 'EubieScript';
+  src: url('/style/daifoldes/EubieScriptWOFF-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* { padding: 0; margin: 0; }
+
+body {
+  background: firebrick;
+}
+
+h1 {
+  font-family: "Eubie Script", serif;
+  text-align: center;
+  margin-top: 100px;
+  color: gold;
+  font-size: 300px;
+  font-weight: normal;
+  text-shadow: 6px 6px 0px goldenrod;
+}
+
+h3 {
+  font-family: "Times New Roman", serif;
+  color: goldenrod;
+  font-size: 42px;
+  font-style: italic;
+  text-align: center;
+  width: 300px;
+  margin: 0 auto 200px;
+}
