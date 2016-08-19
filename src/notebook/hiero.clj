@@ -22,3 +22,8 @@
   (-> (str " " txt)
       (hiero/parse {})
       (:html)))
+
+(defn slurp&parse [site f]
+  (->> (format "sites/%s/txt/%s.txt" site (name f))
+       (slurp)
+       (<-txt)))

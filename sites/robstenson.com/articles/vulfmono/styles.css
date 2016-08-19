@@ -1,0 +1,59 @@
+* { padding: 0; margin: 0 }
+
+body {
+  background: white;
+  color: #222;
+  font-family: "Vulf Mono AI", monospace;
+}
+
+#text {
+  width: 100%;
+  margin: 100px auto;
+}
+
+p {
+  padding: 14px 20px;
+  margin: 0 20px;
+  font-size: 34px;
+  line-height: 54px;
+  color: #222;
+  border-radius: 14px;
+}
+
+.alt-2 {
+  color: rgb(244,93,58);
+  font-style: italic;
+  font-weight: bold;
+}
+
+strong {
+  font-style: italic;
+}
+
+h1 {
+  font-size: 94px;
+  text-align: center;
+  padding: 20px 0;
+  font-style: italic;
+  margin-top: 140px;
+  margin-bottom: 140px;
+}
+
+figure {
+  max-width: 200px;
+  margin: auto auto;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+figure img {
+  width: 100%;
+  display: block;
+}
+
+a {
+  color: #222;
+  text-decoration: none;
+  border-bottom: 1px solid #ddd;
+}
