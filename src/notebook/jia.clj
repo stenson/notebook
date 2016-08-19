@@ -5,7 +5,9 @@
   "jiacookbook.com"
   "Jia!"
   {:styles ["style"]
-   :scripts []}
+   :scripts ["https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min"
+             "jquery.color.min"
+             "script"]}
   [:div
    [:h1 "Jia!"]
-   [:h3 "A cookbook about the food of Swatow"]])
+   [:h3 "a cookbook about the food of Swatow"]])
