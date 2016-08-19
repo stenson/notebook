@@ -11,7 +11,10 @@
   {:birth-place [:P19 :numeric-id]
    :coords [:P625 (fn [r] [(:longitude r)
                            (:latitude r)])]
-   :proper-name [:P373 identity]})
+   :proper-name [:P373 identity]
+   :musicbrainz [:P436 identity]
+   :isrc [:P1243 identity]
+   :performer [:P175 identity]})
 
 (defn search [query]
   (let [res (http/fetch-json

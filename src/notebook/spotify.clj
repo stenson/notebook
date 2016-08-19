@@ -44,10 +44,10 @@
           who
           which))
 
-(def countoffs-url
+#_(def countoffs-url
   (playlist-url "robstenson" "2GBrd2LhuWj8CwioluMJ9L"))
 
-(def land-of-1000-url
+#_(def land-of-1000-url
   (playlist-url "robstenson" "2rI5OJBLx9ZD2vSb1iDw4C"))
 
 #_(defonce loatd
