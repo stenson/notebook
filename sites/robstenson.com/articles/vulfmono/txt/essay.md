@@ -1,4 +1,4 @@
-__What a time to be alive!__ The CEO of a one-man record label sends an unpunctuated email to the CEO of a one-man type foundry. “i’ve been thinking about a vulf font,” writes the record man. Next thing you know the type man is sketching in a moleskine, is pulling on Bezier control points, is superpolating a screenful of glyphs until, there it is, a typeface has come to life and ||it looks a lot like how a saxophone solo sounds||. (§:big)
+__What a time to be alive!__ The CEO of a one-man record label sends an unpunctuated email to the CEO of a one-man type foundry. “i’ve been thinking about a vulf font,” writes the record man. Next thing you know the type man is sketching on marker paper, is pulling on Bezier control points, is Superpolating a screenful of glyphs until, there it is, a typeface has come to life and ||it looks a lot like how a saxophone solo sounds||. (§:big)
 
 The type man is wearing a light sweater and can see the San Francisco fog pass across his office window. He attaches a pdf specimen to an email, sends it. Down the coast, in Los Angeles, the record man is wearing a t-shirt and athletic shorts. From his standing desk he can see a palm tree curve across the sky. He opens the pdf attachment and responds immediately, enthusiastically, with five unspaced _o_’s.
 
@@ -14,13 +14,13 @@ Here’s a picture of one in action (in very slow slo-mo), so you can get a sens
 
 ƒ«img:img/golfball.gif»
 
-So one day the type man — his name is James Edmondson, of [OH no Type Co](ohnotype.co) — one day he gets an email from the record man, Jack Stratton, of [Vulf Records](vulf.de), about how the two of them, even though they’ve never met, the two of them should collaborate on a typeface; that the typeface should be called __vulf mono__; that it should be based on the classic _Light Italic_ of Selectric days.
+So one day the type man — his name is James Edmondson, of [OH no Type Co](ohnotype.co) — one day he gets an email from the record man, Jack Stratton, of [Vulf Records](vulf.de), about how the two of them, even though they’ve never met, the two of them should collaborate on a typeface. The emails says that the typeface should be called __vulf mono__. The emails says that it should be based on the classic _Light Italic_ of Selectric days.
 
-Edmondson agrees immediately (he’s a big fan of [Vulfpeck](http://vulfpeck.com), Stratton’s band, the house rhythm section of Vulf Records). So the next day James heads to SFMOMA, to look at an exhibit all about the Selectric and its faces. And there he spots it, mounted on the wall like an extinct insect, a golfball of _Light Italic_.
+Edmondson agrees immediately (he’s a big fan of [Vulfpeck](http://vulfpeck.com), Stratton’s band). So the next day James heads to SFMOMA, to look at an exhibit and what do you know the Selectric and its faces are there, too. This is when he spots it, mounted on the wall like an extinct insect, a golfball of _Light Italic_.
 
 But Edmondson knows something Stratton doesn’t: you can’t just pull the ball off the wall and trace its forms and say, _ok, here’s a digital revival of this old analog typeface._
 
-Back in the 60s and 70s, when you sat down at a Selectric and hammered out a phrase like ||vulf||, each time you hit a letter the golfball rotated instantaneously and impressed the chosen letter upon the page: __v__ __u__ __l__ __f__. But because the Selectric was imperfect, it did more than that: each strike distributed the ink a little differently, hit the page a different way. Not what the Selectric engineers wanted, of course; they would’ve seen that as a side effect. But today we cherish it.
+Back in the 60s and 70s, when you sat down at a Selectric and hammered out a phrase like ||vulf||, each time you hit a letter the golfball rotated instantaneously and impressed the chosen letter upon the page: __v__ __u__ __l__ __f__. But because the Selectric was imperfect, it did more than that: each strike, as Edmondson puts it, “left a unique and subtlety unpredictable shape on the page.” Not what the Selectric engineers wanted, of course; they would’ve seen that as a side effect. But today we cherish it.
 
 The side effect has become a vibe.
 

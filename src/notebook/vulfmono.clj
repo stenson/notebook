@@ -4,6 +4,8 @@
 
 (def site "robstenson.com/articles/vulfmono")
 
+; sounds of selectric https://www.youtube.com/watch?v=SF6Rj1FGCeo
+
 (html/refresh
   site
   "mono.vulf.de"

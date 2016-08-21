@@ -111,5 +111,5 @@
          label. Though previously a resident of (in chronological order)
          Jacksonville, Cleveland, New York, San Francisco, and Boston,
          Rob currently lives among palm tree emoji in Los Angeles, CA
-         with his fiancée and a dog named Alphonso. He also has a
+         with his wife and a dog named Alfie. Rob also has a
          [Twitter account](https://twitter.com/robstenson)."))]]])

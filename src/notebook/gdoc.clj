@@ -16,6 +16,10 @@
 (defn read-html [url-s]
   (html/html-resource (URL. url-s)))
 
+(defn read-docx [slug]
+  (let [docx (slurp (URL. (g-dld slug "doc")))]
+    (spit "tmp.doc" docx)))
+
 (defn breakdown-span [{:keys [attrs content]}]
   (let [classes (into #{} (map keyword (string/split (:class attrs) #" ")))]
     {:classes classes

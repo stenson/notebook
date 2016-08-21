@@ -24,6 +24,6 @@
       (:html)))
 
 (defn slurp&parse [site f]
-  (->> (format "sites/%s/txt/%s.txt" site (name f))
+  (->> (format "sites/%s/txt/%s.md" site (name f))
        (slurp)
        (<-txt)))
