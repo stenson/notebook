@@ -32,7 +32,7 @@
 (defn inline-js [src]
   [:script {:type "text/javascript"} src])
 
-(defn basic [title {:keys [styles scripts mobile-width]} content]
+(defn basic [title {:keys [styles scripts mobile-width typekit]} content]
   (html5
     {:lang "en"}
     (list
@@ -45,7 +45,13 @@
        (list (favicons 16 32 96))
        (if (string? styles)
          (format [:style {:type "text/css"} styles])
-         (list (map style-link styles)))]
+         (list (map style-link styles)))
+       (when typekit
+         (list
+           [:script {:type "text/javascript"
+                     :src (format "https://use.typekit.net/%s.js" typekit)}]
+           [:script {:type "text/javascript"}
+            "try{Typekit.load({ async: true });}catch(e){}"]))]
       [:body
        (list
          content

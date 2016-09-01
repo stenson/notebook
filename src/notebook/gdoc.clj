@@ -11,7 +11,8 @@
   (format (string/join
             "" ["https://docs.google.com/feeds/download/"
                 "documents/export/Export?id=%s&exportFormat=%s"])
-          id fmt))
+          id
+          (name fmt)))
 
 (defn read-html [url-s]
   (html/html-resource (URL. url-s)))

@@ -1,0 +1,129 @@
+@font-face {
+  font-family: 'EubieScript';
+  src: url('/style/daifoldes/EubieScriptWOFF-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* { padding: 0; margin: 0; }
+
+#container {
+  font-family: "arek", serif;
+  width: 800px;
+  margin: auto auto;
+}
+
+#recipe-container {
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+#topbar {
+  height: 22px;
+  background: rgba(200,0,0,1.0);
+  overflow: hidden;
+}
+
+#logo {
+  font-family: EubieScript, cursive;
+  color: white;
+  font-size: 22px;
+  line-height: 3px;
+  margin-left: 18px;
+  opacity: 0.5;
+  text-decoration: none;
+}
+
+#title {
+  text-align: right;
+  margin-bottom: 20px;
+  padding: 0 20px;
+}
+
+h1.cn {
+  font-family: "Yuanti SC", sans-serif;
+  font-weight: 100;
+  font-size: 72px;
+  padding: 0 4px 0 2px;
+  font-style: normal;
+  color: rgba(200,0,0,1.0);
+  margin-bottom: -10px;
+}
+
+h4.pinyin {
+  font-family: "Yuanti SC", sans-serif;
+  font-weight: lighter;
+  color: rgba(200,0,0,1.0);
+}
+
+h1.en {
+  font-family: EubieScript, serif;
+  color: rgba(200,0,0,1.0);
+  font-size: 72px;
+  font-weight: normal;
+}
+
+#photo {
+  height: 500px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width: 100%;
+  background-position: bottom center;
+}
+
+.sep {
+  margin-top: -1px;
+  height: 10px;
+  background: white;
+  position: relative;
+  z-index: 10;
+}
+
+#text {
+  position: relative;
+  min-height: 800px;
+  margin-top: 40px;
+  padding: 0 40px;
+}
+
+#ingredients {
+  width: 40%;
+  position: absolute;
+  top: 0;
+  left: 40px;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+#ingredients strong {
+  font-weight: 800;
+  color: rgba(200,0,0,1.0);
+}
+
+#ingredients em {
+  font-weight: 300;
+}
+
+#instructions {
+  width: 50%;
+  margin-left: 50%;
+}
+
+#instructions p {
+  margin-bottom: 16px;
+}
+
+#ingredients .spacer {
+  height: 20px;
+}
+
+#footer-container {
+  margin-bottom: 80px;
+}
+
+#footer {
+  text-align: center;
+  color: #aaa;
+  font-style: italic;
+}
