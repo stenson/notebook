@@ -5,8 +5,6 @@
             [clojure.set :as set])
   (:import (java.net URL)))
 
-#_(read-html (g-dld "1uXDM4acSAxXTcYtwqoSmZK7XDxIWP7l40Ne6t9GAv9s" "html"))
-
 (defn g-dld [id fmt]
   (format (string/join
             "" ["https://docs.google.com/feeds/download/"
@@ -15,7 +13,8 @@
           (name fmt)))
 
 (defn read-html [url-s]
-  (html/html-resource (URL. url-s)))
+  (let [res (html/html-resource (URL. url-s))]
+    res))
 
 (defn read-docx [slug]
   (let [docx (slurp (URL. (g-dld slug "doc")))]
@@ -88,3 +87,62 @@
        (string/split-lines)
        (remove empty?)
        (mapv (partial align-to-cols 40))))
+
+;;;;;;;;;;;;;;;;;;
+
+(defn url->params [u]
+  (->> (string/split (.getQuery (URL. u)) #"&")
+       (map #(string/split % #"="))
+       (into {})))
+
+(defn parse-css [css]
+  (let [unwrap (fn [xs] (string/replace (first (first xs)) #"^\." ""))
+        rules (->> (string/split (first (:content css)) #"\}")
+                   (map #(string/split % #"\{"))
+                   (filter (fn [[sel]] (re-matches #"\.c.*" sel))))
+        bold (filter (fn [[_ rules]] (= rules "font-weight:700")) rules)
+        italic (filter (fn [[_ rules]] (= rules "font-style:italic")) rules)]
+    [(unwrap bold)
+     (unwrap italic)]))
+
+(defn pluck-src [img-node]
+  (-> (html/select img-node [:img])
+      (first)
+      (get-in [:attrs :src])))
+
+(defn process-grafs [[bold italic] gs]
+  (->> gs
+       (map
+         (fn [{:keys [content] :as p}]
+           (let [txt (html/text p)]
+             (if (empty? txt)
+               {:tag :div :attrs {:class "spacer"} :content ""}
+               (assoc
+                 p :content
+                   (map
+                     (fn [{:keys [attrs content] :as el}]
+                       (let [a-s (html/select el [:a])]
+                         (if (not (empty? a-s))
+                           (let [a (first a-s)
+                                 href (get-in a [:attrs :href])
+                                 q (get (url->params href) "q")]
+                             {:tag :a
+                              :attrs {:href q}
+                              :content (html/text a)})
+                           (if (= (:class attrs) bold)
+                             {:tag :strong
+                              :attrs nil
+                              :content content}
+                             (if (= (:class attrs) italic)
+                               {:tag :em :attrs nil :content content}
+                               el                           ; should be markdown'd
+                               )))))
+                     content))))))
+       (html/emit*)
+       (string/join)))
+
+(defn fetch-html [gdoc-id]
+  (let [res (html/html-resource (URL. (g-dld gdoc-id :html)))]
+    {:res res
+     :style (parse-css (first (html/select res [:style])))
+     :ps (html/select res [:p])}))

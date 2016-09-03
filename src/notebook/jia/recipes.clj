@@ -4,84 +4,65 @@
             [clojure.string :as string]
             [notebook.html :as html]))
 
-(def test-id "1fh-YHwH3GI6TDyK61KFrhaeKc9IpuMLJxWRtvlTtZ6g")
+(def ids
+  (->> [[:basil-clams "1fh-YHwH3GI6TDyK61KFrhaeKc9IpuMLJxWRtvlTtZ6g"]]
+       (into {})))
 
-#_(def x (gdoc/read-html (gdoc/g-dld test-id :html)))
-
-(defn process-grafs [[bold italic] gs]
-  (->> gs
-       (map (fn [{:keys [content] :as p}]
-              (let [txt (h/text p)]
-                (if (empty? txt)
-                  {:tag :div :attrs {:class "spacer"} :content ""}
-                  (assoc
-                    p :content
-                      (map (fn [{:keys [attrs content] :as el}]
-                             (if (= (:class attrs) bold)
-                               {:tag :strong :attrs nil :content content}
-                               (if (= (:class attrs) italic)
-                                 {:tag :em :attrs nil :content content}
-                                 el)))
-                           content))))))
-       (h/emit*)
-       (string/join)
-       #_(map h/text)
-       #_(string/join "\n")
-       #_(string/trim-newline)
-       ))
-
-(defn parse-css [css]
-  (let [unwrap (fn [xs] (string/replace (first (first xs)) #"^\." ""))
-        rules (->> (string/split (first (:content css)) #"\}")
-                   (map #(string/split % #"\{"))
-                   (filter (fn [[sel]] (re-matches #"\.c.*" sel))))
-        bold (filter (fn [[_ rules]] (= rules "font-weight:700")) rules)
-        italic (filter (fn [[_ rules]] (= rules "font-style:italic")) rules)]
-    [(unwrap bold)
-     (unwrap italic)]))
-
-(defn breakdown-html [x]
-  (let [style (parse-css (first (h/select x [:style])))
-        ps (h/select x [:p])
-        [characters pinyin english img & text] ps
-        [ingredients
-         _ instructions] (->> (drop 1 text)
-                              (partition-by #(= (h/text %) "Instructions")))]
+#_(defn breakdown-html [{:keys [style ps] :as x}]
+  (let [[characters pinyin english img & text] ps
+        [ingredients _ plaintext] (partition-by #(= (h/text %) "Instructions") (drop 1 text))
+        [instructions _ etymology] (partition-by #(= (h/text %) "Rob") plaintext)]
     {:title {:characters (h/text characters)
              :pinyin (h/text pinyin)
              :english (h/text english)}
      :img (-> (h/select img [:img])
               (first)
               (get-in [:attrs :src]))
-     :ingredients (process-grafs style ingredients)
-     :instructions (process-grafs style instructions)}))
+     :ingredients (gdoc/process-grafs style ingredients)
+     :instructions (gdoc/process-grafs style instructions)
+     :etymology (gdoc/process-grafs style etymology)}))
 
-(defn set-html [x]
-  (let [{:keys [title img ingredients instructions]} (breakdown-html x)
-        slug (string/lower-case (string/replace (:english title) #"\s" "-"))]
+(defn split-at-text [content ps]
+  (partition-by #(= (h/text %) content) (drop 1 ps)))
+
+(defn set-html [slug {:keys [style ps] :as x}]
+  (let [[characters pinyin english img & text] ps
+        [ingredients _ plaintext] (split-at-text "Instructions" (drop 1 text))
+        [instructions _ etymology] (split-at-text "Rob" plaintext)
+        english-title (h/text english)]
     (html/refresh
-      (str "jiacookbook.com/recipes/" slug)
-      (str "Jia! — " (:english title))
+      (str "jiacookbook.com/recipes/" (name slug))
+      (str "Jia! — " english-title)
       {:styles ["/recipe"]
        :scripts []
-       :typekit "ade3qww"}
+       :typekit "ade3qww"
+       :mobile-width "device-width"}
       [:div#container
        [:div#recipe-container
         [:div#topbar
          [:a#logo {:href "/"} "Jia!"]]
         [:div#recipe
          [:div#title
-          [:h1.cn (:characters title)]
-          [:h1.en (:english title)]
-          [:h4.pinyin (string/lower-case (:pinyin title))]]
-         [:div#photo {:style (format "background-image:url(%s)" img)}]
+          [:h1.cn (h/text characters)]
+          [:h1.en english-title]
+          [:h4.pinyin (string/lower-case (h/text pinyin))]]
+         [:div#photo
+          {:style (format "background-image:url(%s)" (gdoc/pluck-src img))}]
          [:div.sep]
          [:div#text
           [:div#ingredients
-           ingredients]
+           (gdoc/process-grafs style ingredients)]
           [:div#instructions
-           instructions]]]]
+           (gdoc/process-grafs style instructions)]
+          (if (not (empty? etymology))
+            [:div#etymology
+             (gdoc/process-grafs style etymology)])]]]
        [:div#footer-container
         [:div#footer
          [:p "Copyright © 2016 by Diana Zheng & Rob Stenson"]
-         [:p "All rights reserved"]]]])))
+         [:p.rights
+          "All rights reserved"]]]])))
+
+(defn pull [slug]
+  (let [remote (gdoc/fetch-html (get ids slug))]
+    (set-html slug remote)))
