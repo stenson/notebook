@@ -7,6 +7,20 @@
 
 * { padding: 0; margin: 0; }
 
+body {
+  background: url(/map.gif) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width: 100%;
+  background-position: top center;
+}
+
+#outer-container {
+  background: rgba(255,255,255,0.8);
+}
+
 #container {
   font-family: "arek", serif;
   max-width: 800px;
@@ -15,6 +29,7 @@
 
 #recipe-container {
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  background: white;
 }
 
 #topbar {
@@ -39,20 +54,29 @@
   padding: 0 20px;
 }
 
+h1.cn,
+.cjk {
+  color: rgba(200,0,0,1.0);
+  font-style: normal;
+}
+
+/*#etymology .cjk {*/
+  /*color: #333;*/
+/*}*/
+
 h1.cn {
   font-family: "Yuanti SC", sans-serif;
   font-weight: 100;
   font-size: 72px;
   padding: 0 4px 0 2px;
   font-style: normal;
-  color: rgba(200,0,0,1.0);
   margin-bottom: 20px;
   margin-top: 10px;
   line-height: 120%;
 }
 
 h4.pinyin {
-  font-family: "Yuanti SC", sans-serif;
+  font-family: "arek", "Yuanti SC", sans-serif;
   font-weight: lighter;
   color: rgba(200,0,0,1.0);
 }
@@ -84,6 +108,14 @@ h1.en {
   z-index: 10;
 }
 
+.clearfix:after {
+  content: ".";
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both;
+}
+
 #text {
   position: relative;
   margin-top: 40px;
@@ -102,11 +134,37 @@ h1.en {
   border-bottom: 1px dotted #ccc;
 }
 
+#introduction {
+  font-style: italic;
+  width: 80%;
+  font-size: 17px;
+}
+
+#introduction em {
+  font-style: normal;
+}
+
+#introduction p:first-child::first-letter {
+  color: rgb(200,0,0);
+  font-size: 57px;
+  display: inline-block;
+  font-weight: bold;
+  font-style: normal;
+  float: left;
+  line-height: 43px;
+  padding-right: 3px;
+  margin-left: -4px;
+}
+
+#tips {
+  width: 80%;
+  margin-top: 20px;
+  font-size: 13px;
+}
+
 #ingredients {
   width: 40%;
-  position: absolute;
-  top: 0;
-  left: 40px;
+  float: left;
   font-size: 17px;
   font-weight: 600;
 }
@@ -126,8 +184,13 @@ h1.en {
   margin-left: 50%;
 }
 
+.split {
+  border-bottom: 1px solid rgba(200,0,0,0.2);
+  margin: 20px 0 40px;
+}
+
 #instructions p {
-  margin-bottom: 16px;
+  margin-bottom: 10px;
 }
 
 #etymology {
@@ -152,6 +215,7 @@ h1.en {
     margin-bottom: 20px;
   }
 
+  #introduction,
   #instructions,
   #etymology {
     margin-left: 0;
@@ -160,13 +224,13 @@ h1.en {
 }
 
 #footer-container {
-  margin-top: 20px;
-  margin-bottom: 80px;
+  padding-top: 20px;
+  padding-bottom: 80px;
 }
 
 #footer {
   text-align: center;
-  color: #aaa;
+  color: #777;
   font-style: italic;
 }
 

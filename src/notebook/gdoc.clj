@@ -2,7 +2,8 @@
   (:require [net.cgrand.enlive-html :as html]
             [hieronymus.core :as hiero]
             [clojure.string :as string]
-            [clojure.set :as set])
+            [clojure.set :as set]
+            [clojure.walk :as walk])
   (:import (java.net URL)))
 
 (defn g-dld [id fmt]
@@ -110,39 +111,102 @@
       (first)
       (get-in [:attrs :src])))
 
-(defn process-grafs [[bold italic] gs]
-  (->> gs
-       (map
-         (fn [{:keys [content] :as p}]
-           (let [txt (html/text p)]
-             (if (empty? txt)
-               {:tag :div :attrs {:class "spacer"} :content ""}
-               (assoc
-                 p :content
-                   (map
-                     (fn [{:keys [attrs content] :as el}]
-                       (let [a-s (html/select el [:a])]
-                         (if (not (empty? a-s))
-                           (let [a (first a-s)
-                                 href (get-in a [:attrs :href])
-                                 q (get (url->params href) "q")]
-                             {:tag :a
-                              :attrs {:href q}
-                              :content (html/text a)})
-                           (if (= (:class attrs) bold)
-                             {:tag :strong
-                              :attrs nil
-                              :content content}
-                             (if (= (:class attrs) italic)
-                               {:tag :em :attrs nil :content content}
-                               el                           ; should be markdown'd
-                               )))))
-                     content))))))
+(def carons->breves
+  {\ǎ \ă
+   \ǐ \ĭ
+   \ě \ĕ
+   \ǒ \ŏ
+   \ǔ \ŭ})
+
+(defn caron->breve [s]
+  (->> (map char s)
+       (map #(get carons->breves % %))
+       (string/join)))
+
+(defn walk-strings [f data]
+  (walk/prewalk #(if (string? %) (f %) %) data))
+
+(defn swap-carons-for-breves [data]
+  (walk-strings caron->breve data))
+
+(defn cjk? [c]
+  (let [n (int c)]
+    (and (> n 19968) (< n 40908))))
+
+(defn wrap-cjk [data]
+  (walk-strings
+    (fn [s]
+      (let [o (->> (map char s)
+                   (partition-by cjk?)
+                   (map string/join))]
+        (if (= 1 (count o))
+          s
+          (map
+            (fn [seg]
+              (if (cjk? (first seg))
+                {:tag :span :attrs {:class "cjk"} :content (string/join seg)}
+                (string/join seg)))
+            o))))
+    data))
+
+(defn enrich-el [[bold italic] {:keys [tag content] :as el}]
+  (if (not= :p tag)
+    el
+    (let [txt (html/text el)]
+      (if (and (empty? txt)
+               (empty? (html/select el [:img])))
+        {:tag :div :attrs {:class "spacer"} :content ""}
+        (assoc
+          el
+          :content
+          (map
+            (fn [{:keys [attrs content] :as el}]
+              (let [a-s (html/select el [:a])]
+                (if (not (empty? a-s))
+                  (let [a (first a-s)
+                        href (get-in a [:attrs :href])
+                        q (get (url->params href) "q")]
+                    {:tag :a
+                     :attrs {:href q}
+                     :content (html/text a)})
+                  (if (= (:class attrs) bold)
+                    {:tag :strong
+                     :attrs nil
+                     :content content}
+                    (if (= (:class attrs) italic)
+                      {:tag :em :attrs nil :content content}
+                      el                                    ; should be markdown'd
+                      )))))
+            content))))))
+
+(defn ->html [ps]
+  (->> ps
+       (drop-while #(= :div (:tag %)))
+       (reverse)
+       (drop-while #(= :div (:tag %)))
+       (reverse)
        (html/emit*)
        (string/join)))
 
+(defn flatten-nested-content-lists [data]
+  (walk/postwalk
+    (fn [el]
+      (if (and (map? el) (sequential? (:content el)))
+        (if (sequential? (first (:content el)))
+          (update el :content first)
+          el)
+        el))
+    data))
+
 (defn fetch-html [gdoc-id]
-  (let [res (html/html-resource (URL. (g-dld gdoc-id :html)))]
+  (let [res (html/html-resource (URL. (g-dld gdoc-id :html)))
+        style (parse-css (first (html/select res [:style])))]
     {:res res
-     :style (parse-css (first (html/select res [:style])))
-     :ps (html/select res [:p])}))
+     :style style
+     :ps (->> (html/select res [:body])
+              (first)
+              (:content)
+              (map (partial enrich-el style))
+              (swap-carons-for-breves)
+              (wrap-cjk)
+              (flatten-nested-content-lists))}))
