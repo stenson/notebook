@@ -258,20 +258,23 @@
         el))
     data))
 
-(defn fetch-html [gdoc-id img-options]
-  (let [res (html/html-resource (URL. (g-dld gdoc-id :html)))
-        style (try
-                (parse-css (first (html/select res [:style])))
-                (catch Exception _ ["x1" "x2"]))]
-    {:res res
-     :style style
-     :els (->> (html/select res [:body])
-               (first)
-               (:content)
-               (map (partial enrich-el style img-options))
-               (swap-carons-for-breves)
-               (wrap-cjk)
-               (flatten-nested-content-lists)
-               (split-els)
-               (map trim-spacers)
-               (remove #(= :hr (:tag (first %)))))}))
+(defn fetch-html
+  ([gdoc-id]
+    (fetch-html gdoc-id {}))
+  ([gdoc-id img-options]
+   (let [res (html/html-resource (URL. (g-dld gdoc-id :html)))
+         style (try
+                 (parse-css (first (html/select res [:style])))
+                 (catch Exception _ ["x1" "x2"]))]
+     {:res res
+      :style style
+      :els (->> (html/select res [:body])
+                (first)
+                (:content)
+                (map (partial enrich-el style img-options))
+                (swap-carons-for-breves)
+                (wrap-cjk)
+                (flatten-nested-content-lists)
+                (split-els)
+                (map trim-spacers)
+                (remove #(= :hr (:tag (first %)))))})))

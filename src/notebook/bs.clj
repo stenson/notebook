@@ -1,12 +1,53 @@
 (ns notebook.bs
   (:require [notebook.html :as html]
             [notebook.gdoc :as gdoc]
+            [notebook.geonames :as geonames]
+            [notebook.bs.courses :as courses]
             [net.cgrand.enlive-html :as h]
-            [clojure.data.json :as json]))
+            [clojure.data.json :as json]
+            [clojure.string :as string]))
 
 (def site "britstensondesign.com")
 (def img-options {:site site :image-dir "images"})
 (def id "1L91imUDSrfm-HzJMTdX3czD55SzyTi2-Iue4Wf8nS7A")
+(def courses "1qrFfXIVcLhsrMESsTq7pq-F1YxS9nV1nYECTUZArR90")
+
+(defn trim [s]
+  (-> (string/replace s #"[\u00a0]" "")
+      (string/trim)))
+
+(defn split-at-nbsp [s]
+  (string/split s #"[\u00a0|\s]{2,}"))
+
+(defn geocode [s]
+  (if-let [f (geonames/geonames s)]
+    f
+    (geonames/geonames (first (string/split s #",")))))
+
+(defn format-entry [s]
+  (let [els (remove empty? (map trim (split-at-nbsp s)))
+        [course location c d] els
+        r {:course course
+           :location location
+           :ll (geocode location)}]
+    (if d
+      #_(if (re-find #"\-" c)
+          (let [[a b] (string/split c #"\-")]
+            (assoc r :architect a :project b :coauthor c :year d)))
+      (assoc r :coauthor c :year d)
+      (assoc r :year c))
+    ;els
+    ))
+
+(defn parse-listing [ls]
+  (->> (map h/text ls)
+       (map (fn [l] (format-entry l)))))
+
+(defn parse-courses [els]
+  (let [[nc rrr uc] (map parse-listing (map #(drop 1 %) els))]
+    [nc
+     rrr
+     uc]))
 
 (defn pull-doc [save-images?]
   (let [res (gdoc/fetch-html id (assoc img-options :save save-images?))
@@ -22,7 +63,10 @@
      [:div.carousel-cell {:data-colors (json/write-str (map ->rgb colors))}
       [:div.img {:style (format "background-image:url(/images/%s.jpg)" src)}]])))
 
-(defn print-site [#_{:keys [intro imgs]}]
+(defn get-intro []
+  (gdoc/->html (first (:els (gdoc/fetch-html id)))))
+
+(defn print-site [intro courses]
   (html/refresh
     site
     "Brit Stenson Design"
@@ -51,6 +95,6 @@
         (image "opening" [[155 163 0] [0 0 0]])
         (image "wadi" [[110 111 79] [0 0 0]])]
        [:div#bottom
-        [:div.introduction]]]]]))
+        [:div.introduction intro]]]]]))
 
-(print-site #_(pull-doc false))
+;(print-site #_(pull-doc false))

@@ -15,7 +15,8 @@ body {
   clear: both;
 }
 
-#header-width {
+#header-width,
+.introduction {
   max-width: 650px;
   margin: auto auto;
 }
@@ -54,8 +55,14 @@ body {
 }
 
 .introduction {
-  color: white;
-  font-size: 16px;
+  font-size: 20px;
+  margin: auto auto;
+  padding: 40px 20px;
+  color: #655;
+}
+
+.introduction p {
+  margin-bottom: 20px;
 }
 
 /*.carousel {*/
