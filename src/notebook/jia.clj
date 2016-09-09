@@ -9,7 +9,8 @@
    :scripts ["https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min"
              "jquery.color.min"
              "script"]
-   :typekit "ade3qww"}
+   :typekit "ade3qww"
+   :analytics "UA-83793620-1"}
   (list
     [:div#map]
     [:div#color
@@ -24,4 +25,7 @@
        " ( " [:a {:href "https://twitter.com/robstenson"} "Twitter"]
        ", " [:a {:href "http://robstenson.com"} "Website"]
        " )"]
+      [:a.sample
+       {:href "/recipes/basil-cockles"}
+       "Check out our sample recipe for stir-fried basil cockles"]
       [:h2 "Kickstarter coming soon!"]]]))

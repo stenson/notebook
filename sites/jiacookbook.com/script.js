@@ -8,6 +8,7 @@ function randomColor(a) {
 }
 
 $(function() {
+  //return;
   var d = 6000;
   var change = function() {
     var text = randomColor(1.0);

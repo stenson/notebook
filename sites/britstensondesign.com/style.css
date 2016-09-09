@@ -1,0 +1,66 @@
+* { padding: 0; margin: 0 }
+
+body {
+  font-family: "skolar-sans-latin", sans-serif;
+  background: url(/bg.png);
+  background-size: 200px 200px;
+}
+
+.clearfix:after {
+  content: ".";
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both;
+}
+
+#content,
+#header-width {
+  max-width: 650px;
+  margin: auto auto;
+}
+
+#header-outer {
+  background: #eee;
+  height: 54px;
+  border-top: 10px solid mediumseagreen;
+  border-bottom: 1px solid white;
+}
+
+#header {
+  padding: 10px;
+}
+
+.logo {
+  text-align: left;
+  color: #222;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+#content {
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+
+.slideshow {
+  margin-bottom: 40px;
+}
+
+.slideshow .image {
+  width: 300px;
+  height: 200px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: bottom center;
+  margin: 10px;
+  float: left;
+  border: 1px solid white;
+}
+
+.introduction {
+  color: white;
+  font-size: 16px;
+}

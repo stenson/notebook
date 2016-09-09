@@ -3,7 +3,10 @@
             [hieronymus.core :as hiero]
             [clojure.string :as string]
             [clojure.set :as set]
-            [clojure.walk :as walk])
+            [clojure.walk :as walk]
+            [clj-http.client :as client]
+            [clojure.java.io :as io]
+            [me.raynes.fs :as fs])
   (:import (java.net URL)))
 
 (defn g-dld [id fmt]
@@ -106,10 +109,51 @@
     [(unwrap bold)
      (unwrap italic)]))
 
-(defn pluck-src [img-node]
+(defn split&trim [s re]
+  (map string/trim (string/split s re)))
+
+(defn style-string->map [style-string]
+  (->> (split&trim style-string #";")
+       (map #(split&trim % #":"))
+       (map (fn [[k v]]
+              [(keyword k)
+               (if (and (string? v) (re-find #"px$" v))
+                 (Float/parseFloat (string/replace v #"px" ""))
+                 v)]))
+       (into {})))
+
+(defn copy [uri file]
+  (with-open [in (io/input-stream uri)
+              out (io/output-stream file)]
+    (io/copy in out)))
+
+(defn split-els [els]
+  (partition-by #(= :hr (:tag %)) els))
+
+(defn save-src [src {:keys [site image-dir save]} new-name]
+  (let [relative-name (str image-dir "/" new-name)]
+    (if save
+      (with-open [in (io/input-stream src)
+                  out (io/output-stream (str "sites/" site "/" relative-name))]
+        (io/copy in out)
+        relative-name)
+      relative-name)))
+
+#_(defn pluck&save-src [img-node where save?]
   (-> (html/select img-node [:img])
       (first)
-      (get-in [:attrs :src])))
+      (get-in [:attrs :src])
+      (save-src where save?)))
+
+#_(defn pluck&save-srcs [node where save?]
+  (if (sequential? node)
+    (flatten (map #(pluck&save-srcs % where save?) node))
+    (->> (html/select node [:img])
+         (map-indexed
+           (fn [i {:keys [attrs]}]
+             (let [{:keys [width height]} (style-string->map (:style attrs))]
+               {:aspect (/ width height)
+                :src (save-src (:src attrs) (str "sites/" where "-" i ".jpg") save?)}))))))
 
 (def carons->breves
   {\ǎ \ă
@@ -149,7 +193,7 @@
             o))))
     data))
 
-(defn enrich-el [[bold italic] {:keys [tag content] :as el}]
+(defn enrich-el [[bold italic] img-options {:keys [tag content] :as el}]
   (if (not= :p tag)
     el
     (let [txt (html/text el)]
@@ -161,30 +205,46 @@
           :content
           (map
             (fn [{:keys [attrs content] :as el}]
-              (let [a-s (html/select el [:a])]
-                (if (not (empty? a-s))
-                  (let [a (first a-s)
+              (let [link (html/select el [:a])]
+                (if (not (empty? link))
+                  (let [a (first link)
                         href (get-in a [:attrs :href])
                         q (get (url->params href) "q")]
                     {:tag :a
                      :attrs {:href q}
                      :content (html/text a)})
-                  (if (= (:class attrs) bold)
-                    {:tag :strong
-                     :attrs nil
-                     :content content}
-                    (if (= (:class attrs) italic)
-                      {:tag :em :attrs nil :content content}
-                      el                                    ; should be markdown'd
-                      )))))
+                  (let [imgs (html/select el [:img])]
+                    (if (not (empty? imgs))
+                      (let [img (first imgs)
+                            src (:src (:attrs img))
+                            style (style-string->map (:style (:attrs img)))]
+                        {:tag :img
+                         :attrs {:aspect (/ (:width style) (:height style))
+                                 :src (if img-options
+                                        (save-src
+                                          src
+                                          img-options
+                                          (str (subs (fs/base-name src) 0 8) ".jpg"))
+                                        src)}})
+                      (if (= (:class attrs) bold)
+                        {:tag :strong
+                         :attrs nil
+                         :content content}
+                        (if (= (:class attrs) italic)
+                          {:tag :em :attrs nil :content content}
+                          el                                ; should be markdown'd
+                          )))))))
             content))))))
+
+(defn trim-spacers [els]
+  (->> els
+       (drop-while #(= :div (:tag %)))
+       (reverse)
+       (drop-while #(= :div (:tag %)))
+       (reverse)))
 
 (defn ->html [ps]
   (->> ps
-       (drop-while #(= :div (:tag %)))
-       (reverse)
-       (drop-while #(= :div (:tag %)))
-       (reverse)
        (html/emit*)
        (string/join)))
 
@@ -198,15 +258,20 @@
         el))
     data))
 
-(defn fetch-html [gdoc-id]
+(defn fetch-html [gdoc-id img-options]
   (let [res (html/html-resource (URL. (g-dld gdoc-id :html)))
-        style (parse-css (first (html/select res [:style])))]
+        style (try
+                (parse-css (first (html/select res [:style])))
+                (catch Exception _ ["x1" "x2"]))]
     {:res res
      :style style
-     :ps (->> (html/select res [:body])
-              (first)
-              (:content)
-              (map (partial enrich-el style))
-              (swap-carons-for-breves)
-              (wrap-cjk)
-              (flatten-nested-content-lists))}))
+     :els (->> (html/select res [:body])
+               (first)
+               (:content)
+               (map (partial enrich-el style img-options))
+               (swap-carons-for-breves)
+               (wrap-cjk)
+               (flatten-nested-content-lists)
+               (split-els)
+               (map trim-spacers)
+               (remove #(= :hr (:tag (first %)))))}))
