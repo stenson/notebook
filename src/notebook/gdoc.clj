@@ -131,7 +131,7 @@
   (partition-by #(= :hr (:tag %)) els))
 
 (defn save-src [src {:keys [site image-dir save]} new-name]
-  (let [relative-name (str image-dir "/" new-name)]
+  (let [relative-name (str (if image-dir (str image-dir "/")) new-name)]
     (if save
       (with-open [in (io/input-stream src)
                   out (io/output-stream (str "sites/" site "/" relative-name))]

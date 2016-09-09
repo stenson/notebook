@@ -10,23 +10,23 @@
 
 ; markdown
 
-(defn decompose [ps]
-  (let [[header _ introduction _ tips _ ingredients _ instructions] (gdoc/split-els ps)
+(defn decompose [els]
+  (let [[header introduction tips ingredients instructions] els
         [characters pinyin english img] header]
     {:titles {:characters (h/text characters)
               :pinyin (string/lower-case (h/text pinyin))
               :english (h/text english)
-              :img img}
+              :img (:src (:attrs (first (h/select img [:img]))))}
      :text {:introduction (gdoc/->html introduction)
             :tips (gdoc/->html tips)
             :ingredients (gdoc/->html ingredients)
             :instructions (gdoc/->html instructions)}}))
 
-(defn set-html [slug ps]
-  (let [{:keys [titles text]} (decompose ps)
-        slug-str (name slug)
-        path (str "jiacookbook.com/recipes/" slug-str)]
-    (gdoc/pluck&save-src (:img titles) (str "sites/" path "/" slug-str ".jpg"))
+(def site "jiacookbook.com/recipes")
+
+(defn set-html [path ps]
+  (let [{:keys [titles text]} (decompose ps)]
+    #_(gdoc/pluck&save-src (:img titles) (str "sites/" path "/" slug-str ".jpg"))
     (html/refresh
       path
       (str "Jia! — " (:english titles))
@@ -46,7 +46,7 @@
            [:h1.en (:english titles)]
            [:h4.pinyin (:pinyin titles)]]
           [:div#photo
-           {:style (format "background-image:url(%s.jpg)" slug-str)}]
+           {:style (format "background-image:url(%s)" (:img titles))}]
           [:div.sep]
           [:div#text
            [:div.top.clearfix
@@ -64,7 +64,8 @@
            "All rights reserved"]]]]])))
 
 (defn pull [slug]
-  (let [remote (gdoc/fetch-html (get ids slug))]
-    (set-html slug (:ps remote))))
+  (let [path (str site "/" (name slug))
+        remote (gdoc/fetch-html (get ids slug) {:site path :save false})]
+    (set-html path (:els remote))))
 
 #_(pull :basil-cockles)
