@@ -1,7 +1,8 @@
 (ns notebook.bs
   (:require [notebook.html :as html]
             [notebook.gdoc :as gdoc]
-            [net.cgrand.enlive-html :as h]))
+            [net.cgrand.enlive-html :as h]
+            [clojure.data.json :as json]))
 
 (def site "britstensondesign.com")
 (def img-options {:site site :image-dir "images"})
@@ -13,23 +14,43 @@
     {:intro (gdoc/->html intro)
      :imgs (h/select imgs [:img])}))
 
-(defn print-site [{:keys [intro imgs]}]
+(defn image
+  ([src]
+    (image src []))
+  ([src colors]
+   (let [->rgb #(apply format "rgb(%s,%s,%s)" %)]
+     [:div.carousel-cell {:data-colors (json/write-str (map ->rgb colors))}
+      [:div.img {:style (format "background-image:url(/images/%s.jpg)" src)}]])))
+
+(defn print-site [#_{:keys [intro imgs]}]
   (html/refresh
-    "britstensondesign.com"
+    site
     "Brit Stenson Design"
-    {:styles ["style"]
-     :scripts []
-     :typekit "fgc0zwz"}
+    {:styles ["styles/flickity"
+              "style"]
+     :scripts ["https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min"
+               "scripts/jquery.color.min"
+               "scripts/flickity.pkgd.min"
+               "scripts/script"]
+     :typekit "fgc0zwz"
+     :mobile-width "device-width"
+     ;:jquery 3
+     }
     [:div#outer-container
      [:div#container
       [:div#header-outer
        [:div#header-width
         [:div#header
-         [:div.logo "Brit Stenson Design"]]]]
+         [:div.logo "Brit Stenson " [:em "Design"]]]]]
       [:div#content
-       [:div.slideshow.clearfix
-        (for [i imgs]
-          [:div.image {:style (format "background-image:url(%s)" (:src (:attrs i)))}])]
-       #_[:div.introduction intro]]]]))
+       [:div.carousel {:data-flickity (json/write-str {:wrapAround true})}
+        (image "hai-tang" [[74 125 182] [227 195 149]])
+        (image "pine-rock" [[128 111 41] [251 216 214]])
+        (image "dragon-lake" [[141 139 18] [0 0 0]])
+        (image "grandview" [[103 124 67] [0 0 0]])
+        (image "opening" [[155 163 0] [0 0 0]])
+        (image "wadi" [[110 111 79] [0 0 0]])]
+       [:div#bottom
+        [:div.introduction]]]]]))
 
-(print-site (pull-doc false))
+(print-site #_(pull-doc false))

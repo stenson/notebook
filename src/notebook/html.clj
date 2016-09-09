@@ -32,7 +32,14 @@
 (defn inline-js [src]
   [:script {:type "text/javascript"} src])
 
-(defn basic [title {:keys [styles scripts mobile-width typekit analytics]} content]
+(defn basic [title
+             {:keys [styles
+                     scripts
+                     mobile-width
+                     typekit
+                     analytics
+                     jquery]}
+             content]
   (html5
     {:lang "en"}
     (list
@@ -46,6 +53,14 @@
        (if (string? styles)
          (format [:style {:type "text/css"} styles])
          (list (map style-link styles)))
+       (when jquery
+         (case jquery
+           1 [:script {:src "https://code.jquery.com/jquery-1.12.4.min.js"
+                       :integrity "sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+                       :crossorigin "anonymous"}]
+           3 [:script {:src "https://code.jquery.com/jquery-3.1.0.min.js"
+                       :integrity "sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="
+                       :crossorigin "anonymous"}]))
        (when analytics
          [:script {}
           (format
