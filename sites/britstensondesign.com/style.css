@@ -120,6 +120,55 @@ body {
   /*border-top: 1px solid white;*/
 /*}*/
 
+#map {
+  height: 500px;
+  width: 100%;
+}
+
+.mapboxgl-popup {
+  max-width: 400px;
+  font-family: "eskorte-latin", serif;
+}
+
+.mapboxgl-popup-content {
+  padding: 10px 40px 10px 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.10);
+  background: rgb(255,250,229);
+}
+
+.mapboxgl-popup-content h1 {
+  font-size: 20px;
+  margin-bottom: 4px !important;
+}
+
+.mapboxgl-popup-content h2 {
+  font-size: 18px;
+  font-style: italic;
+}
+
+.mapboxgl-popup-content h4 {
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.mapboxgl-popup-content em {
+  font-weight: lighter;
+}
+
+.mapboxgl-popup-close-button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  border: none;
+  border-radius: 0 3px 0 0;
+  cursor: pointer;
+  background-color: rgba(0,0,0,0);
+  display: block;
+  padding: 7px 10px 8px;
+  font-size: 15px;
+  color: #333;
+}
+
 @media (max-width: 700px) {
   .carousel {
     height: 300px;

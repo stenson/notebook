@@ -17,20 +17,32 @@
 (html/refresh
   "robstenson.com"
   "Rob Stenson"
-  {:styles  ["styles" "fonts"]
-   :scripts ["hyphenator"]}
+  {:styles  ["styles"
+             "VulfMono_web/font"]
+   :scripts ["hyphenator"]
+   :typekit "cmm5ckr"}
   [:div#container
    [:div#outer-outer
-    [:div#intro "Unordered List of Recent Writings & Podcasts"]
+    [:div#intro "Unordered List of Recent Artifacts"]
     [:div#outer
      [:div#inner
       [:ul
+       (essay "Wow Control — a Poem of Presets" nil
+              "https://www.youtube.com/watch?v=zgSGuJB5gKk"
+              "youtube.com"
+              "A video-poem about some presets on an audio plugin"
+              "September 28, 2016")
+       (essay "All the Bob Marley Drum Intros in Chronological Order" nil
+              "https://www.youtube.com/watch?v=x3bAZiC37kc"
+              "youtube.com"
+              "A short video of reggae drum introductions"
+              "April 26, 2016")
        (essay "Holy Trinities, Ep. 1 — Snare" nil
               "http://tonal.goodhertz.co/holy-trinities-snare/"
               "tonal.goodhertz.co"
               "A podcast I produced and edited about Jack Stratton’s favorite snares from snare history"
               "May 26, 2106")
-       (essay "My First Instrument" nil
+       #_(essay "My First Instrument" nil
               "http://my1stinstrument.com"
               "my1stinstrument.com"
               "An ongoing series of interviews with musicians (+ gif portraits)"
@@ -45,7 +57,7 @@
               "lit.vulf"
               "Liner notes written for Vulfpeck’s 2015 album"
               "March 3, 2016")
-       (essay "League of Lagers"
+       #_(essay "League of Lagers"
               "An ongoing series"
               "http://lager.robstenson.com"
               "League of Lagers"

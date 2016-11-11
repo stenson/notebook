@@ -264,7 +264,24 @@
         (person "Text" "Tiempos Text" 46)
         (person "Headers" "Founders Grotesk X-Condensed" 7)]]]]))
 
-(program "zhengstenson.com/program")
+;(program "zhengstenson.com/program")
+;(sh "ditto" "sites/zhengstenson.com/" "sites/dzrs.us")
+;(program "dzrs.us")
 
-(sh "ditto" "sites/zhengstenson.com/" "sites/dzrs.us")
-(program "dzrs.us")
+(html/refresh
+  "dzrs.us/photos"
+  "Thank you!"
+  {:styles ["style"]
+   :device-width "device-width"
+   :typekit "dnx4rph"}
+  [:div#content
+   [:div#text
+    [:h1 "Thank you for celebrating with us!"]
+    [:a.photos {:href "http://kassia.pixieset.com/dianaandrobrehearsaldinner/"}
+     "Photos from the rehearsal dinner!"]
+    [:a.photos {:href "http://kassia.pixieset.com/dianarobmarried/"}
+     "Photos from the wedding!"]
+    [:a.photos {:href "https://petitepix.com/gallery/diana-rob/"}
+     "Animated gifs from the photo booth!"]
+    [:a.photos {:href "http://grimacefilms.tv/diana-rob"}
+     "A short film of the wedding!"]]])

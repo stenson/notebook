@@ -55,7 +55,7 @@ a {
   max-width: 400px;
   min-width: 200px;
   margin: auto auto;
-  font-family: "PitchWeb", serif;
+  font-family: "Vulf Mono_Light Italic", serif;
   font-style: italic;
   font-size: 14px;
   text-align: justify;
@@ -97,12 +97,12 @@ li a:hover {
 }
 
 span {
-  font-family: "PitchWeb", monospace;
+  font-family: "Vulf Mono_Light Italic", monospace;
   font-style: italic;
 }
 
 span.title {
-  font-family: "FoundersGroteskWeb", serif;
+  font-family: "hobeaux", serif;
   font-style: normal;
   display: block;
   font-size: 24px;

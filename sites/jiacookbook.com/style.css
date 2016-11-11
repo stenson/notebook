@@ -80,6 +80,24 @@ h2 {
   font-weight: normal;
 }
 
+.kickstarter {
+  display: block;
+  font-family: "arek", serif;
+  font-weight: bolder;
+  font-size: 34px;
+  width: 300px;
+  text-align: center;
+  margin: 80px auto 40px;
+  background: rgba(255,255,255,0.3);
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  border-radius: 5px;
+  border-bottom: none;
+  color: white;
+  line-height: 120%;
+  padding: 20px;
+  text-decoration: underline;
+}
+
 .sample {
   display: block;
   font-family: "arek", serif;

@@ -3,18 +3,21 @@
             [hiccup.page :refer [html5]]
             [me.raynes.fs :as fs]))
 
+(defn now []
+  (quot (System/currentTimeMillis) 1000))
+
 (defn favicon [size]
-  [:link {:href  (format "favicon-%sx%s.png" size size)
+  [:link {:href  (format "/favicon-%sx%s.png" size size)
           :sizes (format "%sx%s" size size)
           :rel   "icon"
           :type  "image/png"}])
 
-(defn now []
-  (quot (System/currentTimeMillis) 1000))
-
 (defn favicons [& sizes]
   (->> (map favicon sizes)
-       (conj [:link {:href "favicon.ico" :rel "icon" :type "image/x-icon"}])))
+       (conj [:link {:href "/favicon.ico" :rel "icon" :type "image/x-icon"}])))
+
+(defn bg-img [src]
+  (format "background-image:url(%s)" src))
 
 (defn inline-style [& styles]
   [:style {:type "text/css"}
@@ -45,9 +48,9 @@
     (list
       [:head
        [:meta {:charset "utf-8"}]
-       (when mobile-width
-         [:meta {:name "viewport"
-                 :content (format "width=%s, initial-scale=1" mobile-width)}])
+       [:meta {:name "viewport"
+               :content (format "width=%s, initial-scale=1"
+                                (or mobile-width "device-width"))}]
        [:title title]
        (list (favicons 16 32 96))
        (if (string? styles)
@@ -78,8 +81,10 @@
          (list (map js-link scripts)))])))
 
 (defn refresh [site title options content]
-  (let [folder (format "sites/%s" site)]
-    (fs/mkdirs folder)
-    (spit
-      (str folder "/index.html")
-      (basic title options content))))
+  (when site
+    (let [folder (format "sites/%s" site)]
+      (fs/mkdirs folder)
+      (spit
+        (str folder "/index.html")
+        (basic title options content))
+      {:wrote site})))

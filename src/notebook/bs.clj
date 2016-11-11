@@ -66,13 +66,15 @@
 (defn get-intro []
   (gdoc/->html (first (:els (gdoc/fetch-html id)))))
 
-(defn print-site [intro courses]
+(defn print-site [intro]
   (html/refresh
     site
     "Brit Stenson Design"
-    {:styles ["styles/flickity"
+    {:styles ["https://api.tiles.mapbox.com/mapbox-gl-js/v0.21.0/mapbox-gl"
+              "styles/flickity"
               "style"]
      :scripts ["https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min"
+               "https://api.tiles.mapbox.com/mapbox-gl-js/v0.21.0/mapbox-gl"
                "scripts/jquery.color.min"
                "scripts/flickity.pkgd.min"
                "scripts/script"]
@@ -95,6 +97,7 @@
         (image "opening" [[155 163 0] [0 0 0]])
         (image "wadi" [[110 111 79] [0 0 0]])]
        [:div#bottom
-        [:div.introduction intro]]]]]))
+        [:div.introduction intro]
+        [:div#map]]]]]))
 
 ;(print-site #_(pull-doc false))

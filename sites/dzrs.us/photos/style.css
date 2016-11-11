@@ -1,0 +1,42 @@
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+body {
+  background: url(bg.gif) no-repeat center center fixed;
+  background-size: cover;
+  font-family: eskorte-latin, serif;
+}
+
+#content {
+  background: rgba(255,255,255,0.5);
+  min-height: 1500px;
+}
+
+#text {
+  width: 300px;
+  margin: auto;
+  padding: 100px 0;
+}
+
+h1 {
+  font-style: italic;
+  text-align: center;
+  color: rgb(200,0,0);
+  margin-bottom: 100px;
+}
+
+a.photos {
+  text-align: center;
+  color: royalblue;
+  display: block;
+  margin-top: 20px;
+  font-size: 20px;
+  text-decoration: none;
+  background: rgba(255,255,255,0.7);
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  padding: 10px 30px;
+  border: 10px solid rgba(205,205,205,0.3);
+}

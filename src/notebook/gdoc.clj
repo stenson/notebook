@@ -133,27 +133,13 @@
 (defn save-src [src {:keys [site image-dir save]} new-name]
   (let [relative-name (str (if image-dir (str image-dir "/")) new-name)]
     (if save
-      (with-open [in (io/input-stream src)
-                  out (io/output-stream (str "sites/" site "/" relative-name))]
-        (io/copy in out)
-        relative-name)
+      (do
+        (fs/mkdirs (str "sites/" site))
+        (with-open [in (io/input-stream src)
+                    out (io/output-stream (str "sites/" site "/" relative-name))]
+          (io/copy in out)
+          relative-name))
       relative-name)))
-
-#_(defn pluck&save-src [img-node where save?]
-  (-> (html/select img-node [:img])
-      (first)
-      (get-in [:attrs :src])
-      (save-src where save?)))
-
-#_(defn pluck&save-srcs [node where save?]
-  (if (sequential? node)
-    (flatten (map #(pluck&save-srcs % where save?) node))
-    (->> (html/select node [:img])
-         (map-indexed
-           (fn [i {:keys [attrs]}]
-             (let [{:keys [width height]} (style-string->map (:style attrs))]
-               {:aspect (/ width height)
-                :src (save-src (:src attrs) (str "sites/" where "-" i ".jpg") save?)}))))))
 
 (def carons->breves
   {\ǎ \ă
@@ -265,8 +251,10 @@
    (let [res (html/html-resource (URL. (g-dld gdoc-id :html)))
          style (try
                  (parse-css (first (html/select res [:style])))
-                 (catch Exception _ ["x1" "x2"]))]
-     {:res res
+                 (catch Exception _
+                   ["x1" "x2"]))]
+     {:options img-options
+      :res res
       :style style
       :els (->> (html/select res [:body])
                 (first)
