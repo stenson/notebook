@@ -48,6 +48,13 @@ h3.slogan {
   margin-top: 20px;
 }
 
+h5.soon {
+  font-family: EubieScript, cursive;
+  font-size: 42px;
+  color: #444;
+  font-weight: normal;
+}
+
 #sections {
   width: 20%;
   overflow: hidden;
@@ -62,6 +69,15 @@ h3.slogan {
   display: block;
   font-style: italic;
   text-decoration: none;
+  background-size: contain;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;
+  width: 100%;
+  background-position: center center;
+  background-color: white;
+  opacity: 0.9;
 }
 
 #sections .section-inner {
@@ -71,14 +87,25 @@ h3.slogan {
   border-bottom: 1px solid #eee;
 }
 
+#sections .section-inner .title {
+  background: rgba(62,101,228,0.75);
+  color: white;
+  display: inline-block;
+  padding: 4px 8px;
+  visibility: hidden;
+}
+
 #sections a.section:hover {
-  background: whitesmoke;
+  background-color: whitesmoke;
   text-decoration: underline;
 }
 
+#sections a.section:hover .section-inner .title {
+  visibility: visible;
+}
+
 #content {
-  width: 58%;
-  min-height: 400px;
+  width: 60%;
   background: white;
   float: left;
 }
@@ -87,9 +114,11 @@ h3.slogan {
   border-left: 1px solid #eee;
   border-right: 1px solid #eee;
   padding: 0 20px;
+  min-height: 700px;
 }
 
 #drawings {
+  display: none;
   width: 20%;
   float: left;
 }
