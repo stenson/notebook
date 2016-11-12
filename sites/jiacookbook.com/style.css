@@ -8,110 +8,188 @@
 * { padding: 0; margin: 0; }
 
 body {
-  background: url(/map.gif) no-repeat center center fixed;
+  /*background: url(/map.gif) no-repeat center center fixed;*/
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   width: 100%;
   background-position: top center;
+  background: white;
+  font-family: "arek", serif;
 }
 
-#color {
-  background: rgba(201,3,134,0.5);
-  padding-bottom: 200px;
-  min-height: 2000px;
+#container {
+  max-width: 800px;
+  margin: auto auto;
 }
 
-h1 {
-  /*background: mediumvioletred;*/
+#header {
+  margin-bottom: 10px;
+}
+
+h1.jia {
   font-family: "EubieScript", cursive;
-  text-align: center;
-  color: gold;
-  font-size: 300px;
+  color: indianred;
   font-weight: normal;
-  text-shadow: 0px 0px 20px rgba(255,255,255,0.3);
-  padding: 40px 0 40px 0;
-  height: 370px;
-  /*border-bottom: 1px solid yellow;*/
+  font-size: 100px;
+  text-align: center;
 }
 
-h3 {
-  color: white;
-  font-size: 42px;
-  text-align: center;
-  padding: 0 0 10px 0;
-  font-weight: bold;
+h3.slogan {
   font-style: italic;
-  font-family: "arek", serif;
-  border-bottom: 1px solid rgba(255,255,255,0.5);
-  max-width: 600px;
-  margin: 20px auto 16px auto;
+  font-size: 20px;
+  color: #333;
+  text-align: center;
+  font-weight: normal;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  padding: 8px 0 10px;
+  margin-top: 20px;
 }
 
-h4 {
-  color: white;
-  font-size: 22px;
-  text-align: center;
-  font-family: "arek", serif;
+#sections {
+  width: 20%;
+  overflow: hidden;
+  float: left;
+}
+
+#sections-inner {
+
+}
+
+#sections a.section {
+  display: block;
   font-style: italic;
-  font-weight: normal;
+  text-decoration: none;
+}
+
+#sections .section-inner {
+  height: 100px;
+  padding: 10px;
+  margin-right: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+#sections a.section:hover {
+  background: whitesmoke;
+  text-decoration: underline;
+}
+
+#content {
+  width: 58%;
+  min-height: 400px;
+  background: white;
+  float: left;
+}
+
+#content-inner {
+  border-left: 1px solid #eee;
+  border-right: 1px solid #eee;
+  padding: 0 20px;
+}
+
+#drawings {
+  width: 20%;
+  float: left;
+}
+
+#drawings-inner {
+  min-height: 400px;
 }
 
 a {
-  color: white;
+  color: royalblue;
   text-decoration: none;
-  border-bottom: 1px dotted white;
 }
 
-.cn {
+.cn, .cjk {
   font-family: "Yuanti SC", cursive;
   font-weight: 100;
-  padding: 0 4px 0 2px;
+  padding: 0 1px 0 1px;
   font-style: normal;
 }
 
-h2 {
-  color: yellow;
-  font-family: EubieScript, serif;
-  font-size: 52px;
-  margin: 60px 0;
-  text-align: center;
+p .cjk {
+  color: indianred;
+}
+
+.post-preview {
+  margin-bottom: 40px;
+}
+
+.post-preview h3 {
+  font-family: "EubieScript", cursive;
   font-weight: normal;
+  font-size: 42px;
+  margin-bottom: 10px;
 }
 
-.kickstarter {
-  display: block;
-  font-family: "arek", serif;
-  font-weight: bolder;
-  font-size: 34px;
-  width: 300px;
-  text-align: center;
-  margin: 80px auto 40px;
-  background: rgba(255,255,255,0.3);
-  box-shadow: 0 0 15px rgba(0,0,0,0.3);
-  border-radius: 5px;
-  border-bottom: none;
-  color: white;
-  line-height: 120%;
-  padding: 20px;
-  text-decoration: underline;
+.post-preview-inner {
+  padding-top: 20px;
 }
 
-.sample {
-  display: block;
-  font-family: "arek", serif;
-  font-weight: bolder;
-  font-size: 34px;
-  width: 300px;
-  text-align: center;
-  margin: 80px auto 40px;
-  background: rgba(255,255,255,0.3);
-  box-shadow: 0 0 15px rgba(0,0,0,0.3);
-  border-radius: 5px;
-  border-bottom: none;
-  color: white;
-  line-height: 120%;
-  padding: 20px;
-  text-decoration: underline;
+.post-preview-inner p {
+  margin-bottom: 10px;
+  font-size: 15px;
 }
+
+#top {
+  min-height: 800px;
+}
+
+#footer-container {
+  padding-top: 20px;
+  padding-bottom: 80px;
+  border-top: 1px solid #eee;
+}
+
+#footer {
+  text-align: center;
+  color: #777;
+  font-style: italic;
+}
+
+.rights {
+  font-style:normal;
+  font-size:12px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 800px) {
+  #sections,
+  #content,
+  #drawings {
+    float: none;
+  }
+
+  #sections {
+    width: 100%;
+  }
+
+  #content {
+    width: 90%;
+  }
+
+  #content-inner {
+    border: none;
+  }
+
+  #sections a.section {
+    width: 25%;
+    float: left;
+  }
+}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+.clearfix { display: inline-block; }
+/* start commented backslash hack \*/
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
