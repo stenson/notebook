@@ -100,6 +100,7 @@
        (into {})))
 
 (defn parse-css [css]
+  (println (first (:content css)))
   (let [unwrap (fn [xs] (string/replace (first (first xs)) #"^\." ""))
         rules (->> (string/split (first (:content css)) #"\}")
                    (map #(string/split % #"\{"))
@@ -251,7 +252,8 @@
    (let [res (html/html-resource (URL. (g-dld gdoc-id :html)))
          style (try
                  (parse-css (first (html/select res [:style])))
-                 (catch Exception _
+                 (catch Exception e
+                   (println e)
                    ["x1" "x2"]))]
      {:options img-options
       :res res

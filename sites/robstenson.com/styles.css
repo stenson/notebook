@@ -82,17 +82,20 @@ ul {
 
 li {
   display: block;
+  margin-bottom: 10px;
 }
 
-li a {
+li a, li .desc {
   display: block;
   padding: 20px 20px;
-  border-right: 10px solid #eee;
   margin-bottom: 4px;
 }
 
+.desc {
+  margin-bottom: 60px !important;
+}
+
 li a:hover {
-  border-right-color: lightskyblue;
   background: whitesmoke;
 }
 
@@ -102,12 +105,14 @@ span {
 }
 
 span.title {
-  font-family: "hobeaux", serif;
+  font-family: 'Vulf Mono_Light', monospace;
   font-style: normal;
   display: block;
-  font-size: 24px;
+  font-size: 18px;
   margin-bottom: 4px;
   color: #447;
+  line-height: 20px;
+  margin-bottom: 10px;
 }
 
 span.subtitle {
@@ -120,8 +125,10 @@ span.subtitle {
 
 span.about {
   font-size: 16px;
+  line-height: 16px;
   display: block;
   color: salmon;
+  margin-bottom: 10px;
 }
 
 span.date {
@@ -141,4 +148,10 @@ span.where {
   color: darkorchid;
   display: inline-block;
   font-size: 12px;
+}
+
+.youtube {
+  width: 100%;
+  border: none;
+  height: 308px;
 }

@@ -20,7 +20,7 @@ body {
 }
 
 #container {
-  max-width: 800px;
+  /*max-width: 800px;*/
   margin: auto auto;
 }
 
@@ -56,7 +56,7 @@ h5.soon {
 }
 
 #sections {
-  width: 20%;
+  width: 140px;
   overflow: hidden;
   float: left;
 }
@@ -69,52 +69,44 @@ h5.soon {
   display: block;
   font-style: italic;
   text-decoration: none;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
-  -webkit-background-size: contain;
-  -moz-background-size: contain;
-  -o-background-size: contain;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   width: 100%;
   background-position: center center;
   background-color: white;
   opacity: 0.9;
+  margin-bottom: 4px;
 }
 
 #sections .section-inner {
-  height: 100px;
+  height: 140px;
   padding: 10px;
-  margin-right: 10px;
-  border-bottom: 1px solid #eee;
 }
 
 #sections .section-inner .title {
-  background: rgba(62,101,228,0.75);
+  background: rgba(12,14,24,0.75);
   color: white;
   display: inline-block;
   padding: 4px 8px;
-  visibility: hidden;
-}
-
-#sections a.section:hover {
-  background-color: whitesmoke;
-  text-decoration: underline;
-}
-
-#sections a.section:hover .section-inner .title {
-  visibility: visible;
+  text-decoration: none;
 }
 
 #content {
   width: 60%;
+  max-width: 500px;
+  margin-left: 20%;
   background: white;
   float: left;
 }
 
 #content-inner {
-  border-left: 1px solid #eee;
-  border-right: 1px solid #eee;
+  /*border-left: 1px solid #eee;*/
+  /*border-right: 1px solid #eee;*/
   padding: 0 20px;
-  min-height: 700px;
+  /*min-height: 700px;*/
 }
 
 #drawings {
@@ -124,7 +116,7 @@ h5.soon {
 }
 
 #drawings-inner {
-  min-height: 400px;
+  /*min-height: 400px;*/
 }
 
 a {
@@ -163,14 +155,18 @@ p .cjk {
   font-size: 15px;
 }
 
+.welcome .post-preview-inner p {
+  font-size: 16px;
+}
+
 #top {
-  min-height: 800px;
+  /*min-height: 800px;*/
 }
 
 #footer-container {
   padding-top: 20px;
   padding-bottom: 80px;
-  border-top: 1px solid #eee;
+  /*border-top: 1px solid #eee;*/
 }
 
 #footer {
@@ -194,10 +190,15 @@ p .cjk {
 
   #sections {
     width: 100%;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
   }
 
   #content {
-    width: 90%;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   #content-inner {
@@ -205,7 +206,7 @@ p .cjk {
   }
 
   #sections a.section {
-    width: 25%;
+    width: 20%;
     float: left;
   }
 }
