@@ -29,7 +29,7 @@
   "robstenson.com"
   "Rob Stenson"
   {:styles ["styles"
-            "VulfMono_web/font"]
+            #_"Hobeaux_web/font"]
    :scripts ["hyphenator"]
    ;:typekit "cmm5ckr"
    }
@@ -39,6 +39,11 @@
     [:div#outer
      [:div#inner
       [:ul
+       (video
+         "kruASSL78m8"
+         "Holy Trinities — Tambourine"
+         "Jack Stratton’s three favorite tambourinists"
+         "March 29, 2017")
        (video
          "JsA6WWO5D4c"
          "Holy Trinities — Guitar"
@@ -56,10 +61,10 @@
          "November 22, 2016")
        (video
          "BJpF18Bsk5k"
-         "What is a Plugin? Ep. 1 (feat. OHno Type Co.)"
-         "An interview with James Edmondson"
+         "What is a Plugin? Ep. 1"
+         "An interview with James Edmondson of OHno Type Co."
          "November 15, 2016")
-       (video
+       #_(video
          "1O2WyuHj10M"
          "Wow Control — a Questionnaire"
          "A short in-class activity to try with your students"
@@ -69,7 +74,7 @@
          "Wow Control — a Poem of Presets"
          "A video-poem about some presets on an audio plugin"
          "September 28, 2016")
-       (video
+       #_(video
          "x3bAZiC37kc"
          "All the Bob Marley Drum Intros in Chronological Order"
          "A short video of reggae drum introductions"
@@ -161,4 +166,10 @@
          Jacksonville, Cleveland, New York, San Francisco, and Boston,
          Rob currently lives in Los Angeles, CA
          with his wife and a dog named Alfie. Rob also has a
-         [Twitter account](https://twitter.com/robstenson)."))]]])
+         [Twitter account](https://twitter.com/robstenson)."))]
+    [:div#colophon
+     (list
+       [:h3 "Colophon"]
+       (:html
+         (hiero/parse-p
+           "This text of this website is set in [Hobeaux](http://www.ohnotype.co/product/hobeaux) by OHno Type Co.")))]]])

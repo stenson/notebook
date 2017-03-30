@@ -1,3 +1,44 @@
+@font-face {
+  font-family: 'Hobeaux-Web';
+  src: url('Hobeaux-web/HobeauxWeb-Light.woff2') format('woff2'),
+  url('Hobeaux-web/HobeauxWeb-Light.woff') format('woff');
+  font-weight: 100;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'Hobeaux-Web';
+  src: url('Hobeaux-web/HobeauxWeb-Regular.woff2') format('woff2'),
+  url('Hobeaux-web/HobeauxWeb-Regular.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Hobeaux-Web';
+  src: url('Hobeaux-web/HobeauxWeb-SemiBold.woff2') format('woff2'),
+  url('Hobeaux-web/HobeauxWeb-SemiBold.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Hobeaux-Web';
+  src: url('Hobeaux-web/HobeauxWeb-Bold.woff2') format('woff2'),
+  url('Hobeaux-web/HobeauxWeb-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Hobeaux-Web';
+  src: url('Hobeaux-web/HobeauxWeb-Black.woff2') format('woff2'),
+  url('Hobeaux-web/HobeauxWeb-Black.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -8,6 +49,7 @@ body {
   color: #222;
   background: url(palmemoji.gif);
   background-size: 200px;
+  font-family: "Hobeaux-web", sans-serif;
 }
 
 #container {
@@ -51,14 +93,14 @@ a {
 }
 
 #about,
-#intro {
+#intro,
+#colophon {
   max-width: 400px;
   min-width: 200px;
   margin: auto auto;
-  font-family: "Vulf Mono_Light Italic", serif;
-  font-style: italic;
   font-size: 14px;
   text-align: justify;
+  font-weight: 300;
 }
 
 #intro {
@@ -93,6 +135,7 @@ li a, li .desc {
 
 .desc {
   margin-bottom: 60px !important;
+  text-align: center;
 }
 
 li a:hover {
@@ -100,41 +143,37 @@ li a:hover {
 }
 
 span {
-  font-family: "Vulf Mono_Light Italic", monospace;
-  font-style: italic;
+
 }
 
 span.title {
-  font-family: 'Vulf Mono_Light', monospace;
   font-style: normal;
-  display: block;
-  font-size: 18px;
-  margin-bottom: 4px;
-  color: #447;
-  line-height: 20px;
-  margin-bottom: 10px;
-}
-
-span.subtitle {
-  color: dodgerblue;
-  font-size: 18px;
-  margin-top: -4px;
-  margin-bottom: 12px;
-  display: block;
+  color: #333;
+  line-height: 30px;
+  margin-bottom: 5px;
+  font-weight: 900;
+  font-size: 34px;
+  border-bottom: 3px solid #eee;
+  padding-bottom: 7px;
+  display: inline-block;
 }
 
 span.about {
-  font-size: 16px;
+  font-size: 18px;
   line-height: 16px;
-  display: block;
-  color: salmon;
-  margin-bottom: 10px;
+  color: #666;
+  font-weight: 700;
+  border-bottom: 1px solid #eee;
+  display: inline-block;
+  padding-bottom: 4px;
+  margin-bottom: 4px;
 }
 
 span.date {
-  color: seagreen;
-  font-size: 12px;
-  display: inline-block;
+  color: #aaa;
+  font-weight: 100;
+  font-size: 14px;
+  display: block;
 }
 
 span.pipe {
@@ -153,5 +192,17 @@ span.where {
 .youtube {
   width: 100%;
   border: none;
-  height: 308px;
+  height: 310px;
+}
+
+#colophon h3 {
+  margin-bottom: 10px;
+}
+
+#colophon {
+  margin-top: 40px;
+  padding-top: 40px;
+  border-top: 1px dotted #aaa;
+  text-align: center;
+  font-weight: 100;
 }
