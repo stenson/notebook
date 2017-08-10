@@ -66,7 +66,8 @@
   (let [matter (:els (r/fetch :home false))
         recipes (list
                   (recipe :sa-de-bolognese)
-                  (recipe :basil-cockles))]
+                  (recipe :basil-cockles)
+                  (recipe :bak-kut-teh))]
     [(layout nil "Teoswa food across the world" (frontmatter-text (nth matter 0)))
      (layout "tag/recipes" "Recipes" recipes)
      (layout "tag/shop" "Shop" (frontmatter-text (nth matter 1)))
