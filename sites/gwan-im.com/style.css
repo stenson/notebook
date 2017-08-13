@@ -1,0 +1,55 @@
+* { padding: 0; margin: 0; list-style: none; }
+
+html, body {
+  height: 100%;
+}
+
+#bg {
+  height: 100%;
+  width: 100%;
+  background-image: url(/bg.png);
+  background-size: 840px 810px;
+  background-position: top center;
+}
+
+#hi {
+  position: absolute;
+  bottom: 0px;
+  text-align: center;
+  width: 100%;
+  color: rgb(98,188,174);
+  background: rgba(255,255,255,0.9);
+  border-top: 10px solid white;
+  padding: 20px;
+  font-size: 72px;
+  font-size: 32px;
+  font-weight: normal;
+}
+
+#hi span {
+  color: rgb(214,78,121);
+}
+
+.asset {
+  
+}
+
+#email {
+  position: fixed;
+}
+
+#cloud1 {
+  position: fixed;
+}
+
+#cloud2 {
+  position: fixed;
+}
+
+#cloud3 {
+  position: fixed;
+}
+
+#cue1 {
+  position: fixed;
+}
